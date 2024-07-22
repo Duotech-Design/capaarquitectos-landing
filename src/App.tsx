@@ -12,7 +12,7 @@ function App() {
           <img src={viteLogo}  className="logo" alt="Vite logo" />
         </a>
       </div>
-        <h2>En processo...</h2>
+        <h2>Coming soon...</h2>
      
     </>
   )
