@@ -9,10 +9,10 @@ function App() {
     <>
       <div>
         <a href="#" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+          <img src={viteLogo}  className="logo" alt="Vite logo" />
         </a>
-       
       </div>
+        <h2>En processo...</h2>
      
     </>
   )
