@@ -1,4 +1,4 @@
-import logoCapa from "../../assets/logoCapa.png";
+import logoCapa from "@/assets/logoCapa.png";
 const Logo = () => {
     return (
         <div className="sm:flex flex-shrink-0 items-center hidden">

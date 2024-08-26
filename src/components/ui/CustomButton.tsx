@@ -4,7 +4,7 @@ const CustomButton = () => {
   return (
     <button
       type="submit"
-      className="flex justify-start items-center py-1.5 text-sm font-semibold leading-6 text-black border-b-2 border-b-black"
+      className="flex justify-start items-center py-1.5 text-sm font-semibold leading-6 text-white border-b-2 border-b-white"
     >
       <span className="flex items-center justify-center">CONTACTANOS</span>
       <img src={Arrow} alt="arrow" className="w-4 h-4 ml-2" />

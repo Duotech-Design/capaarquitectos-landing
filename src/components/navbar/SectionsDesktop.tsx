@@ -4,8 +4,8 @@ import Options from "./Options";
 import SocialMediaButtons from "./SocialMediaButtons";
 const SectionsDesktop = () => {
   return (
-    <div className="mx-auto px-2 sm:px-6 lg:px-8 border-2 border-cyan-300">
-      <div className="relative flex items-center justify-between  border-2 border-green-400">
+    <div className="mx-auto px-2 sm:px-6 lg:px-8">
+      <div className="relative flex items-center justify-between h-24">
         <MenuMobile />
         <Logo />
         <Options />

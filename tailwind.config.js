@@ -5,7 +5,18 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        darkGray: "#303030",
+        lightGray: "#B2B6BB",
+        lightBeige: "#EDEADB",
+        darkBlue: "#213444",
+      },
+      backgroundImage: {
+        'custom-img': "url('https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp')",
+        'member-cofundador': "url('https://pagedone.io/asset/uploads/1696238374.png')",
+      },
+    },
   },
   plugins: [],
 }
