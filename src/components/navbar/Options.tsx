@@ -1,32 +1,99 @@
+import { useNavigate, useLocation } from "react-router-dom";
+
 const Options = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = (path: string) => {
+    navigate(path);
+  };
+
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:h-auto">
       <div className="hidden sm:ml-6 sm:block">
-        <div className="flex space-x-4 ">
+        <div className="flex space-x-4">
           <a
-            href="philosophy"
-            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:underline hover:decoration-white hover:underline-offset-8"
+            onClick={() => handleClick("/")}
+            className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
+          >
+            <span>Home</span>
+            <span
+              className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                isActive("/") ? "w-3/6" : ""
+              }`}
+            ></span>
+            <span
+              className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                isActive("/") ? "w-3/6" : ""
+              }`}
+            ></span>
+          </a>
+          <a
+            onClick={() => handleClick("/philosophy")}
+             className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
             aria-current="page"
           >
-            Filosofía
+            <span>Filosofía</span>
+            <span
+              className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                isActive("/philosophy") ? "w-3/6" : ""
+              }`}
+            ></span>
+            <span
+              className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                isActive("/philosophy") ? "w-3/6" : ""
+              }`}
+            ></span>
           </a>
           <a
-            href="#projects"
-            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:underline hover:decoration-white hover:underline-offset-8"
+            onClick={() => handleClick("/projects")}
+             className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
           >
-            Proyectos
+            <span>Proyectos</span>
+            <span
+              className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                isActive("/projects") ? "w-3/6" : ""
+              }`}
+            ></span>
+            <span
+              className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                isActive("/projects") ? "w-3/6" : ""
+              }`}
+            ></span>
           </a>
           <a
-            href="team"
-            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:underline hover:decoration-white hover:underline-offset-8"
+            onClick={() => handleClick("/team")}
+             className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
           >
-            Equipo
+            <span>Equipo</span>
+            <span
+              className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                isActive("/team") ? "w-3/6" : ""
+              }`}
+            ></span>
+            <span
+              className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                isActive("/team") ? "w-3/6" : ""
+              }`}
+            ></span>
           </a>
           <a
-            href="contact-us"
-            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:underline hover:decoration-white hover:underline-offset-8"
+            onClick={() => handleClick("/contact-us")}
+            className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
           >
-            Contactanos
+            <span>Contáctanos</span>
+            <span
+              className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                isActive("/contact-us") ? "w-3/6" : ""
+              }`}
+            ></span>
+            <span
+              className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                isActive("/contact-us") ? "w-3/6" : ""
+              }`}
+            ></span>
           </a>
           <div className="relative inline-block text-left">
             <button
