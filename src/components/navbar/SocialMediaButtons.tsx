@@ -1,6 +1,7 @@
-import FacebookIcon from  "../../assets/facebook-svgrepo-com.svg";
-import LinkedlnIcon from "../../assets/linkedin-outline-svgrepo-com.svg";
-import TikTokIcon from "../../assets/tiktok-logo-thin-svgrepo-com.svg"
+import FacebookIcon from "@/assets/svg/socialMedia/facebook.svg";
+import InstagramIcon from "@/assets/svg/socialMedia/instagram.svg";
+import TiktokIcon from "@/assets/svg/socialMedia/tiktok.svg";
+
 const SocialMediaButtons = () => {
   return (
     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-3">
@@ -10,8 +11,8 @@ const SocialMediaButtons = () => {
       >
         <span className="absolute -inset-1.5"></span>
         <span className="sr-only">View notifications</span>
-     
-        <img src={FacebookIcon} alt="Facebook" className="h-8 w-8"/>
+
+        <img src={FacebookIcon} alt="Facebook" className="h-7 w-7" />
       </button>
       <button
         type="button"
@@ -19,7 +20,7 @@ const SocialMediaButtons = () => {
       >
         <span className="absolute -inset-1.5"></span>
         <span className="sr-only">View notifications</span>
-        <img src={LinkedlnIcon} alt="Linkedln" className="h-8 w-8"/>
+        <img src={InstagramIcon} alt="Instagram" className="h-8 w-8" />
       </button>
       <button
         type="button"
@@ -27,7 +28,7 @@ const SocialMediaButtons = () => {
       >
         <span className="absolute -inset-1.5"></span>
         <span className="sr-only">View notifications</span>
-        <img src={TikTokIcon} alt="TikTok" className="h-7 w-7"/>
+        <img src={TiktokIcon} alt="TikTok" className="h-9 w-9" />
       </button>
     </div>
   );

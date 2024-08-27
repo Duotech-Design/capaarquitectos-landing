@@ -1,5 +1,5 @@
-import Instagram from "@/assets/icons/instagram.svg";
-import Facebook from "@/assets/icons/facebook.svg";
+import Instagram from "@/assets/svg/socialMedia/instagram.svg";
+import Facebook from "@/assets/svg/socialMedia/facebook.svg";
 
 const Team = () => {
   return (

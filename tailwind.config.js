@@ -17,6 +17,7 @@ export default {
         'member-cofundador': "url('https://pagedone.io/asset/uploads/1696238374.png')",
         'contactUs-bg': "url('src/assets/img/contact-us-bg.jpg')",
         'home-bg': "url('src/assets/img/home-bg.jpg')",
+        'home-bg-crop': "url('src/assets/img/home-bg-crop.jpg')",
       },
     },
   },

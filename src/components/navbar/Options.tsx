@@ -5,26 +5,26 @@ const Options = () => {
         <div className="flex space-x-4 ">
           <a
             href="philosophy"
-            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:text-white"
+            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:underline hover:decoration-white hover:underline-offset-8"
             aria-current="page"
           >
             Filosofía
           </a>
           <a
             href="#projects"
-            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:text-white"
+            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:underline hover:decoration-white hover:underline-offset-8"
           >
             Proyectos
           </a>
           <a
             href="team"
-            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:text-white"
+            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:underline hover:decoration-white hover:underline-offset-8"
           >
             Equipo
           </a>
           <a
             href="contact-us"
-            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:text-white"
+            className="rounded-md px-3 py-2 text-sm font-medium text-white hover:underline hover:decoration-white hover:underline-offset-8"
           >
             Contactanos
           </a>
