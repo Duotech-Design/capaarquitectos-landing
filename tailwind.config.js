@@ -18,6 +18,7 @@ export default {
         'contactUs-bg': "url('src/assets/img/contact-us-bg.jpg')",
         'home-bg': "url('src/assets/img/home-bg.jpg')",
         'home-bg-crop': "url('src/assets/img/home-bg-crop.jpg')",
+        'philosophy-bg': "url('/src/assets/img/philosophy.jpg')",
       },
     },
   },

@@ -4,6 +4,8 @@ import Home from "./components/home/Home";
 import Projects from "./components/projects/Projects";
 import Team from "./components/team/Team";
 import ContactUs from "./components/contactUs/ContactUs";
+import { Footer } from "./components/footer/Footer";
+import Philosophy from "./components/philosophy/philosophy";
 import "./styles/main.css";
 
 function App() {
@@ -21,9 +23,11 @@ function App() {
               </>
             }
           />
-          <Route path="team" element={<Team />} />
-          <Route path="contact-us" element={<ContactUs />} />
+          <Route path="/philosophy" element={<Philosophy />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
