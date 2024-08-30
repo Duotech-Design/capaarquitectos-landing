@@ -21,10 +21,20 @@ export const Footer = () => {
           <div className="w-full md:w-1/2 mt-8 md:mt-0 ml-4">
             <h3 className="text-md font-semibold underline">Teléfonos</h3>
             <p className="mt-2">
-              <span style={{ fontFamily: 'Courier New, monospace' }}>444318 8840</span>
+              <a
+                href="https://wa.me/524443188840?text=Quiero%20cotizar%20un%20servicio"
+                className="hover:underline"
+              >
+                <span style={{ fontFamily: 'Courier New, monospace' }}>444318 8840</span>
+              </a>
             </p>
             <p className="mt-2">
-              <span style={{ fontFamily: 'Courier New, monospace' }}>444281 6256</span>
+              <a
+                href="https://wa.me/524442816256?text=Quiero%20cotizar%20un%20servicio"
+                className="hover:underline"
+              >
+                <span style={{ fontFamily: 'Courier New, monospace' }}>444281 6256</span>
+              </a>
             </p>
           </div>
         </div>
@@ -55,10 +65,20 @@ export const Footer = () => {
           <div className="w-full md:w-1/2 mt-8 md:mt-0">
             <h3 className="text-md font-semibold underline">Teléfonos</h3>
             <p className="mt-2">
-              <span style={{ fontFamily: 'Courier New, monospace' }}>444318 8840</span>
+              <a
+                href="https://wa.me/524443188840?text=Quiero%20cotizar%20un%20servicio"
+                className="hover:underline"
+              >
+                <span style={{ fontFamily: 'Courier New, monospace' }}>444318 8840</span>
+              </a>
             </p>
             <p className="mt-2">
-              <span style={{ fontFamily: 'Courier New, monospace' }}>444281 6256</span>
+              <a
+                href="https://wa.me/524442816256?text=Quiero%20cotizar%20un%20servicio"
+                className="hover:underline"
+              >
+                <span style={{ fontFamily: 'Courier New, monospace' }}>444281 6256</span>
+              </a>
             </p>
           </div>
         </div>
