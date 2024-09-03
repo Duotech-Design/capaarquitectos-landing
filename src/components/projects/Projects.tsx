@@ -5,7 +5,7 @@ const Projects = () => {
       className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen mb-3"
     >
       <header className="flex flex-col flex-1 gap-y-6">
-        <div className="mt-16">
+        <div className="mt-32">
           <h3 className="text-xl">PROYECTOS</h3>
         </div>
         <div className="text-right">

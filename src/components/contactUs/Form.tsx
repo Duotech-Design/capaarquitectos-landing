@@ -43,19 +43,19 @@ const Form = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values, { setSubmitting }) => {
-        if (Object.keys(formik.errors).length === 0) {
-          console.log("CAPA", values);
-          formik.resetForm();
-        } else {
-          console.log("Errores en el formulario", formik.errors);
-        }
-        setSubmitting(false);
-      },
+      if (Object.keys(formik.errors).length === 0) {
+        console.log("CAPA", values);
+        formik.resetForm();
+      } else {
+        console.log("Errores en el formulario", formik.errors);
+      }
+      setSubmitting(false);
+    },
   });
   return (
-    <form className="px-6 pt-6 min-w-[280px]" onSubmit={formik.handleSubmit}>
+    <form className="px-6 pt-6 min-w-[280px] flex flex-col justify-between h-full" onSubmit={formik.handleSubmit}>
       <div className="relative mb-3">
-        <label className="flex  items-center mb-1 text-white text-sm font-medium">
+        <label className="flex items-center mb-1 text-white text-xs font-medium">
           Name{" "}
           <svg
             width="7"
@@ -75,8 +75,8 @@ const Form = () => {
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
             <svg
               className="stroke-current ml-1"
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ const Form = () => {
             value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={`block w-full h-10 pr-5 pl-12 py-2.5 text-sm font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
+            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
               formik.touched.name && formik.errors.name
                 ? "border-2 border-red-500"
                 : "border border-gray-300"
@@ -106,7 +106,7 @@ const Form = () => {
         </div>
       </div>
       <div className="relative mb-3">
-        <label className="flex  items-center mb-1 text-white text-sm font-medium">
+        <label className="flex  items-center mb-1 text-white text-xs font-medium">
           Email{" "}
           <svg
             width="7"
@@ -126,8 +126,8 @@ const Form = () => {
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
             <svg
               className="stroke-current ml-1"
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +148,7 @@ const Form = () => {
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={`block w-full h-10 pr-5 pl-12 py-2.5 text-sm font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
+            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
               formik.touched.email && formik.errors.email
                 ? "border-2 border-red-500"
                 : "border border-gray-300"
@@ -159,7 +159,7 @@ const Form = () => {
         </div>
       </div>
       <div className="relative mb-3">
-        <label className="flex  items-center mb-1 text-white text-sm font-medium">
+        <label className="flex  items-center mb-1 text-white text-xs font-medium">
           Phone Number{" "}
           <svg
             width="7"
@@ -179,8 +179,8 @@ const Form = () => {
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
             <svg
               className="stroke-current ml-1"
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -199,7 +199,7 @@ const Form = () => {
             value={formik.values.phone}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={`block w-full h-10 pr-5 pl-12 py-2.5 text-sm font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
+            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
               formik.touched.phone && formik.errors.phone
                 ? "border-2 border-red-500"
                 : "border border-gray-300"
@@ -210,12 +210,12 @@ const Form = () => {
         </div>
       </div>
       <div className="relative mb-3">
-        <label className="flex  items-center mb-1 text-white text-sm font-medium">
+        <label className="flex  items-center mb-1 text-white text-xs font-medium">
           Servicios de interes{" "}
         </label>
-        <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 mb-3">
           <div className="relative  text-gray-500 focus-within:text-gray-900">
-            <label className="flex items-center ml-4 mb-2 text-white text-sm font-medium">
+            <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
               Construccion:{" "}
             </label>
             <div className="flex items-center ml-8 mb-1">
@@ -288,7 +288,7 @@ const Form = () => {
             </div>
           </div>
           <div className="relative  text-gray-500 focus-within:text-gray-900">
-            <label className="flex items-center ml-4 mb-2 text-white text-sm font-medium">
+            <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
               Proyectos Ejecutivos:{" "}
             </label>
             <div className="flex items-center ml-8 mb-1">
@@ -362,9 +362,9 @@ const Form = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2">
           <div className="relative  text-gray-500 focus-within:text-gray-900">
-            <label className="flex items-center ml-4 mb-2 text-white text-sm font-medium">
+            <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
               Diseño Arquitectnonico:{" "}
             </label>
 
@@ -421,7 +421,7 @@ const Form = () => {
             </div>
           </div>
           <div className="relative  text-gray-500 focus-within:text-gray-900">
-            <label className="flex items-center ml-4 mb-2 text-white text-sm font-medium">
+            <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
               Consultoria y Asesoria:{" "}
             </label>
             <div className="flex items-center ml-8 mb-1">
@@ -462,7 +462,7 @@ const Form = () => {
         </div>
       </div>
       <div className="relative mb-2">
-        <label className="flex  items-center mb-1 text-white text-sm font-medium">
+        <label className="flex  items-center mb-1 text-white text-xs font-medium">
           Cuentanos sobre tu proyecto{" "}
         </label>
         <div className="relative  text-gray-500 focus-within:text-gray-900">
@@ -478,7 +478,7 @@ const Form = () => {
           ></textarea>
         </div>
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex justify-center">
         <SendButton />
       </div>
     </form>
