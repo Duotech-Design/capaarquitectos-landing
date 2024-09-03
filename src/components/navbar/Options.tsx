@@ -1,14 +1,62 @@
 import { useNavigate, useLocation } from "react-router-dom";
-
+import { useEffect, useState } from "react";
 const Options = () => {
+  const [viewSectionHome, setViewSectionHome] = useState<boolean>(false);
+  const [viewSectionProjects, setViewSectionProjects] =
+    useState<boolean>(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleClick = (path: string) => {
     navigate(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  useEffect(() => {
+    const projectsSection = document.getElementById("projects");
+    const homeSection = document.getElementById("home");
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.target.id === "projects") {
+          if (entry.isIntersecting) {
+            window.history.replaceState(null, "", "#projects");
+            setViewSectionProjects(true);
+          } else if (location.hash === "#projects") {
+            window.history.replaceState(null, "", location.pathname);
+            setViewSectionHome(true);
+            setViewSectionProjects(false);
+          }
+        }
+        if (entry.target.id === "home") {
+          if (entry.isIntersecting) {
+            window.history.replaceState(null, "", location.pathname);
+            setViewSectionProjects(false);
+            setViewSectionHome(true);
+          } else if (location.pathname === "/") {
+            setViewSectionHome(false);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.4,
+    });
+
+    if (projectsSection) observer.observe(projectsSection);
+    if (homeSection) observer.observe(homeSection);
+
+    return () => {
+      if (projectsSection) observer.unobserve(projectsSection);
+      if (homeSection) observer.unobserve(homeSection);
+      setViewSectionHome(false);
+      setViewSectionProjects(false);
+    };
+  }, [location.pathname, location.hash]);
+
   const isActive = (path: string) => location.pathname === path;
+  //const isActiveHash = (hash: string) => location.hash === hash;
 
   return (
     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:h-auto">
@@ -21,18 +69,45 @@ const Options = () => {
             <span>Home</span>
             <span
               className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
-                isActive("/") ? "w-3/6" : ""
+                viewSectionHome && isActive("/")
+                  ? "w-3/6"
+                  : ""
               }`}
             ></span>
             <span
               className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
-                isActive("/") ? "w-3/6" : ""
+                viewSectionHome && isActive("/")
+                  ? "w-3/6"
+                  : ""
+              }`}
+            ></span>
+          </a>
+          <a
+            onClick={() => handleClick("/")}
+            href="#projects"
+            className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
+          >
+            <span>Proyectos</span>
+            <span
+              className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                viewSectionProjects
+                
+                  ? "w-3/6"
+                  : ""
+              }`}
+            ></span>
+            <span
+              className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
+                viewSectionProjects 
+                
+                  ? "w-3/6"
+                  : ""
               }`}
             ></span>
           </a>
           <a
             onClick={() => handleClick("/philosophy")}
-             className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
+            className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
             aria-current="page"
           >
             <span>Filosofía</span>
@@ -48,24 +123,8 @@ const Options = () => {
             ></span>
           </a>
           <a
-            onClick={() => handleClick("/projects")}
-             className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
-          >
-            <span>Proyectos</span>
-            <span
-              className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
-                isActive("/projects") ? "w-3/6" : ""
-              }`}
-            ></span>
-            <span
-              className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
-                isActive("/projects") ? "w-3/6" : ""
-              }`}
-            ></span>
-          </a>
-          <a
             onClick={() => handleClick("/team")}
-             className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
+            className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
           >
             <span>Equipo</span>
             <span

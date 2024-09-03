@@ -1,19 +1,19 @@
 import Instagram from "@/assets/svg/socialMedia/instagram.svg";
 import Facebook from "@/assets/svg/socialMedia/facebook.svg";
-
+import "./Team.css";
 const Team = () => {
   return (
     <section className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen">
       <header className="flex flex-col flex-1 gap-y-6">
         <div className="mt-32 flex gap-x-3">
-          <h3 className="text-4xl text-gray-700">Nuestro</h3>
-          <strong className="text-4xl font-bold">Equipo</strong>
+          <h3 className="text-2xl text-gray-700 ">Nuestro</h3>
+          <strong className="text-2xl font-bold">Equipo</strong>
         </div>
       </header>
-      <div className="mt-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mt-3 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 min-[500px]:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-xl mx-auto md:max-w-3xl lg:max-w-full">
           {/* <!-- Team Member 1 --> */}
-          <div className="block group md:col-span-2 lg:col-span-1">
+          <div className="block group md:col-span-2 lg:col-span-1 slide-in-left">
             <div className="relative mb-6">
               <img
                 src="https://pagedone.io/asset/uploads/1696238374.png"
@@ -43,7 +43,7 @@ const Team = () => {
             </span>
           </div>
           {/* <!-- Team Member 2 --> */}
-          <div className="block group md:col-span-2 lg:col-span-1">
+          <div className="block group md:col-span-2 lg:col-span-1 slide-in-right">
             <div className="relative mb-6">
               <img
                 src="https://pagedone.io/asset/uploads/1696238374.png"

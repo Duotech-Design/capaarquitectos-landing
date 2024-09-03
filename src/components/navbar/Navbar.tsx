@@ -3,7 +3,7 @@ import SectionsDesktop from "./SectionsDesktop";
 
 const Navbar = () => {
   return (
-    <nav className="backdrop-blur-xl fixed w-screen z-50 bg-darkBlue/30">
+    <nav className="backdrop-blur-sm fixed w-screen z-50 bg-darkBlue/30">
       <SectionsDesktop />
       <SectionsMobile />
     </nav>

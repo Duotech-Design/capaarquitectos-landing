@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/home/Home";
-import Projects from "./components/projects/Projects";
+//import Projects from "./components/projects/Projects";
 import Team from "./components/team/Team";
 import ContactUs from "./components/contactUs/ContactUs";
 import { Footer } from "./components/footer/Footer";
-import Philosophy from "./components/philosophy/philosophy";
+import Philosophy from "./components/philosophy/Philosophy";
+import ProjectsDetails from "./components/projects/ProjectsDetails";
 import "./styles/main.css";
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
             element={
               <>
                 <Home />
-                <Projects />
+                <ProjectsDetails />
               </>
             }
           />
