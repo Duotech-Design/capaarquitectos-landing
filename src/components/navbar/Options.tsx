@@ -56,7 +56,6 @@ const Options = () => {
   }, [location.pathname, location.hash]);
 
   const isActive = (path: string) => location.pathname === path;
-  //const isActiveHash = (hash: string) => location.hash === hash;
 
   return (
     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:h-auto">
@@ -90,7 +89,7 @@ const Options = () => {
             <span>Proyectos</span>
             <span
               className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
-                viewSectionProjects
+                viewSectionProjects || location.pathname.includes("/project")
                 
                   ? "w-3/6"
                   : ""
@@ -98,7 +97,7 @@ const Options = () => {
             ></span>
             <span
               className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
-                viewSectionProjects 
+                viewSectionProjects || location.pathname.includes("/project")
                 
                   ? "w-3/6"
                   : ""
