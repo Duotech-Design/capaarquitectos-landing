@@ -9,7 +9,9 @@ const SectionsDesktop = () => {
         <MenuMobile />
         <Logo />
         <Options />
+        
         <SocialMediaButtons />
+        
       </div>
     </div>
   );

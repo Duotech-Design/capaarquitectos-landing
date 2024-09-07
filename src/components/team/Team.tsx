@@ -22,16 +22,28 @@ const Team = () => {
               />
               <div className="absolute right-[50%] top-[50%] transform translate-x-[50%] translate-y-[-50%]">
                 <div className="flex items-center my-auto justify-center gap-6 transition-all duration-500 group-hover:opacity-100 opacity-0">
-                  <img
-                    src={Instagram}
-                    alt="Instagram"
-                    className="w-11 h-11 mx-auto cursor-pointer"
-                  />
-                  <img
-                    src={Facebook}
-                    alt="Facebook"
-                    className="w-10 h-10 mx-auto cursor-pointer"
-                  />
+                  <a
+                    href="https://www.instagram.com/fivo_cd?igsh=MXM1cW00ZzA2ZWpkYQ=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={Instagram}
+                      alt="Instagram"
+                      className="w-11 h-11 mx-auto cursor-pointer"
+                    />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/fredy.cade"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={Facebook}
+                      alt="Facebook"
+                      className="w-10 h-10 mx-auto cursor-pointer"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -52,16 +64,28 @@ const Team = () => {
               />
               <div className="absolute right-[50%] top-[50%] transform translate-x-[50%] translate-y-[-50%]">
                 <div className="flex items-center my-auto justify-center gap-6 transition-all duration-500 group-hover:opacity-100 opacity-0">
-                  <img
-                    src={Instagram}
-                    alt="Instagram"
-                    className="w-11 h-11 mx-auto cursor-pointer"
-                  />
-                  <img
-                    src={Facebook}
-                    alt="Facebook"
-                    className="w-10 h-10 mx-auto cursor-pointer"
-                  />
+                  <a
+                    href="https://www.instagram.com/davidpalau23?igsh=MWkxOGkxcG1hdm1ocA=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={Instagram}
+                      alt="Instagram"
+                      className="w-11 h-11 mx-auto cursor-pointer"
+                    />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/david.palau.792"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={Facebook}
+                      alt="Facebook"
+                      className="w-10 h-10 mx-auto cursor-pointer"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
