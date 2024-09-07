@@ -13,8 +13,8 @@ interface ArrowProps {
 const CustomPrevArrow: FC<ArrowProps> = ({ className, style, onClick }) => {
   return (
     <div
-      className={`${className} left-[-85px] before:hidden`}
-      style={{ ...style, display: "block" }}
+      className={`${className}  before:hidden right-10 absolute`}
+     
       onClick={onClick}
     >
       <svg
@@ -39,8 +39,8 @@ const CustomPrevArrow: FC<ArrowProps> = ({ className, style, onClick }) => {
 const CustomNextArrow: FC<ArrowProps> = ({ className, style, onClick }) => {
   return (
     <div
-      className={`${className} right-[-75px] before:hidden`}
-      style={{ ...style, display: "block" }}
+      className={`${className}  before:hidden right-0 absolute`}
+     
       onClick={onClick}
     >
       <svg
@@ -73,8 +73,8 @@ const SimpleSlider: FC = () => {
   };
 
   return (
-    <Slider {...settings}>
-      <div>
+    <Slider {...settings} className="border-2 border-black relative">
+      <div className="border-2 border-yellow-400">
         <img src={Philosophy} alt="philosophy" className="w-full h-auto" />
       </div>
       <div>

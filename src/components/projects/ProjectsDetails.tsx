@@ -87,15 +87,13 @@ const ProjectsDetails = () => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-y-2 md:gap-y-7">
         <div className="col-span-3"></div>
         <div className="col-span-9 text-focus-in flex gap-3 text-wrap w-full"></div>
-        <div className="col-span-3 text-base text-right pr-3">
+        <div className=" lg:col-span-3 md:col-span-2 text-base text-right pr-3">
           {nameProject()}
         </div>
-        <div className="col-span-6 text-focus-in flex gap-3 text-wrap w-full">
-          <div className="w-full">
-            <SimpleSlider />
-          </div>
+        <div className="relative col-span-12 lg:col-span-6 md:col-span-8 text-focus-in border-2 border-red-600">
+          <SimpleSlider />
         </div>
-        <div className="col-span-3 "></div>
+        <div className="lg:col-span-3 md:col-span-2"></div>
         <div className="col-span-3"></div>
         <div className="col-span-6 flex justify-center gap-x-3 w-full ">
           <div className="text-left">
