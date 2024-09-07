@@ -36,6 +36,7 @@ const Projects = () => {
                 <MoreButton text={"VER MÁS"} />
               </div>
             </div>
+
             <div>
               <img
                 className="h-auto max-w-full "
@@ -50,6 +51,7 @@ const Projects = () => {
                 alt=""
               />
             </div>
+
             <div>
               <img
                 className="h-auto max-w-full "
@@ -57,13 +59,14 @@ const Projects = () => {
                 alt=""
               />
             </div>
-            <div>
+            <div >
               <img
                 className="h-auto max-w-full "
                 src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
                 alt=""
               />
             </div>
+
           </div>
         ))}
       </div>
