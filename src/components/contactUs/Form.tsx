@@ -42,12 +42,9 @@ const Form = () => {
       message: "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values, { setSubmitting }) => {
+    onSubmit: (_, { setSubmitting }) => {
       if (Object.keys(formik.errors).length === 0) {
-        console.log("CAPA", values);
         formik.resetForm();
-      } else {
-        console.log("Errores en el formulario", formik.errors);
       }
       setSubmitting(false);
     },
@@ -96,11 +93,10 @@ const Form = () => {
             value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
-              formik.touched.name && formik.errors.name
-                ? "border-2 border-red-500"
-                : "border border-gray-300"
-            }`}
+            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${formik.touched.name && formik.errors.name
+              ? "border-2 border-red-500"
+              : "border border-gray-300"
+              }`}
             placeholder="Enter Name"
           />
         </div>
@@ -148,11 +144,10 @@ const Form = () => {
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
-              formik.touched.email && formik.errors.email
-                ? "border-2 border-red-500"
-                : "border border-gray-300"
-            }`}
+            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${formik.touched.email && formik.errors.email
+              ? "border-2 border-red-500"
+              : "border border-gray-300"
+              }`}
             placeholder="Enter Email"
             maxLength={50}
           />
@@ -199,11 +194,10 @@ const Form = () => {
             value={formik.values.phone}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
-              formik.touched.phone && formik.errors.phone
-                ? "border-2 border-red-500"
-                : "border border-gray-300"
-            }`}
+            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${formik.touched.phone && formik.errors.phone
+              ? "border-2 border-red-500"
+              : "border border-gray-300"
+              }`}
             placeholder="Enter Phone No"
             maxLength={10}
           />

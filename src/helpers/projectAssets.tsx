@@ -46,7 +46,6 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
   ...props
 }) => {
   const src = `${project}/${(index + 1).toString().padStart(2, "0")}.webp`;
-  console.log(src);
   const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
 
   const srcSet = supportedWidth.map((width) => {
@@ -59,7 +58,6 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
     return `(max-width: ${width}px) ${width}px`;
   }).join(", ");
 
-  console.log(srcSet);
   return <img
     srcSet={srcSet}
     sizes={sizes}

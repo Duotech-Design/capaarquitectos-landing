@@ -13,8 +13,6 @@ const SectionsMobile = ({
     useState<boolean>(false);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(viewSectionHome);
-  console.log(viewSectionProjects);
 
   const handleClick = (path: string) => {
     window.scrollTo({ top: 0, behavior: "smooth" });

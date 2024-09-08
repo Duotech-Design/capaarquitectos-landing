@@ -4,13 +4,13 @@ import { useState } from "react";
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  console.log(showMobileMenu);
+
   return (
     <nav className="backdrop-blur-sm fixed w-screen z-50 bg-darkBlue/30">
-      <SectionsDesktop 
+      <SectionsDesktop
         showMobileMenu={showMobileMenu}
-        onClick={() => setShowMobileMenu(!showMobileMenu)}/>
-      <SectionsMobile showMobileMenu={showMobileMenu} setShowMobileMenu={setShowMobileMenu}/>
+        onClick={() => setShowMobileMenu(!showMobileMenu)} />
+      <SectionsMobile showMobileMenu={showMobileMenu} setShowMobileMenu={setShowMobileMenu} />
     </nav>
   );
 };
