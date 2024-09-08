@@ -1,4 +1,5 @@
 import CustomButton from "../ui/CustomButton";
+import Start from "@/assets/svg/icons/star.svg";
 import "./Philosophy.css";
 
 const Philosophy = () => {
@@ -15,7 +16,7 @@ const Philosophy = () => {
             style={{ animationDelay: "0s" }}
           >
             <img
-              src="/src/assets/svg/icons/star.svg"
+              src={Start}
               alt="Star Icon"
               className="h-4 w-4 md:h-8 md:w-8 rotate-center"
               style={{ animationDelay: "0.5s" }}
@@ -35,7 +36,7 @@ const Philosophy = () => {
             style={{ animationDelay: "0.5s" }}
           >
             <img
-              src="/src/assets/svg/icons/star.svg"
+              src={Start}
               alt="Star Icon"
               className="h-4 w-4 md:h-8 md:w-8 rotate-center"
               style={{ animationDelay: "1s" }}
@@ -56,7 +57,7 @@ const Philosophy = () => {
             style={{ animationDelay: "1s" }}
           >
             <img
-              src="/src/assets/svg/icons/star.svg"
+              src={Start}
               alt="Star Icon"
               className="h-4 w-4 md:h-8 md:w-8 rotate-center"
               style={{ animationDelay: "1.5s" }}

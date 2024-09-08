@@ -9,7 +9,7 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="flex flex-wrap mx-auto px-2 sm:px-6 lg:px-8 min-h-screen max-w-[1400px] bg-darkBlue">
+    <section className="flex flex-wrap mx-auto px-2 sm:px-6 lg:px-8 min-h-screen bg-darkBlue">
       <img
         src={ContactBg}
         alt="contact-us-bg"
