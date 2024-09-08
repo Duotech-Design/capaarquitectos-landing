@@ -10,8 +10,8 @@ const Team = () => {
           <strong className="text-2xl font-bold">Equipo</strong>
         </div>
       </header>
-      <div className="mt-3 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 min-[500px]:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-xl mx-auto md:max-w-3xl lg:max-w-full">
+      <div className="mt-3 mx-auto my-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 min-[500px]:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-xl mx-auto my-auto md:max-w-3xl lg:max-w-full pb-3">
           {/* <!-- Team Member 1 --> */}
           <div className="block group md:col-span-2 lg:col-span-1 slide-in-left">
             <div className="relative mb-6">

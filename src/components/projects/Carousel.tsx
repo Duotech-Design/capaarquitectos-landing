@@ -1,25 +1,39 @@
-import Philosophy from "@/assets/img/philosophy.jpg";
 import { FC } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import "./Carousel.css";
+import ProjectUnoImgUno from "@/assets/img/project_uno/1.jpg";
+import ProjectUnoImgDos from "@/assets/img/project_uno/2.jpg";
+import ProjectUnoImgTres from "@/assets/img/project_uno/3.jpg";
+import ProjecUnoImgCuatro from "@/assets/img/project_uno/4.jpg";
+import ProjectDosImgUno from "@/assets/img/project_dos/1.jpg";
+import ProjectDosImgDos from "@/assets/img/project_dos/2.jpg";
+import ProjectDosImgTres from "@/assets/img/project_dos/3.jpg";
+import ProjectDosImgCuatro from "@/assets/img/project_dos/4.jpg";
+import ProjectTresImgUno from "@/assets/img/project_tres/1.jpg";
+import ProjectTresImgDos from "@/assets/img/project_tres/2.jpg";
+import ProjectTresImgTres from "@/assets/img/project_tres/3.jpg";
+import ProjectTresImgCuatro from "@/assets/img/project_tres/4.jpg";
+
+interface SimpleSliderProps {
+  id: number;
+}
 
 interface ArrowProps {
   className?: string;
   style?: React.CSSProperties;
   onClick?: () => void;
 }
-const CustomPrevArrow: FC<ArrowProps> = ({ className, style, onClick }) => {
+const CustomPrevArrow: FC<ArrowProps> = ({ className, onClick }) => {
   return (
     <div
-      className={`${className}  before:hidden right-10 absolute`}
-     
+      className={`${className}  before:hidden left-[-0px] md:left-[-80px] absolute z-10`}
       onClick={onClick}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-10 h-10 text-black"
+        className="w-10 h-10 text-black backdrop-blur-sm bg-white/30 rounded-full"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -35,17 +49,16 @@ const CustomPrevArrow: FC<ArrowProps> = ({ className, style, onClick }) => {
   );
 };
 
-// Flecha derecha (next)
-const CustomNextArrow: FC<ArrowProps> = ({ className, style, onClick }) => {
+const CustomNextArrow: FC<ArrowProps> = ({ className, onClick }) => {
   return (
     <div
-      className={`${className}  before:hidden right-0 absolute`}
+      className={`${className}  before:hidden right-[20px] md:right-[-60px] absolute`}
      
       onClick={onClick}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-10 h-10 text-black"
+        className="w-10 h-10 text-black backdrop-blur-sm bg-white/30 rounded-full"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -61,7 +74,9 @@ const CustomNextArrow: FC<ArrowProps> = ({ className, style, onClick }) => {
   );
 };
 
-const SimpleSlider: FC = () => {
+const SimpleSlider: FC<SimpleSliderProps> = (
+  { id }: SimpleSliderProps
+) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -73,12 +88,26 @@ const SimpleSlider: FC = () => {
   };
 
   return (
-    <Slider {...settings} className="border-2 border-black relative">
-      <div className="border-2 border-yellow-400">
-        <img src={Philosophy} alt="philosophy" className="w-full h-auto" />
+    <Slider {...settings} className="relative">
+      <div className="overflow-hidden">
+        <img src={
+          id === 1 ? ProjectUnoImgUno : id === 2 ? ProjectDosImgUno : ProjectTresImgUno
+        } alt="project" className="w-full h-[400px] 2xl:h-[500px] object-cover object-center" />
       </div>
-      <div>
-        <img src={Philosophy} alt="philosophy" className="w-full h-auto" />
+      <div className="overflow-hidden">
+        <img src={
+          id === 1 ? ProjectUnoImgDos : id === 2 ? ProjectDosImgDos : ProjectTresImgDos
+        } alt="project" className="w-full h-[400px] 2xl:h-[500px] object-cover object-center" />
+      </div>
+      <div className="overflow-hidden">
+        <img src={
+          id === 1 ? ProjectUnoImgTres : id === 2 ? ProjectDosImgTres : ProjectTresImgTres
+        } alt="project" className="w-full h-[400px] 2xl:h-[500px] object-cover object-center" />
+      </div>
+      <div className="overflow-hidden">
+        <img src={
+          id === 1 ? ProjecUnoImgCuatro : id === 2 ? ProjectDosImgCuatro : ProjectTresImgCuatro
+        } alt="project" className="w-full h-[400px] 2xl:h-[500px] object-cover object-center" />
       </div>
     </Slider>
   );
