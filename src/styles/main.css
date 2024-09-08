@@ -1,2 +1,29 @@
 @import './variables.css';
 @import './global.css';
+
+.philosophy-section {
+    background-image: url('/src/assets/FOTOS/Fondo/philosophy.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    padding: 100px 20px;
+    text-align: left;
+  }
+  
+  .philosophy-content {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .philosophy-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .philosophy-content p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+    margin-bottom: 20px;
+  }
+  

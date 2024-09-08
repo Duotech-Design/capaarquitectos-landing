@@ -1,11 +1,72 @@
+import HomeBg from "@/assets/img/home-bg-r.jpg";
+import { useEffect, useRef, useState } from "react";
 import CustomButton from "../ui/CustomButton";
+import "./Home.css";
+
 const Home = () => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [isFirstAnimationDone, setIsFirstAnimationDone] = useState(false);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  const handleImageLoad = () => {
+    setIsImageLoaded(true);
+  };
+
+  useEffect(() => {
+    if (isImageLoaded && isIntersecting) {
+      const timer = setTimeout(() => {
+        setIsFirstAnimationDone(true);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [isImageLoaded, isIntersecting]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => {
+      if (imgRef.current) {
+        observer.unobserve(imgRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative mx-auto px-2 sm:px-6 lg:px-8 min-h-screen bg-home-bg bg-no-repeat bg-cover bg-center">
-      <div className="absolute inset-0 bg-gradient-to-t from-black opacity-30 z-0"></div>
-      <div className="relative flex items-center justify-center text-3xl lg:text-7xl z-10">
-        <div className="flex flex-col gap-y-4 justify-center items-center h-screen text-white">
-          <h1>CAPA ARQUITECTOS</h1>
+    <section id="home" className="relative mx-auto px-2 sm:px-6 lg:px-8 min-h-screen overflow-hidden bg-gradient-to-t from-darkBlue">
+      <img
+        ref={imgRef}
+        src={HomeBg}
+        alt="image"
+        onLoad={handleImageLoad}
+        className={`absolute inset-0 object-cover w-full h-[100vh] object-center z-0 ${
+          isFirstAnimationDone ? "kenburns-right" : "fade-in"
+        }`}
+      />
+      {!isImageLoaded && (
+        <div className="absolute inset-0 bg-transparent opacity-50 z-10 flex justify-center items-center">
+          <div className="spinner"></div>
+        </div>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-black opacity-30 z-10"></div>
+      
+      <div className="relative flex items-center justify-center text-3xl lg:text-7xl z-20">
+        <div className="flex flex-col gap-y-8 justify-center items-center h-screen text-white">
+          <h1 className="text-focus-in text-shadow-drop-center">
+            CAPA ARQUITECTOS
+          </h1>
           <CustomButton />
         </div>
       </div>
