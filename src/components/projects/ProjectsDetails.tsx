@@ -91,7 +91,7 @@ const ProjectsDetails = () => {
           {nameProject()}
         </div>
         <div className="relative col-span-10 lg:col-span-6 md:col-span-8 text-focus-in">
-          <SimpleSlider id={id && parseInt(id) || 0} />
+          <SimpleSlider id={(id && parseInt(id)) || 0} />
         </div>
         <div className="lg:col-span-3 md:col-span-2"></div>
         <div className="lg:col-span-3"></div>
