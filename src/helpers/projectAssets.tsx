@@ -5,16 +5,25 @@ export const ProjectAssets = {
     name: "OFICINAS CORPOIL",
     images: 22,
     location: "Santa Maria del Rio",
+    type: "Diseño de interiores",
+    status: "En proceso",
+    surface: "O metros",
   },
   oficinas_tomate: {
     name: "OFICINAS TOMATE",
     images: 17,
     location: "Santa Maria del Rio",
+    type: "Diseño de interiores",
+    status: "En proceso",
+    surface: "O metros",
   },
   pabellon_m: {
     name: "PABELLON M",
     images: 31,
     location: "Santa Maria del Rio",
+    type: "Diseño de interiores",
+    status: "En proceso",
+    surface: "O metros",
   }
 } as const;
 

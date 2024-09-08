@@ -101,10 +101,10 @@ const ProjectsDetails = () => {
           </div>
           <div className="text-center">
             <div className="flex flex-col text-sm text-right">
-              <span>Diseño de interiores</span>
-              <span>Santa María del Río, S.L.P</span>
-              <span>O metros</span>
-              <span>Status:</span>
+              <span>{selectedProject.type}</span>
+              <span>{selectedProject.location}</span>
+              <span>{selectedProject.surface}</span>
+              <span>{selectedProject.status}</span>
             </div>
           </div>
         </div>
