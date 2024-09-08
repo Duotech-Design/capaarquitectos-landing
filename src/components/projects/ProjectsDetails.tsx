@@ -1,49 +1,45 @@
+import { AvailableProjects, ProjectAssets, ProjectList } from "../../helpers/projectAssets";
 import SimpleSlider from "./Carousel";
 import { useParams, useNavigate } from "react-router-dom";
 
 const ProjectsDetails = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: AvailableProjects }>();
+
+  if (!id) return null;
+
+  const projectList = ProjectList;
+
   const navigate = useNavigate();
+  const selectedProject = ProjectAssets[id];
+  const projectName = selectedProject.name;
+  let currentProjectIndex = projectList.indexOf(id);
 
   const nextProject = () => {
-    const nextId = id && parseInt(id) + 1;
-    navigate(`/project/${nextId}`);
-  };
-
-  const nameProject = () => {
-    const nameProject = id && parseInt(id);
-    if (nameProject === 1) {
-      return "OFICINAS CORPOIL";
-    } else if (nameProject === 2) {
-      return "OFICINAS TOMATE";
-    } else if (nameProject === 3) {
-      return "PABELLON M";
-    }
-    return null;
+    const nextProject = projectList.indexOf(id) + 1;
+    navigate(`/project/${projectList[nextProject]}`);
   };
 
   const prevProject = () => {
-    const prevId = id && parseInt(id) - 1;
-    navigate(`/project/${prevId}`);
+    const prevProject = projectList.indexOf(id) - 1;
+    navigate(`/project/${projectList[prevProject]}`);
   };
 
   return (
     <section className="flex flex-col mx-auto px-2 sm:px-6 lg:px-8 min-h-screen max-w-[2000px]">
       <header className="flex">
         <h3 className="mt-32 pb-3 lg:text-2xl text-sm drop-shadow-sm text-black flex items-center gap-x-3">
-          PROYECTO{" "}
+          PROYECTO
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`w-7 h-7 rotate-180 ${
-              parseInt(id || "0") <= 1
-                ? "disabled text-transparent"
-                : "text-black hover:text-gray-500 cursor-pointer"
-            }`}
+            className={`w-7 h-7 rotate-180 ${currentProjectIndex < 1
+              ? "disabled text-transparent"
+              : "text-black hover:text-gray-500 cursor-pointer"
+              }`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={0.5}
-            onClick={parseInt(id || "0") > 1 ? prevProject : undefined}
+            onClick={currentProjectIndex > 0 ? prevProject : undefined}
           >
             <path
               strokeLinecap="round"
@@ -52,20 +48,19 @@ const ProjectsDetails = () => {
             />
           </svg>
           <span className="font-sans font-extralight text-base text-gray-500">
-            {id}
+            {projectName}
           </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`w-7 h-7 ${
-              parseInt(id || "0") >= 3
-                ? "disabled text-transparent"
-                : "text-black hover:text-gray-500 cursor-pointer"
-            }`}
+            className={`w-7 h-7 ${currentProjectIndex === projectList.length - 1
+              ? "disabled text-transparent"
+              : "text-black hover:text-gray-500 cursor-pointer"
+              }`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={0.5}
-            onClick={parseInt(id || "0") < 3 ? nextProject : undefined}
+            onClick={currentProjectIndex < projectList.length - 1 ? nextProject : undefined}
           >
             <path
               strokeLinecap="round"
@@ -88,10 +83,10 @@ const ProjectsDetails = () => {
         <div className="lg:col-span-3"></div>
         <div className="lg:col-span-9 text-focus-in flex gap-3 text-wrap w-full"></div>
         <div className=" lg:col-span-3 md:col-span-2 text-sm lg:text-base text-right lg:pr-3">
-          {nameProject()}
+          {projectName}
         </div>
         <div className="relative col-span-10 lg:col-span-6 md:col-span-8 text-focus-in">
-          <SimpleSlider id={id && parseInt(id) || 0} />
+          <SimpleSlider id={id} />
         </div>
         <div className="lg:col-span-3 md:col-span-2"></div>
         <div className="lg:col-span-3"></div>
