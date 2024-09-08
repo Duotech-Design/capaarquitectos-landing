@@ -1,12 +1,20 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
-const SectionsMobile = ({ showMobileMenu, setShowMobileMenu }: { showMobileMenu: boolean, setShowMobileMenu: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const SectionsMobile = ({
+  showMobileMenu,
+  setShowMobileMenu,
+}: {
+  showMobileMenu: boolean;
+  setShowMobileMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [viewSectionHome, setViewSectionHome] = useState<boolean>(false);
   const [viewSectionProjects, setViewSectionProjects] =
     useState<boolean>(false);
   const navigate = useNavigate();
   const location = useLocation();
+  console.log(viewSectionHome);
+  console.log(viewSectionProjects);
 
   const handleClick = (path: string) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -60,7 +68,7 @@ const SectionsMobile = ({ showMobileMenu, setShowMobileMenu }: { showMobileMenu:
   //const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className={`${showMobileMenu ?  "" : "hidden"} `} id="mobile-menu">
+    <div className={`${showMobileMenu ? "" : "hidden"} `} id="mobile-menu">
       <div className="space-y-1 px-2 pb-3 pt-2">
         <a
           onClick={() => handleClick("/")}
@@ -88,13 +96,12 @@ const SectionsMobile = ({ showMobileMenu, setShowMobileMenu }: { showMobileMenu:
           Equipo
         </a>
         <a
-         onClick={() => handleClick("/contact-us")}
+          onClick={() => handleClick("/contact-us")}
           className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
         >
           Contáctanos
         </a>
       </div>
-     
     </div>
   );
 };
