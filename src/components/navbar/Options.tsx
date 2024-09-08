@@ -8,8 +8,8 @@ const Options = () => {
   const location = useLocation();
 
   const handleClick = (path: string) => {
-    navigate(path);
     window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate(path);
   };
 
   useEffect(() => {
@@ -68,16 +68,12 @@ const Options = () => {
             <span>Home</span>
             <span
               className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
-                viewSectionHome && isActive("/")
-                  ? "w-3/6"
-                  : ""
+                viewSectionHome && isActive("/") ? "w-3/6" : ""
               }`}
             ></span>
             <span
               className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
-                viewSectionHome && isActive("/")
-                  ? "w-3/6"
-                  : ""
+                viewSectionHome && isActive("/") ? "w-3/6" : ""
               }`}
             ></span>
           </a>
@@ -90,7 +86,6 @@ const Options = () => {
             <span
               className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
                 viewSectionProjects || location.pathname.includes("/project")
-                
                   ? "w-3/6"
                   : ""
               }`}
@@ -98,7 +93,6 @@ const Options = () => {
             <span
               className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
                 viewSectionProjects || location.pathname.includes("/project")
-                
                   ? "w-3/6"
                   : ""
               }`}

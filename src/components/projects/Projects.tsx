@@ -50,7 +50,7 @@ const Projects = () => {
                     project={project}
                     index={index}
                     alt={`${project}_${index + 1}`}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-[300px] 2xl:h-[500px] object-cover object-center"
                   />
                 </div>
               );

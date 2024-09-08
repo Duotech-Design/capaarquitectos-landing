@@ -17,7 +17,7 @@ interface ArrowProps {
 const CustomPrevArrow: FC<ArrowProps> = ({ className, onClick }) => {
   return (
     <div
-      className={`${className}  before:hidden left-[-0px] md:left-[-80px] absolute z-10`}
+      className={`${className}  before:hidden left-[-0px] md:left-[-80px] absolute  z-0 sm:z-10`}
       onClick={onClick}
     >
       <svg
@@ -41,8 +41,7 @@ const CustomPrevArrow: FC<ArrowProps> = ({ className, onClick }) => {
 const CustomNextArrow: FC<ArrowProps> = ({ className, onClick }) => {
   return (
     <div
-      className={`${className}  before:hidden right-[20px] md:right-[-60px] absolute`}
-
+      className={`${className}  before:hidden right-[20px] md:right-[-60px] absolute z-[-10] sm:z-10`}
       onClick={onClick}
     >
       <svg
@@ -67,7 +66,7 @@ const SimpleSlider: FC<SimpleSliderProps> = (
   { id }: SimpleSliderProps
 ) => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -88,7 +87,7 @@ const SimpleSlider: FC<SimpleSliderProps> = (
               project={id}
               index={index}
               alt={`${id}_${index + 1}`}
-              className="w-full h-[400px] 2xl:h-[500px] bg-gray-300"
+              className="w-full h-[500px] 2xl:h-[600px] object-cover object-center"
             />
           </div>
         })
