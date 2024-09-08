@@ -2,6 +2,8 @@ import MoreButton from "../ui/MoreButton";
 import { useNavigate } from "react-router-dom";
 import { AvailableProjects, ProjectAsset, ProjectAssets, ProjectList } from "../../helpers/projectAssets";
 
+const MAX_IMAGES_PER_PROJECT = 4;
+
 const Projects = () => {
   const navigate = useNavigate();
 
@@ -41,11 +43,12 @@ const Projects = () => {
               </div>
             </div>
 
-            {...Array(ProjectAssets[project].images).fill(0).map((_, index) => {
+            {...Array(MAX_IMAGES_PER_PROJECT).fill(0).map((_, index) => {
               return (
                 <div key={index}>
                   <ProjectAsset
-                    src={`${project}/${index + 1}.webp`}
+                    project={project}
+                    index={index}
                     alt={`${project}_${index + 1}`}
                     className="w-full h-full object-cover object-center"
                   />

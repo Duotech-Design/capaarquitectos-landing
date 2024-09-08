@@ -85,7 +85,8 @@ const SimpleSlider: FC<SimpleSliderProps> = (
         ...imageArray.map((_, index) => {
           return <div key={index} className="overflow-hidden">
             <ProjectAsset
-              src={`${id}/${index + 1}.webp`}
+              project={id}
+              index={index}
               alt={`${id}_${index + 1}`}
               className="w-full h-[400px] 2xl:h-[500px] bg-gray-300"
             />
