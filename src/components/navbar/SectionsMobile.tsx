@@ -65,39 +65,46 @@ const SectionsMobile = ({
     };
   }, [location.pathname, location.hash]);
 
-  //const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className={`${showMobileMenu ? "" : "hidden"} `} id="mobile-menu">
+    <div 
+      className={`${showMobileMenu ? "fade-in backdrop-blur-none" : "hidden"}`} id="mobile-menu">
       <div className="space-y-1 px-2 pb-3 pt-2">
         <a
           onClick={() => handleClick("/")}
-          className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+          className={`block rounded-md px-3 py-2 text-sm text-gray-300
+            ${viewSectionHome && isActive("/") ? "bg-gray-900 text-gray-300" : "text-white"}`}
           aria-current="page"
         >
           Home
         </a>
         <a
           onClick={() => handleClick("/")}
-          className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+          href="#projects"
+          className={`block rounded-md px-3 py-2 text-sm text-gray-300
+            ${viewSectionProjects || location.pathname.includes("/project") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
           Proyectos
         </a>
         <a
           onClick={() => handleClick("/philosophy")}
-          className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+          className={`block rounded-md px-3 py-2 text-sm text-gray-300
+            ${isActive("/philosophy") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
           Filosofía
         </a>
         <a
           onClick={() => handleClick("/team")}
-          className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+          className={`block rounded-md px-3 py-2 text-sm text-gray-300
+            ${isActive("/team") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
           Equipo
         </a>
         <a
           onClick={() => handleClick("/contact-us")}
-          className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+          className={`block rounded-md px-3 py-2 text-sm text-gray-300
+            ${isActive("/contact-us") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
           Contáctanos
         </a>
