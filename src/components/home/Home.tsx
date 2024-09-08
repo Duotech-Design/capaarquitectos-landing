@@ -1,4 +1,4 @@
-import HomeBg from "@/assets/img/home-bg-r.jpg";
+import HomeBg from "@/assets/img/home-bg-r.webp";
 import { useEffect, useRef, useState } from "react";
 import CustomButton from "../ui/CustomButton";
 import "./Home.css";
@@ -61,7 +61,7 @@ const Home = () => {
         </div>
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black opacity-30 z-10"></div>
-      
+
       <div className="relative flex items-center justify-center text-3xl lg:text-7xl z-20">
         <div className="flex flex-col gap-y-8 justify-center items-center h-screen text-white">
           <h1 className="text-focus-in text-shadow-drop-center">

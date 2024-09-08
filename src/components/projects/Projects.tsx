@@ -1,17 +1,17 @@
 import MoreButton from "../ui/MoreButton";
 import { useNavigate } from "react-router-dom";
-import ProjectUnoImgUno from "@/assets/img/project_uno/1.jpg";
-import ProjectUnoImgDos from "@/assets/img/project_uno/2.jpg";
-import ProjectUnoImgTres from "@/assets/img/project_uno/3.jpg";
-import ProjecUnoImgCuatro from "@/assets/img/project_uno/4.jpg";
-import ProjectDosImgUno from "@/assets/img/project_dos/1.jpg";
-import ProjectDosImgDos from "@/assets/img/project_dos/2.jpg";
-import ProjectDosImgTres from "@/assets/img/project_dos/3.jpg";
-import ProjectDosImgCuatro from "@/assets/img/project_dos/4.jpg";
-import ProjectTresImgUno from "@/assets/img/project_tres/1.jpg";
-import ProjectTresImgDos from "@/assets/img/project_tres/2.jpg";
-import ProjectTresImgTres from "@/assets/img/project_tres/3.jpg";
-import ProjectTresImgCuatro from "@/assets/img/project_tres/4.jpg";
+import ProjectUnoImgUno from "@/assets/img/project_uno/1.webp";
+import ProjectUnoImgDos from "@/assets/img/project_uno/2.webp";
+import ProjectUnoImgTres from "@/assets/img/project_uno/3.webp";
+import ProjecUnoImgCuatro from "@/assets/img/project_uno/4.webp";
+import ProjectDosImgUno from "@/assets/img/project_dos/1.webp";
+import ProjectDosImgDos from "@/assets/img/project_dos/2.webp";
+import ProjectDosImgTres from "@/assets/img/project_dos/3.webp";
+import ProjectDosImgCuatro from "@/assets/img/project_dos/4.webp";
+import ProjectTresImgUno from "@/assets/img/project_tres/1.webp";
+import ProjectTresImgDos from "@/assets/img/project_tres/2.webp";
+import ProjectTresImgTres from "@/assets/img/project_tres/3.webp";
+import ProjectTresImgCuatro from "@/assets/img/project_tres/4.webp";
 
 const Projects = () => {
   const navigate = useNavigate();
