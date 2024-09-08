@@ -3,21 +3,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import "./Carousel.css";
-import ProjectUnoImgUno from "@/assets/img/project_uno/1.jpg";
-import ProjectUnoImgDos from "@/assets/img/project_uno/2.jpg";
-import ProjectUnoImgTres from "@/assets/img/project_uno/3.jpg";
-import ProjecUnoImgCuatro from "@/assets/img/project_uno/4.jpg";
-import ProjectDosImgUno from "@/assets/img/project_dos/1.jpg";
-import ProjectDosImgDos from "@/assets/img/project_dos/2.jpg";
-import ProjectDosImgTres from "@/assets/img/project_dos/3.jpg";
-import ProjectDosImgCuatro from "@/assets/img/project_dos/4.jpg";
-import ProjectTresImgUno from "@/assets/img/project_tres/1.jpg";
-import ProjectTresImgDos from "@/assets/img/project_tres/2.jpg";
-import ProjectTresImgTres from "@/assets/img/project_tres/3.jpg";
-import ProjectTresImgCuatro from "@/assets/img/project_tres/4.jpg";
+import { AvailableProjects, ProjectAsset, ProjectAssets } from "../../helpers/projectAssets";
 
 interface SimpleSliderProps {
-  id: number;
+  id: AvailableProjects
 }
 
 interface ArrowProps {
@@ -53,7 +42,7 @@ const CustomNextArrow: FC<ArrowProps> = ({ className, onClick }) => {
   return (
     <div
       className={`${className}  before:hidden right-[20px] md:right-[-60px] absolute`}
-     
+
       onClick={onClick}
     >
       <svg
@@ -87,28 +76,23 @@ const SimpleSlider: FC<SimpleSliderProps> = (
     prevArrow: <CustomPrevArrow />,
   };
 
+  const totalImages: number = ProjectAssets[id].images;
+  const imageArray = new Array(totalImages).fill(0);
+
   return (
     <Slider {...settings} className="relative">
-      <div className="overflow-hidden">
-        <img src={
-          id === 1 ? ProjectUnoImgUno : id === 2 ? ProjectDosImgUno : ProjectTresImgUno
-        } alt="project" className="w-full h-[400px] 2xl:h-[500px] object-cover object-center" />
-      </div>
-      <div className="overflow-hidden">
-        <img src={
-          id === 1 ? ProjectUnoImgDos : id === 2 ? ProjectDosImgDos : ProjectTresImgDos
-        } alt="project" className="w-full h-[400px] 2xl:h-[500px] object-cover object-center" />
-      </div>
-      <div className="overflow-hidden">
-        <img src={
-          id === 1 ? ProjectUnoImgTres : id === 2 ? ProjectDosImgTres : ProjectTresImgTres
-        } alt="project" className="w-full h-[400px] 2xl:h-[500px] object-cover object-center" />
-      </div>
-      <div className="overflow-hidden">
-        <img src={
-          id === 1 ? ProjecUnoImgCuatro : id === 2 ? ProjectDosImgCuatro : ProjectTresImgCuatro
-        } alt="project" className="w-full h-[400px] 2xl:h-[500px] object-cover object-center" />
-      </div>
+      {[
+        ...imageArray.map((_, index) => {
+          return <div key={index} className="overflow-hidden">
+            <ProjectAsset
+              project={id}
+              index={index}
+              alt={`${id}_${index + 1}`}
+              className="w-full h-[400px] 2xl:h-[500px] bg-gray-300"
+            />
+          </div>
+        })
+      ]}
     </Slider>
   );
 };

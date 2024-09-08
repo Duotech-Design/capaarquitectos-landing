@@ -1,6 +1,6 @@
 import Form from "./Form";
 import { useState } from "react";
-import ContactBg from "@/assets/img/contact-us-bg.jpg";
+import ContactBg from "@/assets/img/contact-us-bg.webp";
 const ContactUs = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
