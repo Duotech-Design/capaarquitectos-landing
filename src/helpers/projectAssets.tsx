@@ -1,5 +1,7 @@
 import React from "react";
 
+const supportedWidth = [256, 720, 1020];
+
 export const ProjectAssets = {
   oficinas_corpoil: {
     name: "OFICINAS CORPOIL",
@@ -46,5 +48,22 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
   const src = `${project}/${(index + 1).toString().padStart(2, "0")}.webp`;
   console.log(src);
   const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
-  return <img src={imgSrc} alt={alt} {...props} />;
+
+  const srcSet = supportedWidth.map((width) => {
+    const src = `${project}/${(index + 1).toString().padStart(2, "0")}-${width}.webp`;
+    const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
+    return `${imgSrc} ${width}w`;
+  }).join(", ")
+
+  const sizes = supportedWidth.map((width) => {
+    return `(max-width: ${width}px) ${width}px`;
+  }).join(", ");
+
+  console.log(srcSet);
+  return <img
+    srcSet={srcSet}
+    sizes={sizes}
+    src={imgSrc}
+    alt={alt}
+    {...props} />;
 };
