@@ -1,6 +1,9 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import LanguageToggle from "./LanguageToggle";
+import { useTranslation } from "react-i18next";
 const Options = () => {
+  const { t } = useTranslation("global");
   const [viewSectionHome, setViewSectionHome] = useState<boolean>(false);
   const [viewSectionProjects, setViewSectionProjects] =
     useState<boolean>(false);
@@ -82,7 +85,7 @@ const Options = () => {
             href="#projects"
             className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
           >
-            <span>Proyectos</span>
+            <span>{t("navbar.projects")}</span>
             <span
               className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
                 viewSectionProjects || location.pathname.includes("/project")
@@ -103,7 +106,7 @@ const Options = () => {
             className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
             aria-current="page"
           >
-            <span>Filosofía</span>
+            <span>{t("navbar.philosophy")}</span>
             <span
               className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
                 isActive("/philosophy") ? "w-3/6" : ""
@@ -119,7 +122,7 @@ const Options = () => {
             onClick={() => handleClick("/team")}
             className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
           >
-            <span>Equipo</span>
+            <span>{t("navbar.team")}</span>
             <span
               className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
                 isActive("/team") ? "w-3/6" : ""
@@ -135,7 +138,7 @@ const Options = () => {
             onClick={() => handleClick("/contact-us")}
             className="relative group rounded-md px-3 py-2 text-sm font-medium text-white cursor-pointer"
           >
-            <span>Contáctanos</span>
+            <span>{t("navbar.contact_us")}</span>
             <span
               className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[1px] bg-white group-hover:w-3/6 ${
                 isActive("/contact-us") ? "w-3/6" : ""
@@ -147,52 +150,7 @@ const Options = () => {
               }`}
             ></span>
           </a>
-          <div className="relative inline-block text-left">
-            <button
-              className="inline-flex justify-center w-full rounded-md px-3 py-2 text-sm font-medium text-white hover:text-white focus:outline-none"
-              id="options-menu"
-              aria-haspopup="true"
-              aria-expanded="true"
-            >
-              EN/ES
-              <svg
-                className="ml-2 -mr-1 h-5 w-5"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-            <div
-              className="origin-top-right absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-black backdrop-blur-sm ring-1 ring-black ring-opacity-5"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="options-menu"
-            >
-              <div className="py-1" role="none">
-                <button
-                  onClick={() => console.log("English selected")}
-                  className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-darkGray"
-                  role="menuitem"
-                >
-                  English
-                </button>
-                <button
-                  onClick={() => console.log("Español seleccionado")}
-                  className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-darkGray"
-                  role="menuitem"
-                >
-                  Español
-                </button>
-              </div>
-            </div>
-          </div>
+          <LanguageToggle />
         </div>
       </div>
     </div>

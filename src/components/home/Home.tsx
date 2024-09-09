@@ -1,9 +1,11 @@
 import HomeBg from "@/assets/img/home-bg-r.webp";
 import { useEffect, useRef, useState } from "react";
 import CustomButton from "../ui/CustomButton";
+import { useTranslation } from "react-i18next";
 import "./Home.css";
 
 const Home = () => {
+  const { t } = useTranslation("global");
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isFirstAnimationDone, setIsFirstAnimationDone] = useState(false);
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -13,6 +15,10 @@ const Home = () => {
   const handleImageLoad = () => {
     setIsImageLoaded(true);
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   useEffect(() => {
     if (isImageLoaded && isIntersecting) {
@@ -65,9 +71,9 @@ const Home = () => {
       <div className="relative flex items-center justify-center text-3xl lg:text-7xl z-20">
         <div className="flex flex-col gap-y-8 justify-center items-center h-screen text-white">
           <h1 className="text-focus-in text-shadow-drop-center">
-            CAPA ARQUITECTOS
+            {t("hero.title")}
           </h1>
-          <CustomButton />
+          <CustomButton text={t("hero.button")}/>
         </div>
       </div>
     </section>

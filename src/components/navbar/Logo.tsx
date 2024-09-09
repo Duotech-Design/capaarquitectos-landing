@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 const Logo = () => {
   const navigate = useNavigate();
   const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     navigate("/");
   };
   return (

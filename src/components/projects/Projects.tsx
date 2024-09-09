@@ -1,10 +1,12 @@
 import MoreButton from "../ui/MoreButton";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { AvailableProjects, ProjectAsset, ProjectAssets, ProjectList } from "../../helpers/projectAssets";
 
 const MAX_IMAGES_PER_PROJECT = 4;
 
 const Projects = () => {
+  const { t } = useTranslation("global");
   const navigate = useNavigate();
 
   const handleClick = (id: AvailableProjects) => {
@@ -20,10 +22,10 @@ const Projects = () => {
     >
       <header className="flex flex-col flex-1 gap-y-6">
         <div className="mt-32">
-          <h3 className="text-xl">PROYECTOS</h3>
+          <h3 className="text-xl">{t("projects.title")}</h3>
         </div>
         <div className="text-right py-3">
-          <h4 className="text-md">CONSTRUIDO | EN PROCESO</h4>
+          <h4 className="text-md">{`${t("projects.button1")} | ${t("projects.button2")}`}</h4>
         </div>
       </header>
       <div className="grid grid-cols-1 gap-4">
@@ -39,7 +41,7 @@ const Projects = () => {
                 {ProjectAssets[project].location}
               </span>
               <div className="pt-2 text-focus-in">
-                <MoreButton text={"VER MÁS"} />
+                <MoreButton text={t("projects.button3")} />
               </div>
             </div>
 

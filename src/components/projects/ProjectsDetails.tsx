@@ -5,10 +5,17 @@ import {
 } from "../../helpers/projectAssets";
 import SimpleSlider from "./Carousel";
 import { useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const ProjectsDetails = () => {
+  const { t } = useTranslation("global");
   const { id } = useParams<{ id: AvailableProjects }>();
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   if (!id) return null;
 
@@ -31,8 +38,8 @@ const ProjectsDetails = () => {
   return (
     <section className="flex flex-col mx-auto px-2 sm:px-6 lg:px-8 min-h-screen max-w-[2000px]">
       <header className="flex">
-        <h3 className="mt-28 pb-1 lg:text-2xl text-sm drop-shadow-sm text-black flex items-center gap-x-3">
-          PROYECTO
+        <h3 className="mt-28 pb-6 md:pb-1 lg:text-2xl text-sm drop-shadow-sm text-black flex items-center gap-x-3">
+          {t("projects_description.title")}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className={`w-7 h-7 rotate-180 ${
@@ -82,11 +89,11 @@ const ProjectsDetails = () => {
       </header>
 
       <div className="text-sm flex justify-center pb-6 lg:pb-3 2xl:pt-20 gap-x-3 md:gap-x-12 w-full">
-        <span>FOTOGRAFIAS</span>
+        <span>{t("projects_description.button1")}</span>
         <div className="border-r-2 border-lightGray"></div>
-        <span>RENDERS</span>
+        <span>{t("projects_description.button2")}</span>
         <div className="border-r-2 border-lightGray"></div>
-        <span>PLANOS</span>
+        <span>{t("projects_description.button3")}</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-y-2 md:gap-y-1">
@@ -102,17 +109,17 @@ const ProjectsDetails = () => {
         <div className="col-span-10 pt-3 lg:pt-0 lg:col-span-6 flex justify-center gap-x-3 w-full">
           <div className="text-left">
             <div className="flex flex-col text-sm text-left">
-              <span>Tipo:</span>
-              <span>Localización:</span>
-              <span>Superficie:</span>
-              <span>Status:</span>
+              <span>{t("projects_description.type")}</span>
+              <span>{t("projects_description.location")}</span>
+              <span>{t("projects_description.area")}</span>
+              <span>{t("projects_description.estatus")}</span>
             </div>
           </div>
           <div className="text-center">
             <div className="flex flex-col text-sm text-right">
               <span>{selectedProject.type}</span>
               <span>{selectedProject.location}</span>
-              <span>{selectedProject.surface}</span>
+              <span className="font-sans font-thin">{selectedProject.surface}</span>
               <span>{selectedProject.status}</span>
             </div>
           </div>

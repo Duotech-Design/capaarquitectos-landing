@@ -87,7 +87,7 @@ const SimpleSlider: FC<SimpleSliderProps> = (
               project={id}
               index={index}
               alt={`${id}_${index + 1}`}
-              className="w-full h-[500px] 2xl:h-[600px] object-cover object-center"
+              className="w-full sm:h-[500px] 2xl:h-[600px] object-cover object-center"
             />
           </div>
         })

@@ -1,13 +1,19 @@
 import Instagram from "@/assets/svg/socialMedia/instagram.svg";
 import Facebook from "@/assets/svg/socialMedia/facebook.svg";
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 import "./Team.css";
 const Team = () => {
+  const { t } = useTranslation("global");
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   return (
     <section className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen">
       <header className="flex flex-col flex-1 gap-y-6">
         <div className="mt-32 flex gap-x-3">
-          <h3 className="text-2xl text-gray-700 ">Nuestro</h3>
-          <strong className="text-2xl font-bold">Equipo</strong>
+          <h3 className="text-2xl text-gray-500 ">{t("team.title")}</h3>
+          <strong className="text-2xl font-bold">{t("team.subtitle")}</strong>
         </div>
       </header>
       <div className="mt-3 mx-auto my-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -51,7 +57,7 @@ const Team = () => {
               ALFREDO CARDONA{" "}
             </h4>
             <span className="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900">
-              CO-FUNDADOR
+              {t("team.position_1")}
             </span>
           </div>
           {/* <!-- Team Member 2 --> */}
@@ -93,7 +99,7 @@ const Team = () => {
               DAVID PALAU{" "}
             </h4>
             <span className="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900">
-              DIRECTOR DE DISEÑO
+              {t("team.position_2")}
             </span>
           </div>
         </div>

@@ -4,28 +4,28 @@ const supportedWidth = [256, 720, 1020];
 
 export const ProjectAssets = {
   oficinas_corpoil: {
-    name: "OFICINAS CORPOIL",
+    name: "OFICINAS ROSMARINUS",
     images: 22,
-    location: "Santa Maria del Rio",
+    location: "SAN LUIS POTOSÍ, SLP.",
     type: "Diseño de interiores",
-    status: "En proceso",
-    surface: "O metros",
+    status: "Terminado",
+    surface: "305m2",
   },
   oficinas_tomate: {
-    name: "OFICINAS TOMATE",
+    name: "CASA D+D",
     images: 17,
-    location: "Santa Maria del Rio",
-    type: "Diseño de interiores",
-    status: "En proceso",
-    surface: "O metros",
+    location: "SANTA MARÍA DEL RÍO, SLP.",
+    type: "Construción de obra nueva",
+    status: "Construido",
+    surface: "305m2",
   },
   pabellon_m: {
-    name: "PABELLON M",
+    name: "PROYECTO El MADERABLE",
     images: 31,
-    location: "Santa Maria del Rio",
-    type: "Diseño de interiores",
-    status: "En proceso",
-    surface: "O metros",
+    location: "SAN LUÍS POTOSÍ",
+    type: "Remodelación y ampliación",
+    status: "Terminado",
+    surface: "305m2",
   }
 } as const;
 

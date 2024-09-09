@@ -1,7 +1,9 @@
 import SendButton from "./SendButton";
 import { useFormik } from "formik";
+import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 const Form = () => {
+  const { t } = useTranslation("global");
   const validationSchema = Yup.object({
     name: Yup.string().required().min(2),
     email: Yup.string().email().required(),
@@ -53,7 +55,7 @@ const Form = () => {
     <form className="px-6 pt-6 min-w-[280px] flex flex-col justify-between h-full" onSubmit={formik.handleSubmit}>
       <div className="relative mb-3">
         <label className="flex items-center mb-1 text-white text-xs font-medium">
-          Name{" "}
+          {t("form.name")}{" "}
           <svg
             width="7"
             height="7"
@@ -103,7 +105,7 @@ const Form = () => {
       </div>
       <div className="relative mb-3">
         <label className="flex  items-center mb-1 text-white text-xs font-medium">
-          Email{" "}
+        {t("form.email")}{" "}
           <svg
             width="7"
             height="7"
@@ -155,7 +157,7 @@ const Form = () => {
       </div>
       <div className="relative mb-3">
         <label className="flex  items-center mb-1 text-white text-xs font-medium">
-          Phone Number{" "}
+        {t("form.phone")}{" "}
           <svg
             width="7"
             height="7"
@@ -205,12 +207,12 @@ const Form = () => {
       </div>
       <div className="relative mb-3">
         <label className="flex  items-center mb-1 text-white text-xs font-medium">
-          Servicios de interes{" "}
+        {t("form.services")}{" "}
         </label>
         <div className="grid grid-cols-1 sm:grid-cols-2 mb-3">
           <div className="relative  text-gray-500 focus-within:text-gray-900">
             <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
-              Construccion:{" "}
+            {t("form.options.construction.title")}{" "}
             </label>
             <div className="flex items-center ml-8 mb-1">
               <input
@@ -226,7 +228,7 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Construcción de Obra nueva{" "}
+                {t("form.options.construction.new_construction")}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">
@@ -243,7 +245,7 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Supervicion de obra{" "}
+                 {t("form.options.construction.construction_supervision")}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">
@@ -260,7 +262,7 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Obra civil{" "}
+                {t("form.options.construction.civil_works")}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">
@@ -277,13 +279,13 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Remodelaciones y ampliaciones{" "}
+                {t("form.options.construction.renovations_and_additions")}
               </label>
             </div>
           </div>
           <div className="relative  text-gray-500 focus-within:text-gray-900">
             <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
-              Proyectos Ejecutivos:{" "}
+            {t("form.options.construction_documents.title")}
             </label>
             <div className="flex items-center ml-8 mb-1">
               <input
@@ -299,7 +301,7 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Desarrollo de planos constructivos{" "}
+                {t("form.options.construction_documents.construction_drawings")}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">
@@ -316,7 +318,7 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Gestion de permisos y licencias{" "}
+                {t("form.options.construction_documents.permit_acquisition")}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">
@@ -333,7 +335,7 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Memorias descriptivas y especificaciones{" "}
+                {t("form.options.construction_documents.specifications_and_descriptive_reports")}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">
@@ -350,8 +352,8 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Modelado <span className="font-extralight font-sans">3</span>D y
-                renderización{" "}
+                {t("form.options.construction_documents.3d_modeling_and_rendering")}
+            <span className="font-extralight font-sans">3</span>{t("form.options.construction_documents.3d_modeling_and_rendering_2")}
               </label>
             </div>
           </div>
@@ -359,7 +361,7 @@ const Form = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div className="relative  text-gray-500 focus-within:text-gray-900">
             <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
-              Diseño Arquitectnonico:{" "}
+            {t("form.options.architectural_design.title")}
             </label>
 
             <div className="flex items-center ml-8 mb-1">
@@ -376,7 +378,7 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Diseño habitacional{" "}
+                {t("form.options.architectural_design.residential_design")}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">
@@ -393,7 +395,7 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Diseño comercial{" "}
+                {t("form.options.architectural_design.commercial_design")}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">
@@ -410,13 +412,13 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Diseño de interiores{" "}
+                {t("form.options.architectural_design.interior_design")}
               </label>
             </div>
           </div>
           <div className="relative  text-gray-500 focus-within:text-gray-900">
             <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
-              Consultoria y Asesoria:{" "}
+            {t("form.options.architectural_consulting.title")}
             </label>
             <div className="flex items-center ml-8 mb-1">
               <input
@@ -432,7 +434,7 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Estudios de factibilidad{" "}
+                {t("form.options.architectural_consulting.feasibility_analysis")}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">
@@ -449,7 +451,7 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                Asesoria de diseño{" "}
+                {t("form.options.architectural_consulting.design_consultation")}
               </label>
             </div>
           </div>
