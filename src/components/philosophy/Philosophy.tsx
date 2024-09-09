@@ -10,60 +10,63 @@ const Philosophy = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
   return (
     <div className="bg-philosophy-bg bg-cover bg-center bg-fixed">
-      <div className="inset-0 bg-darkGray opacity-65 z-0 flex flex-col px-2 sm:px-6 lg:px-8 text-white min-h-screen">
-        <h3 className="mt-32 2xl:mt-32 pb-3 md:pb-16 font-thin text-lg lg:text-3xl 2xl:text-5xl drop-shadow-sm text-gray-200 text-focus-in">
+      <div className="inset-0 bg-darkGray opacity-65 z-0 flex flex-col px-2 sm:px-6 lg:px-8 text-white py-16 md:py-20">
+        <h3 className="mt-20 md:mt-24 pb-1 md:pb-2 font-thin text-sm md:text-xl lg:text-2xl 2xl:text-3xl drop-shadow-sm text-gray-200 text-focus-in">
           {t("philosophy.title")}
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-2 md:gap-y-12 2xl:gap-y-32 h-full 2xl:mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-1 md:gap-y-4 2xl:gap-y-8">
           <div className="col-span-2"></div>
           <div
-            className="col-span-10 text-focus-in flex gap-3 text-wrap w-full "
+            className="col-span-10 text-focus-in flex gap-1 text-wrap w-full"
             style={{ animationDelay: "0s" }}
           >
             <img
               src={Start}
               alt="Star Icon"
-              className="h-4 w-4 md:h-8 md:w-8 rotate-center"
+              className="h-3 w-3 md:h-6 md:w-6 rotate-center"
               style={{ animationDelay: "0.5s" }}
             />
-            <p className="leading-relaxed subpixel-antialiased text-xs md:text-base 2xl:text-2xl 2xl:w-4/5 list-outside text-white text-justify">
+            <p className="leading-relaxed subpixel-antialiased text-xs md:text-sm 2xl:text-lg 2xl:w-4/5 list-outside text-white text-justify mb-1">
               {t("philosophy.description_p1")}
             </p>
           </div>
           <div className="col-span-3"></div>
           <div
-            className="col-span-9 text-focus-in flex gap-3 text-wrap w-full "
+            className="col-span-9 text-focus-in flex gap-1 text-wrap w-full"
             style={{ animationDelay: "0.5s" }}
           >
             <img
               src={Start}
               alt="Star Icon"
-              className="h-4 w-4 md:h-8 md:w-8 rotate-center"
+              className="h-3 w-3 md:h-6 md:w-6 rotate-center"
               style={{ animationDelay: "1s" }}
             />
-            <p className="leading-relaxed text-xs md:text-base 2xl:text-2xl 2xl:w-4/5 list-outside text-gray-50 text-justify">
+            <p className="leading-relaxed text-xs md:text-sm 2xl:text-lg 2xl:w-4/5 list-outside text-gray-50 text-justify mb-1">
               {t("philosophy.description_p2")}
             </p>
           </div>
           <div className="col-span-4"></div>
           <div
-            className="col-span-8 text-focus-in flex gap-3 text-wrap w-full "
+            className="col-span-8 text-focus-in flex gap-1 text-wrap w-full"
             style={{ animationDelay: "1s" }}
           >
             <img
               src={Start}
               alt="Star Icon"
-              className="h-4 w-4 md:h-8 md:w-8 rotate-center"
+              className="h-3 w-3 md:h-6 md:w-6 rotate-center"
               style={{ animationDelay: "1.5s" }}
             />
-            <p className="leading-relaxed text-xs md:text-base 2xl:text-2xl 2xl:w-4/5 list-outside text-gray-50 text-justify">
+            <p className="leading-relaxed text-xs md:text-sm 2xl:text-lg 2xl:w-4/5 list-outside text-gray-50 text-justify mb-1">
               {t("philosophy.description_p3")}
             </p>
           </div>
         </div>
-        <div className="pt-6 pb-6">
+        
+        {/* Ajuste para el botón */}
+        <div className="flex justify-end pt-4 mr-10">
           <CustomButton text={t("philosophy.button")} />
         </div>
       </div>
@@ -72,3 +75,5 @@ const Philosophy = () => {
 };
 
 export default Philosophy;
+
+
