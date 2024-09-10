@@ -3,7 +3,7 @@ import React from "react";
 const supportedWidth = [256, 720, 1020];
 
 export const ProjectAssets = {
-  oficinas_corpoil: {
+  oficinas_rosmarinus: {
     name: "OFICINAS ROSMARINUS",
     images: 22,
     location: "SAN LUIS POTOSÍ, SLP.",
@@ -11,7 +11,7 @@ export const ProjectAssets = {
     status: "Terminado",
     surface: "305m2",
   },
-  oficinas_tomate: {
+  casa_dplusd: {
     name: "CASA D+D",
     images: 17,
     location: "SANTA MARÍA DEL RÍO, SLP.",
@@ -19,7 +19,7 @@ export const ProjectAssets = {
     status: "Construido",
     surface: "305m2",
   },
-  pabellon_m: {
+  proyecto_el_maderable: {
     name: "PROYECTO El MADERABLE",
     images: 31,
     location: "SAN LUÍS POTOSÍ",
