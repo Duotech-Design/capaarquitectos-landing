@@ -6,7 +6,7 @@ const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
-    <nav className="backdrop-blur-sm fixed w-screen z-50 bg-darkBlue/30">
+    <nav className="backdrop-blur-md fixed w-screen z-50 bg-darkBlue/30">
       <SectionsDesktop
         showMobileMenu={showMobileMenu}
         onClick={() => setShowMobileMenu(!showMobileMenu)} />

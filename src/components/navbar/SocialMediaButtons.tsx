@@ -46,7 +46,7 @@ const SocialMediaButtons = () => {
           <img
             src={TiktokIcon}
             alt="TikTok"
-            className="subpixel-antialiased h-9 w-9 ml-[-2px]"
+            className="h-9 w-9 ml-[-2px]"
           />
         </button>
       </a>
