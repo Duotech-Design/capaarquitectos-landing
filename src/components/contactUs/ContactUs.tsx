@@ -15,12 +15,12 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="flex flex-wrap mx-auto px-2 sm:px-6 lg:px-8 min-h-screen bg-darkBlue">
+    <section className="flex flex-wrap mx-auto px-2 sm:px-6 lg:px-8  md:min-h-screen bg-darkBlue">
       <img
         src={ContactBg}
         alt="contact-us-bg"
         onLoad={handleImageLoad}
-        className="absolute inset-0 w-full h-full object-cover z-0 fade-in"
+        className="absolute inset-0 w-full h-[950px] md:h-full object-cover z-0 fade-in"
       />
       {!isImageLoaded && (
         <div className="absolute inset-0 bg-transparent opacity-50 z-10 flex justify-center items-center">

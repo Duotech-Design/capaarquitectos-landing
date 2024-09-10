@@ -10,7 +10,7 @@ const SocialMediaButtons = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <button type="button" className="relative">
+        <button type="button" className="relative z-10">
           <span className="absolute -inset-1.5"></span>
           <span className="sr-only">View Facebook</span>
           <img
@@ -25,7 +25,7 @@ const SocialMediaButtons = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <button type="button" className="relative">
+        <button type="button" className="relative z-10">
           <span className="absolute -inset-1.5"></span>
           <span className="sr-only">View Instagram</span>
           <img
@@ -40,7 +40,7 @@ const SocialMediaButtons = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <button type="button" className="relative">
+        <button type="button" className="relative z-10">
           <span className="absolute -inset-1.5"></span>
           <span className="sr-only">View TikTok</span>
           <img
