@@ -42,8 +42,7 @@ export const Footer = () => {
               <p className="mb-4 text-sm font-bold">
                 Lunes a Viernes
               </p>
-              <p className="font-sans font-semibold text-sm">
-            
+              <p className="font-sans font-semibold sm:font-light text-sm">
                 9:00 - 18:00
               </p>
             </div>
@@ -96,7 +95,7 @@ export const Footer = () => {
                 </span>
                 <a
                   href="https://wa.me/524443188840?text=Quiero%20cotizar%20un%20servicio"
-                  className="font-sans font-semibold proportional-nums lining-nums "
+                  className="font-sans font-semibold sm:font-light proportional-nums lining-nums "
                 >
                   + 52 444318 8840
                 </a>
@@ -117,7 +116,7 @@ export const Footer = () => {
                 </span>
                 <a
                   href="https://wa.me/524442816256?text=Quiero%20cotizar%20un%20servicio"
-                  className="font-sans font-semibold proportional-nums lining-nums"
+                  className="font-sans font-semibold sm:font-light proportional-nums lining-nums"
                 >
                   + 52 444281 6256
                 </a>
