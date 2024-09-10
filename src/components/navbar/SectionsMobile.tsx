@@ -71,7 +71,7 @@ const SectionsMobile = ({
       <div className="space-y-1 px-2 pb-3 pt-2">
         <a
           onClick={() => handleClick("/")}
-          className={`block rounded-md px-3 py-2 text-sm font-bold
+          className={`block rounded-md px-3 py-2 text-sm font-semibold
             ${viewSectionHome && isActive("/") ? "bg-gray-900 text-gray-300" : "text-white"}`}
           aria-current="page"
         >
@@ -80,28 +80,28 @@ const SectionsMobile = ({
         <a
           onClick={() => handleClick("/")}
           href="#projects"
-          className={`block rounded-md px-3 py-2 text-sm font-bold
+          className={`block rounded-md px-3 py-2 text-sm font-semibold
             ${viewSectionProjects || location.pathname.includes("/project") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
           Proyectos
         </a>
         <a
           onClick={() => handleClick("/philosophy")}
-          className={`block rounded-md px-3 py-2 text-sm font-bold
+          className={`block rounded-md px-3 py-2 text-sm font-semibold
             ${isActive("/philosophy") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
           Filosofía
         </a>
         <a
           onClick={() => handleClick("/team")}
-          className={`block rounded-md px-3 py-2 text-sm font-bold 
+          className={`block rounded-md px-3 py-2 text-sm font-semibold 
             ${isActive("/team") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
           Equipo
         </a>
         <a
           onClick={() => handleClick("/contact-us")}
-          className={`block rounded-md px-3 py-2 text-sm font-bold 
+          className={`block rounded-md px-3 py-2 text-sm font-semibold 
             ${isActive("/contact-us") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
           Contáctanos
