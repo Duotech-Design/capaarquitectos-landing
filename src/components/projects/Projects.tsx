@@ -43,10 +43,10 @@ const Projects = () => {
     >
       <header className="flex flex-col flex-1 gap-y-6">
         <div className="mt-32">
-          <h3 className="text-xl font-bold sm:font-normal">{t("projects.title")}</h3>
+          <h3 className="text-xl font-semibold sm:font-thin">{t("projects.title")}</h3>
         </div>
         <div className="text-right py-3">
-          <h4 className="text-md font-bold sm:font-normal">{`${t("projects.button1")} | ${t(
+          <h4 className="text-md font-semibold sm:font-thin">{`${t("projects.button1")} | ${t(
             "projects.button2"
           )}`}</h4>
         </div>

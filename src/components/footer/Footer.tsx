@@ -42,7 +42,7 @@ export const Footer = () => {
               <p className="mb-4 text-sm font-bold">
                 Lunes a Viernes
               </p>
-              <p className="font-sans font-bold text-sm">
+              <p className="font-sans font-semibold text-sm">
             
                 9:00 - 18:00
               </p>
