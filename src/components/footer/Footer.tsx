@@ -5,41 +5,41 @@ export const Footer = () => {
         <div className="mx-6 py-10 text-center md:text-left">
           <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="">
-              <h6 className="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
+              <h6 className="mb-4 flex items-center justify-center font-bold uppercase md:justify-start">
                 <span className=""></span>
                 Capa Arquitectos
               </h6>
             </div>
 
             <div>
-              <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+              <h6 className="mb-4 flex justify-center font-bold uppercase md:justify-start">
                 Servicios
               </h6>
-              <p className="mb-4 text-sm">
+              <p className="mb-4 text-sm font-bold">
                 Construcción
               </p>
-              <p className="mb-4 text-sm">
+              <p className="mb-4 text-sm font-bold">
                 Proyectos ejecutivos
               </p>
-              <p className="mb-4 text-sm">
+              <p className="mb-4 text-sm font-bold">
                 Diseño Arquitectonico
               </p>
-              <p className="text-sm">
+              <p className="text-sm font-bold">
                 Consultoria y Asesoria
               </p>
             </div>
             <div>
-              <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+              <h6 className="mb-4 flex justify-center font-bold uppercase md:justify-start ">
                 Oficina
               </h6>
-              <p className="mb-4 flex items-center justify-center md:justify-start text-sm">
+              <p className="mb-4 flex items-center justify-center md:justify-start text-sm font-bold">
                 
                 San Luis, MX.
               </p>
-              <p className="mb-4 text-sm">
+              <p className="mb-4 text-sm font-bold">
                Horario
               </p>
-              <p className="mb-4 text-sm">
+              <p className="mb-4 text-sm font-bold">
                 Lunes a Viernes
               </p>
               <p className="font-sans font-thin text-sm">
@@ -49,10 +49,10 @@ export const Footer = () => {
             </div>
 
             <div>
-              <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+              <h6 className="mb-4 flex justify-center font-bold uppercase md:justify-start">
                 Contact
               </h6>
-              <p className="mb-4 flex items-center justify-center md:justify-start text-sm">
+              <p className="mb-4 flex items-center justify-center md:justify-start text-sm font-bold">
                 <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ export const Footer = () => {
                 info <span className="font-sans font-thin">@</span>
                 capaarquitectos.com
               </p>
-              <p className="mb-4 flex items-center justify-center md:justify-start text-sm">
+              <p className="mb-4 flex items-center justify-center md:justify-start text-sm font-bold">
                 <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ export const Footer = () => {
                 capa.arquitectos.mx
                 <span className="font-sans font-thin">@</span>gmail.com
               </p>
-              <p className="mb-4 flex items-center justify-center md:justify-start text-sm">
+              <p className="mb-4 flex items-center justify-center md:justify-start text-sm font-bold">
                 <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ export const Footer = () => {
                 </span>
                 <a
                   href="https://wa.me/524443188840?text=Quiero%20cotizar%20un%20servicio"
-                  className="font-sans font-thin proportional-nums lining-nums"
+                  className="font-sans font-thin proportional-nums lining-nums "
                 >
                   + 52 444318 8840
                 </a>
@@ -130,7 +130,7 @@ export const Footer = () => {
           <span>
             © <span className="font-sans font-thin">2022</span> Copyright:
           </span>
-          <a className="font-semibold" href="https://tw-elements.com/">
+          <a className="font-bold" href="https://tw-elements.com/">
             {" "}
             Capa Arquitectos
           </a>
