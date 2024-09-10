@@ -10,13 +10,14 @@ const SocialMediaButtons = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <button
-          type="button"
-          className="relative rounded-full p-1 text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-        >
+        <button type="button" className="relative">
           <span className="absolute -inset-1.5"></span>
           <span className="sr-only">View Facebook</span>
-          <img src={FacebookIcon} alt="Facebook" className="h-7 w-7" />
+          <img
+            src={FacebookIcon}
+            alt="Facebook"
+            className="subpixel-antialiased h-9 w-9"
+          />
         </button>
       </a>
       <a
@@ -24,13 +25,14 @@ const SocialMediaButtons = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <button
-          type="button"
-          className="relative rounded-full p-1 text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-        >
+        <button type="button" className="relative">
           <span className="absolute -inset-1.5"></span>
           <span className="sr-only">View Instagram</span>
-          <img src={InstagramIcon} alt="Instagram" className="h-8 w-8" />
+          <img
+            src={InstagramIcon}
+            alt="Instagram"
+            className="subpixel-antialiased h-9 w-9"
+          />
         </button>
       </a>
       <a
@@ -38,13 +40,14 @@ const SocialMediaButtons = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <button
-          type="button"
-          className="relative rounded-full p-1 text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-        >
+        <button type="button" className="relative">
           <span className="absolute -inset-1.5"></span>
           <span className="sr-only">View TikTok</span>
-          <img src={TiktokIcon} alt="TikTok" className="h-9 w-9" />
+          <img
+            src={TiktokIcon}
+            alt="TikTok"
+            className="subpixel-antialiased h-9 w-9 ml-[-2px]"
+          />
         </button>
       </a>
     </div>
