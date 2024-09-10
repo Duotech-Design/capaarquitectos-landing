@@ -42,7 +42,7 @@ export const Footer = () => {
               <p className="mb-4 text-sm font-bold">
                 Lunes a Viernes
               </p>
-              <p className="font-sans font-thin text-sm">
+              <p className="font-sans font-bold text-sm">
             
                 9:00 - 18:00
               </p>
@@ -63,7 +63,7 @@ export const Footer = () => {
                     <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                   </svg>
                 </span>
-                info <span className="font-sans font-thin">@</span>
+                info <span className="font-sans font-bold">@</span>
                 capaarquitectos.com
               </p>
               <p className="mb-4 flex items-center justify-center md:justify-start text-sm font-bold">
@@ -78,7 +78,7 @@ export const Footer = () => {
                   </svg>
                 </span>
                 capa.arquitectos.mx
-                <span className="font-sans font-thin">@</span>gmail.com
+                <span className="font-sans font-bold">@</span>gmail.com
               </p>
               <p className="mb-4 flex items-center justify-center md:justify-start text-sm font-bold">
                 <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
@@ -96,7 +96,7 @@ export const Footer = () => {
                 </span>
                 <a
                   href="https://wa.me/524443188840?text=Quiero%20cotizar%20un%20servicio"
-                  className="font-sans font-thin proportional-nums lining-nums "
+                  className="font-sans font-bold proportional-nums lining-nums "
                 >
                   + 52 444318 8840
                 </a>
@@ -117,7 +117,7 @@ export const Footer = () => {
                 </span>
                 <a
                   href="https://wa.me/524442816256?text=Quiero%20cotizar%20un%20servicio"
-                  className="font-sans font-thin proportional-nums lining-nums"
+                  className="font-sans font-bold proportional-nums lining-nums"
                 >
                   + 52 444281 6256
                 </a>
