@@ -70,7 +70,7 @@ const Home = () => {
 
       <div className="relative flex items-center justify-center text-3xl lg:text-7xl z-20">
         <div className="flex flex-col gap-y-8 justify-center items-center h-screen text-white">
-          <h1 className="text-focus-in font-bold sm:font-normal text-shadow-drop-center">
+          <h1 className="text-focus-in font-bold sm:font-light text-shadow-drop-center">
             {t("hero.title")}
           </h1>
           <CustomButton text={t("hero.button")}/>
