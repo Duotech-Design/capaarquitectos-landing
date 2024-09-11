@@ -133,6 +133,14 @@ export const Footer = () => {
             {" "}
             Capa Arquitectos
           </a>
+          <a className="font-bold" >
+            {" "}
+            SITE by
+          </a>
+          <a className="font-bold" href="https://duotechdesign.com/" >
+            {" "}
+           DuoTech Design
+          </a>
         </div>
       </footer>
     </>
