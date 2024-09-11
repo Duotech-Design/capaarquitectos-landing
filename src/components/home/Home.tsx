@@ -2,6 +2,7 @@ import HomeBg from "@/assets/img/home-bg-r.webp";
 import { useEffect, useRef, useState } from "react";
 import CustomButton from "../ui/CustomButton";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom"; // Importa el hook useNavigate
 import "./Home.css";
 
 const Home = () => {
@@ -14,6 +15,13 @@ const Home = () => {
 
   const handleImageLoad = () => {
     setIsImageLoaded(true);
+  };
+
+  // Usa el hook useNavigate para la navegación
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate("/contact"); // Redirige a la página de contacto
   };
 
   useEffect(() => {
@@ -73,7 +81,8 @@ const Home = () => {
           <h1 className="text-focus-in text-shadow-drop-center">
             {t("hero.title")}
           </h1>
-          <CustomButton text={t("hero.button")}/>
+          {/* Asignar el evento onClick al botón */}
+          <CustomButton text={t("hero.button")} onClick={handleButtonClick} />
         </div>
       </div>
     </section>
