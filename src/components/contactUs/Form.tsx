@@ -1,23 +1,26 @@
 import SendButton from "./SendButton";
 import { useFormik } from "formik";
+import CustomSelect from "../ui/CustomSelect";
 import { useTranslation } from "react-i18next";
-import * as Yup from "yup";
+import validationSchema from "../../helpers/validationSchema";
+
 const Form = () => {
   const { t } = useTranslation("global");
-  const validationSchema = Yup.object({
-    name: Yup.string().required().min(2),
-    email: Yup.string().email().required(),
-    phone: Yup.string()
-      .required()
-      .matches(/^[0-9]+$/)
-      .min(10),
-    message: Yup.string(),
-  });
+
+  const options = [
+    { value: 'facebook', label: 'Facebook' },
+    { value: 'google', label: 'Google' },
+    { value: 'revista', label: 'Revista' },
+    { value: 'amigo o conocido', label: 'Amigo o conocido' },
+    { value: 'otro', label: 'Otro' },
+  ];
+
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
       phone: "",
+      howDidYouHearAboutUs: "",
       services: {
         construccion: {
           obraNueva: false,
@@ -52,7 +55,10 @@ const Form = () => {
     },
   });
   return (
-    <form className="px-6 pt-6 min-w-[280px] flex flex-col justify-between h-full" onSubmit={formik.handleSubmit}>
+    <form
+      className="px-6 pt-6 min-w-[280px] flex flex-col justify-between h-full"
+      onSubmit={formik.handleSubmit}
+    >
       <div className="relative mb-3">
         <label className="flex items-center mb-1 text-white text-xs font-medium">
           {t("form.name")}{" "}
@@ -95,17 +101,18 @@ const Form = () => {
             value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${formik.touched.name && formik.errors.name
-              ? "border-2 border-red-500"
-              : "border border-gray-300"
-              }`}
+            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
+              formik.touched.name && formik.errors.name
+                ? "border-2 border-red-500"
+                : "border border-gray-300"
+            }`}
             placeholder="Enter Name"
           />
         </div>
       </div>
       <div className="relative mb-3">
         <label className="flex  items-center mb-1 text-white text-xs font-medium">
-        {t("form.email")}{" "}
+          {t("form.email")}{" "}
           <svg
             width="7"
             height="7"
@@ -146,18 +153,20 @@ const Form = () => {
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${formik.touched.email && formik.errors.email
-              ? "border-2 border-red-500"
-              : "border border-gray-300"
-              }`}
+            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
+              formik.touched.email && formik.errors.email
+                ? "border-2 border-red-500"
+                : "border border-gray-300"
+            }`}
             placeholder="Enter Email"
             maxLength={50}
           />
         </div>
       </div>
-      <div className="relative mb-3">
+      <div className="flex gap-x-3">
+      <div className="relative mb-3 flex-1">
         <label className="flex  items-center mb-1 text-white text-xs font-medium">
-        {t("form.phone")}{" "}
+          {t("form.phone")}{" "}
           <svg
             width="7"
             height="7"
@@ -196,23 +205,32 @@ const Form = () => {
             value={formik.values.phone}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${formik.touched.phone && formik.errors.phone
-              ? "border-2 border-red-500"
-              : "border border-gray-300"
-              }`}
+            className={`block w-full h-8 pr-5 pl-12 py-2.5 text-xs font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
+              formik.touched.phone && formik.errors.phone
+                ? "border-2 border-red-500"
+                : "border border-gray-300"
+            }`}
             placeholder="Enter Phone No"
             maxLength={10}
           />
         </div>
       </div>
+      <CustomSelect
+        options={options}
+        placeholder="Select an option..."
+        value={formik.values.howDidYouHearAboutUs}
+        onChange={value => formik.setFieldValue('howDidYouHearAboutUs', value)}
+      />
+      </div>
+      
       <div className="relative mb-3">
         <label className="flex  items-center mb-1 text-white text-xs font-medium">
-        {t("form.services")}{" "}
+          {t("form.services")}{" "}
         </label>
         <div className="grid grid-cols-1 sm:grid-cols-2 mb-3">
           <div className="relative  text-gray-500 focus-within:text-gray-900">
             <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
-            {t("form.options.construction.title")}{" "}
+              {t("form.options.construction.title")}{" "}
             </label>
             <div className="flex items-center ml-8 mb-1">
               <input
@@ -245,7 +263,7 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                 {t("form.options.construction.construction_supervision")}
+                {t("form.options.construction.construction_supervision")}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">
@@ -285,7 +303,7 @@ const Form = () => {
           </div>
           <div className="relative  text-gray-500 focus-within:text-gray-900">
             <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
-            {t("form.options.construction_documents.title")}
+              {t("form.options.construction_documents.title")}
             </label>
             <div className="flex items-center ml-8 mb-1">
               <input
@@ -335,7 +353,9 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                {t("form.options.construction_documents.specifications_and_descriptive_reports")}
+                {t(
+                  "form.options.construction_documents.specifications_and_descriptive_reports"
+                )}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">
@@ -352,8 +372,13 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                {t("form.options.construction_documents.3d_modeling_and_rendering")}
-            <span className="font-extralight font-sans">3</span>{t("form.options.construction_documents.3d_modeling_and_rendering_2")}
+                {t(
+                  "form.options.construction_documents.3d_modeling_and_rendering"
+                )}
+                <span className="font-extralight font-sans">3</span>
+                {t(
+                  "form.options.construction_documents.3d_modeling_and_rendering_2"
+                )}
               </label>
             </div>
           </div>
@@ -361,7 +386,7 @@ const Form = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <div className="relative  text-gray-500 focus-within:text-gray-900">
             <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
-            {t("form.options.architectural_design.title")}
+              {t("form.options.architectural_design.title")}
             </label>
 
             <div className="flex items-center ml-8 mb-1">
@@ -418,7 +443,7 @@ const Form = () => {
           </div>
           <div className="relative  text-gray-500 focus-within:text-gray-900">
             <label className="flex items-center ml-4 mb-2 text-white text-xs font-medium">
-            {t("form.options.architectural_consulting.title")}
+              {t("form.options.architectural_consulting.title")}
             </label>
             <div className="flex items-center ml-8 mb-1">
               <input
@@ -434,7 +459,9 @@ const Form = () => {
                 htmlFor="checkbox-accept"
                 className="text-xs font-normal text-white cursor-pointer"
               >
-                {t("form.options.architectural_consulting.feasibility_analysis")}
+                {t(
+                  "form.options.architectural_consulting.feasibility_analysis"
+                )}
               </label>
             </div>
             <div className="flex items-center ml-8 mb-1">

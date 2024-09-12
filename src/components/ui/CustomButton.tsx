@@ -1,5 +1,5 @@
 import Arrow from "@/assets/arrow-right-solid.svg";
-import anime from 'animejs';
+import anime from "animejs/lib/anime.es.js"
 import { useEffect, useRef } from 'react';
 
 const CustomButton = ({ text = "CONTACTANOS" }: { text?: string }) => {
