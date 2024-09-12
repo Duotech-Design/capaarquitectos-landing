@@ -163,7 +163,7 @@ const Form = () => {
           />
         </div>
       </div>
-      <div className="flex gap-x-3">
+      <div className="flex flex-col sm:flex-row sm:gap-x-3">
       <div className="relative mb-3 flex-1">
         <label className="flex  items-center mb-1 text-white text-xs font-medium">
           {t("form.phone")}{" "}
