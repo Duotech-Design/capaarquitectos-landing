@@ -1,8 +1,9 @@
 import Arrow from "@/assets/arrow-right-solid.svg";
 
-const CustomButton = ({text = "CONTACTANOS"}: {text?: string}) => {
+const CustomButton = ({text = "CONTACTANOS", onClick }: {text?: string, onClick?: () => void}) => {
   return (
     <button
+      onClick={onClick}
       type="submit"
       className="z-50 relative group text-focus-in flex justify-start items-center py-1.5 text-base font-semibold leading-6 text-white"
     >
