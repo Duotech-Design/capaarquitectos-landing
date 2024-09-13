@@ -6,12 +6,14 @@ const CustomTabs = ({ tabs, activeTab, setActiveTab }: { tabs: { title: string; 
     <div>
       <select
         id="tab-select"
-        className="sm:hidden py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400"
+        className="sm:hidden h-8 pr-5 pl-5 py-auto text-base font-extralight font-sans shadow-xs rounded-none text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none w-full"
         aria-label="Tabs"
       >
-        <option value="#hs-tab-to-select-1">Tab 1</option>
-        <option value="#hs-tab-to-select-2">Tab 2</option>
-        <option value="#hs-tab-to-select-3">Tab 3</option>
+        {tabs.map((tab: { title: string, content: JSX.Element}, index: number) => (
+            <option key={index} value={index}>
+                {tab.title}
+            </option>
+        ))}
       </select>
       <div className="hidden sm:block border-b border-gray-200 dark:border-neutral-700">
         <nav

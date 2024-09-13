@@ -108,7 +108,7 @@ const CustomInput = ({
           value={value}
           onChange={onChange}
           onBlur={onBlur}
-          className={`block w-full h-8 pr-5 pl-12 py-2.5 text-base font-extralight font-sans shadow-xs text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
+          className={`block w-full h-8 pr-5 pl-12 py-2.5 text-base font-extralight font-sans shadow-xs rounded-none text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
             error
               ? "border-2 border-red-500"
               : "border border-gray-300"
