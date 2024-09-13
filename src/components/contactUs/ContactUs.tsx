@@ -7,7 +7,7 @@ const ContactUs = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   const handleImageLoad = () => {
@@ -27,13 +27,15 @@ const ContactUs = () => {
           <div className="spinner"></div>
         </div>
       )}
-      <header className="lg:flex-1 lg:flex flex-col gap-y-6">
+      <header className="flex-1 lg:flex flex-col gap-y-6 border-2 border-green-300">
         <div className="mt-32 flex gap-x-3">
-          <h3 className="text-2xl drop-shadow-2xl text-white text-focus-in">{t("form.title")}</h3>
+          <h3 className="text-2xl drop-shadow-2xl text-white text-focus-in">
+            {t("form.title")}
+          </h3>
         </div>
       </header>
-      <div className="flex-1 flex justify-center lg:justify-end mb-3 ">
-        <div className="mt-2 sm:mt-28 backdrop-blur-md bg-darkBlue/30 pb-3 w-max-[200px] max-h-[900px]">
+      <div className="flex-1 flex justify-center lg:justify-end border-2 border-purple-400">
+        <div className="mt-2 sm:mt-28 w-full lg:w-11/12 w-max-[500px] max-h-[900px] border-2 border-pink-500">
           <Form />
         </div>
       </div>
