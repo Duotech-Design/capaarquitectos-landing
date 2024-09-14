@@ -27,7 +27,7 @@ const CustomTabs = ({ tabs, activeTab, setActiveTab }: { tabs: { title: string; 
                     key={index}
                     type="button"
                     className={`-mb-px px-1 inline-flex items-center gap-x-1 text-sm font-normal text-center  ${
-                    activeTab === index ? "hs-tab-active:bg-white hs-tab-active:border-b-transparent hs-tab-active:text-blue-600 hs-tab-active bg-white/85 text-black hover:text-gray-700" : "text-white  focus:outline-none focus:text-gray-700 bg-transparent hover:text-gray-300"
+                    activeTab === index ? "hs-tab-active:bg-white hs-tab-active:border-b-transparent hs-tab-active:text-blue-600 hs-tab-active text-white font-cocoUltralight" : "text-gray-300 hover:text-white  focus:outline-none focus:text-gray-700"
                     }`}
                     id={`hs-tab-to-select-item-${index + 1}`}
                     aria-selected={activeTab === index}

@@ -12,6 +12,7 @@ interface CustomInputProps {
   onBlur: (e: ChangeEvent<unknown>) => void;
   error?: boolean;
   required?: boolean;
+  icon?: boolean;
 }
 
 const CustomInput = ({
@@ -26,6 +27,7 @@ const CustomInput = ({
   onBlur,
   error,
   required = true,
+  icon = true,
 }: CustomInputProps) => {
   return (
     <div className="relative mb-3">
@@ -48,7 +50,7 @@ const CustomInput = ({
        )}
       </label>
       <div className="relative  text-gray-500 focus-within:text-gray-900">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
+       {icon && <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
          {name === "email" && (
              <svg
              className="stroke-current ml-1"
@@ -100,7 +102,7 @@ const CustomInput = ({
             />
           </svg>
          )}
-        </div>
+        </div>}
         <input
           type={type}
           id={id}
@@ -108,7 +110,7 @@ const CustomInput = ({
           value={value}
           onChange={onChange}
           onBlur={onBlur}
-          className={`block w-full h-8 pr-5 pl-12 py-2.5 text-base font-extralight font-sans shadow-xs rounded-none text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
+          className={`block w-full h-8 pr-5 ${icon ? "pl-12" : "pl-4"} py-2.5 text-base font-extralight font-sans shadow-xs rounded-none text-gray-900 bg-white/90 placeholder-gray-400 focus:outline-none ${
             error
               ? "border-2 border-red-500"
               : "border border-gray-300"

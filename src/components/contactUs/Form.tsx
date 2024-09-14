@@ -60,6 +60,7 @@ const Form = () => {
       email: "",
       phone: "",
       howDidYouHearAboutUs: "",
+      others: "",
       construccion: "",
       proyectosEjecutivos: "",
       disenoArquitectonico: "",
@@ -104,34 +105,55 @@ const Form = () => {
         error={Boolean(formik.touched.email && formik.errors.email)}
         required
       />
-      <CustomInput
-        label={t("form.phone")}
-        placeholder="Enter Phone"
-        name="phone"
-        id="phone"
-        type="text"
-        limit={10}
-        value={formik.values.phone}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={Boolean(formik.touched.phone && formik.errors.phone)}
-        required
-      />
-      <CustomSelect
-        text="¿Como te enteraste de nosotros?"
-        name="howDidYouHearAboutUs"
-        options={optionsHowDidYouHearAboutUs}
-        placeholder="Select an option..."
-        value={formik.values.howDidYouHearAboutUs}
-        onChange={(value) =>
-          formik.setFieldValue("howDidYouHearAboutUs", value)
-        }
-        error={Boolean(
-          formik.touched.howDidYouHearAboutUs &&
-            formik.errors.howDidYouHearAboutUs
-        )}
-        zIndex={50}
-      />
+      <div className="flex flex-col justify-between sm:flex-row w-full">
+        <CustomInput
+          label={t("form.phone")}
+          placeholder="Enter Phone"
+          name="phone"
+          id="phone"
+          type="text"
+          limit={10}
+          value={formik.values.phone}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={Boolean(formik.touched.phone && formik.errors.phone)}
+          required
+        />
+        <CustomSelect
+          text="¿Como te enteraste de nosotros?"
+         
+          name="howDidYouHearAboutUs"
+          options={optionsHowDidYouHearAboutUs}
+          placeholder="Select an option..."
+          value={formik.values.howDidYouHearAboutUs}
+          onChange={(value) =>
+            formik.setFieldValue("howDidYouHearAboutUs", value)
+          }
+          error={Boolean(
+            formik.touched.howDidYouHearAboutUs &&
+              formik.errors.howDidYouHearAboutUs
+          )}
+          zIndex={50}
+        />
+      </div>
+      {formik.values.howDidYouHearAboutUs === "otro" && (
+        <CustomInput
+          label="Especifica"
+          required={false}
+          placeholder="Especifica"
+          name="others"
+          id="others"
+          type="text"
+          value={formik.values.others}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={Boolean(
+            formik.touched.others &&
+              formik.errors.others
+          )}
+          icon={false}
+        />
+      )}
       <div className="relative mt-3 mb-3">
         <label className="flex  items-center mb-1 text-white text-base font-medium">
           {t("form.services")}{" "}
