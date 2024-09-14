@@ -44,7 +44,7 @@ const CustomSelect = ({
   const selectedOption = options.find((option) => option.value === value);
 
   return (
-    <div className={`relative mb-3 scale-in-center z-${zIndex}`} onBlur={handleBlur} tabIndex={0}>
+    <div className={`relative flex-1 mb-3 scale-in-center z-${zIndex}`} onBlur={handleBlur} tabIndex={0}>
       <label className="flex items-center mb-1 text-white text-base font-medium">
         {text}
         {required && (

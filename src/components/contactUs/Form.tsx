@@ -78,7 +78,7 @@ const Form = () => {
 
   return (
     <form
-      className="p-6 min-w-[280px] flex flex-col justify-center backdrop-blur-md bg-darkBlue/30"
+      className="p-6 min-w-[280px] md:min-w-[400px] flex flex-col justify-center backdrop-blur-md bg-darkBlue/30"
       onSubmit={formik.handleSubmit}
     >
       <CustomInput
@@ -105,7 +105,7 @@ const Form = () => {
         error={Boolean(formik.touched.email && formik.errors.email)}
         required
       />
-      <div className="flex flex-col justify-between sm:flex-row w-full">
+      <div className="flex flex-col gap-x-2 justify-between xl:flex-row w-full">
         <CustomInput
           label={t("form.phone")}
           placeholder="Enter Phone"

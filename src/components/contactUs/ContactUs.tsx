@@ -15,27 +15,27 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="flex flex-wrap mx-auto px-2 sm:px-6 lg:px-8  md:min-h-screen bg-darkBlue border-2 h-[900px] md:h-full border-orange-400 z-50">
+    <section className="overflow-hidden flex flex-wrap mx-auto px-2 sm:px-6 lg:px-8 md:min-h-screen bg-darkBlue h-[900px] md:h-full">
       <img
         src={ContactBg}
         alt="contact-us-bg"
         onLoad={handleImageLoad}
-        className="absolute inset-0 w-full h-[900px] md:h-full object-cover z-0 fade-in"
+        className="absolute inset-0 w-full h-[900px] lg:h-[760px] xl:h-full object-cover z-0"
       />
       {!isImageLoaded && (
         <div className="absolute inset-0 bg-transparent opacity-50 z-10 flex justify-center items-center">
           <div className="spinner"></div>
         </div>
       )}
-      <header className="flex-1 lg:flex flex-col gap-y-6 border-2 border-green-300">
+      <header className="flex-1 md:flex-none lg:flex flex-col gap-y-6">
         <div className="mt-32 flex gap-x-3">
           <h3 className="text-2xl drop-shadow-2xl text-white text-focus-in">
             {t("form.title")}
           </h3>
         </div>
       </header>
-      <div className="flex-1 flex justify-center lg:justify-end border-2 border-purple-400">
-        <div className="mt-2 sm:mt-28 w-full lg:w-11/12 w-max-[500px] max-h-[900px] border-2 border-pink-500">
+      <div className="flex-1 flex justify-center lg:justify-end">
+        <div className="mt-2 sm:mt-28 w-full md:w-10/12 lg:w-7/12 w-max-[550px] max-h-[900px]">
           <Form />
         </div>
       </div>
