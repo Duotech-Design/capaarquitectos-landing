@@ -121,7 +121,6 @@ const Form = () => {
         />
         <CustomSelect
           text="¿Como te enteraste de nosotros?"
-         
           name="howDidYouHearAboutUs"
           options={optionsHowDidYouHearAboutUs}
           placeholder="Select an option..."
@@ -147,10 +146,7 @@ const Form = () => {
           value={formik.values.others}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={Boolean(
-            formik.touched.others &&
-              formik.errors.others
-          )}
+          error={Boolean(formik.touched.others && formik.errors.others)}
           icon={false}
         />
       )}
