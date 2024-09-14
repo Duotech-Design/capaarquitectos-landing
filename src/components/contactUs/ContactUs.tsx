@@ -15,12 +15,12 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="flex flex-wrap mx-auto px-2 sm:px-6 lg:px-8  md:min-h-screen bg-darkBlue">
+    <section className="flex flex-wrap mx-auto px-2 sm:px-6 lg:px-8  md:min-h-screen bg-darkBlue border-2 h-[850px] md:h-full border-orange-400 z-50">
       <img
         src={ContactBg}
         alt="contact-us-bg"
         onLoad={handleImageLoad}
-        className="absolute inset-0 w-full h-[950px] md:h-full object-cover z-0 fade-in"
+        className="absolute inset-0 w-full h-[850px] md:h-full object-cover z-0 fade-in"
       />
       {!isImageLoaded && (
         <div className="absolute inset-0 bg-transparent opacity-50 z-10 flex justify-center items-center">
@@ -35,7 +35,7 @@ const ContactUs = () => {
         </div>
       </header>
       <div className="flex-1 flex justify-center lg:justify-end border-2 border-purple-400">
-        <div className="mt-2 sm:mt-28 w-full lg:w-11/12 w-max-[500px] max-h-[900px] border-2 border-pink-500">
+        <div className="mt-2 sm:mt-28 w-full lg:w-11/12 w-max-[500px] max-h-[850px] border-2 border-pink-500">
           <Form />
         </div>
       </div>

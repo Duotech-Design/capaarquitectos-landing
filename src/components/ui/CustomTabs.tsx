@@ -15,7 +15,7 @@ const CustomTabs = ({ tabs, activeTab, setActiveTab }: { tabs: { title: string; 
             </option>
         ))}
       </select>
-      <div className="hidden sm:block border-b border-gray-200 dark:border-neutral-700">
+      <div className="hidden sm:block border-gray-200">
         <nav
           className="flex gap-x-2"
           aria-label="Tabs"

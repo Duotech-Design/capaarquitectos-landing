@@ -5,6 +5,28 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "coco-ultralight";
+  src: url("../assets/fonts/cocogoose-pro.ultralight.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "coco-gradient";
+  src: url("../assets/fonts/cocogoose-pro.block-gradient.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "coco-border";
+  src: url("../assets/fonts/cocogoose-pro.block-border.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body {
   font-family: "cocogoose-pro", sans-serif;
 }

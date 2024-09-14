@@ -19,6 +19,11 @@ export default {
           "url('https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp')",
         "philosophy-bg": "url('/src/assets/img/philosophy.jpg')",
       },
+      fontFamily: {
+        cocoUltralight: ["coco-ultralight", "sans-serif"],
+        cocoGrdient: ["coco-gradient", "sans-serif"],
+        cocoBorder: ["coco-border", "sans-serif"],
+      },
     },
   },
   plugins: [],
