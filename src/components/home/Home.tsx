@@ -21,11 +21,11 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate("/contact"); // Redirige a la página de contacto
+    navigate("/contact-us"); // Redirige a la página de contacto
   };
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   useEffect(() => {
@@ -59,7 +59,10 @@ const Home = () => {
   }, []);
 
   return (
-    <section id="home" className="relative mx-auto px-2 sm:px-6 lg:px-8 min-h-screen overflow-hidden bg-gradient-to-t from-darkBlue">
+    <section
+      id="home"
+      className="relative mx-auto px-2 sm:px-6 lg:px-8 min-h-screen overflow-hidden bg-gradient-to-t from-darkBlue"
+    >
       <img
         ref={imgRef}
         src={HomeBg}

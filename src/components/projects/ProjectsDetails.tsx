@@ -37,9 +37,9 @@ const ProjectsDetails = () => {
 
   return (
     <section className="flex flex-col mx-auto px-2 sm:px-6 lg:px-8 min-h-screen max-w-[2000px]">
-      <header className="flex">
-        <h3 className="mt-28 pb-6 md:pb-1 lg:text-2xl text-sm drop-shadow-sm text-black flex items-center gap-x-3">
-          {t("projects_description.title")}
+      <header className="flex justify-center md:justify-start">
+        <h3 className="mt-28 pb-6 md:pb-1 lg:text-2xl text-sm drop-shadow-sm text-black flex justify-between items-center gap-x-3 w-[300px]">
+          
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className={`w-7 h-7 rotate-180 ${

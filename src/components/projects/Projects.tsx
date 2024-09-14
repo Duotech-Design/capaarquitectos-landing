@@ -39,17 +39,13 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen mb-12"
+      className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen pb-8"
     >
-      <header className="flex flex-col flex-1 gap-y-6">
-        <div className="mt-32">
-          <h3 className="text-xl font-semibold sm:font-thin">{t("projects.title")}</h3>
-        </div>
-        <div className="text-right py-3">
-          <h4 className="text-md font-semibold sm:font-thin">{`${t("projects.button1")} | ${t(
-            "projects.button2"
-          )}`}</h4>
-        </div>
+      <header className="pt-28 pb-3 flex flex-row justify-between items-end">
+        <h3 className="text-3xl text-gray-500">{t("projects.title")}</h3>
+        <h4 className="text-md">{`${t("projects.button1")} | ${t(
+          "projects.button2"
+        )}`}</h4>
       </header>
       <div className="grid grid-cols-1 gap-4">
         {projectList.map((project: AvailableProjects) => (
@@ -59,13 +55,13 @@ const Projects = () => {
             onClick={() => handleClick(project)}
           >
             <div className="cursor-pointer absolute inset-0 bg-darkGray/50 text-white opacity-0 group-hover:opacity-90 z-10 flex flex-col justify-center items-center transition-opacity duration-700">
-              <span className="text-2xl text-focus-in">
+              <span className="text-2xl font-semibold text-focus-in">
                 {ProjectAssets[project].name}
               </span>
-              <span className="text-xl text-focus-in">
+              <span className="text-xl font-semibold text-focus-in">
                 {ProjectAssets[project].location}
               </span>
-              <div className="pt-2 text-focus-in">
+              <div className="pt-2 font-semibold text-focus-in">
                 <MoreButton text={t("projects.button3")} />
               </div>
             </div>

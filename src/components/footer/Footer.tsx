@@ -1,22 +1,22 @@
 export const Footer = () => {
   return (
-    <footer className="bg-[#DFDFDF] text-center text-black lg:text-left border-2 border-l-green-300">
+    <footer className="bg-[#DFDFDF] text-center text-gray-600 lg:text-left">
       <div className="py-5 text-center">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {/* Contact Information */}
           <div className="">
-            <h6 className="mb-2 text-xs md:text-lg font-cocoUltralight uppercase">
+            <h6 className="mb-2  md:text-lg font-cocoUltralight uppercase">
               TELÉFONO
             </h6>
             <a
               href="https://wa.me/524443188840?text=Quiero%20cotizar%20un%20servicio"
-              className="text-xs md:text-lg font-sans font-thin block"
+              className=" md:text-lg font-sans font-thin block"
             >
               + 52 444318 8840
             </a>
             <a
               href="https://wa.me/524442816256?text=Quiero%20cotizar%20un%20servicio"
-              className="text-xs md:text-lg font-sans font-thin block"
+              className=" md:text-lg font-sans font-thin block"
             >
               + 52 444281 6256
             </a>
@@ -24,16 +24,16 @@ export const Footer = () => {
 
           {/* Email Information */}
           <div className="">
-            <h6 className="mb-2 text-xs md:text-lg font-cocoUltralight uppercase">
+            <h6 className="mb-2  md:text-lg font-cocoUltralight uppercase">
               CORREO
             </h6>
-            <p className="mb-2 text-xs md:text-lg">
+            <p className="mb-2  md:text-lg">
               <a href="mailto:info@capaarquitectos.com">
                 info<span className="font-sans font-extralight">@</span>
                 capaarquitectos.com
               </a>
             </p>
-            <p className="text-xs md:text-lg">
+            <p className=" md:text-lg">
               <a href="mailto:capa.arquitectos.mx@gmail.com">
                 capa.arquitectos.mx
                 <span className="font-sans font-extralight">@</span>gmail.com
@@ -43,12 +43,12 @@ export const Footer = () => {
 
           {/* Social Media Links */}
           <div className="">
-            <h6 className="mb-2 text-xs md:text-lg font-cocoUltralight uppercase">
+            <h6 className="mb-2  md:text-lg font-cocoUltralight uppercase">
               SÍGUENOS
             </h6>
-            <p className="mb-2 text-xs md:text-lg">Instagram</p>
-            <p className="mb-2 text-xs md:text-lg">Facebook</p>
-            <p className="text-xs md:text-lg">TikTok</p>
+            <p className="mb-2  md:text-lg">Instagram</p>
+            <p className="mb-2  md:text-lg">Facebook</p>
+            <p className=" md:text-lg">TikTok</p>
           </div>
         </div>
       </div>
