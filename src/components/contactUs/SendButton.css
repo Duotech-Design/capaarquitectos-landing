@@ -1,0 +1,19 @@
+.start {
+    color: transparent;
+    transition: color 0.3s ease;
+  }
+  
+  .loading {
+    color: #879EAD;
+    transition: color 0.3s ease;
+  }
+  
+  .success {
+    color: #879EAD;
+    transition: color 0.3s ease;
+  }
+  
+  .error {
+    color: red;
+    transition: color 0.3s ease;
+  }

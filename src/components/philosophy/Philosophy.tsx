@@ -2,14 +2,20 @@ import Start from "@/assets/svg/icons/star.svg";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import CustomButton from "../ui/CustomButton";
+import { useNavigate } from "react-router-dom";
+
 import "./Philosophy.css";
 
 const Philosophy = () => {
   const { t } = useTranslation("global");
-
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  const handleButtonClick = () => {
+    navigate("/contact-us"); // Redirige a la página de contacto
+  };
 
   return (
     <div className="bg-philosophy-bg bg-cover bg-center bg-fixed">
@@ -66,7 +72,7 @@ const Philosophy = () => {
         </div>
         {/* Ajuste para el botón */}
         <div className="flex justify-end pt-4 md:pt-24 mr-10">
-          <CustomButton text={t("philosophy.button")} />
+          <CustomButton text={t("philosophy.button")} onClick={handleButtonClick} />
         </div>
       </div>
     </div>

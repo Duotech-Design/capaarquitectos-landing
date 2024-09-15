@@ -73,11 +73,22 @@
   "form": {
     "title": "GET IN TOUCH",
     "name": "Name",
+    "name_placeholder": "Enter your name",
     "email": "Email",
+    "email_placeholder": "Enter your email",
     "phone": "Phone",
+    "phone_placeholder": "Enter your phone number",
+    "howDidYouHearAboutUs": "How did you hear about us?",
+    "howDidYouHearAboutUs_placeholder": "Select an option ...",
+    "specify": "Specify",
+    "specify_placeholder": "Recommendation from ...",
+    "services": "Services of interest",
+    "projects_description": "Tell us more about your project",
+    "projects_description_placeholder": "I would like ...",
     "options": {
       "construction": {
         "title": "Construction",
+        "placeholder": "Construction of ...",
         "new_construction": "New Construction",
         "construction_supervision": "Project Supervision",
         "civil_works": "Civil Works",
@@ -85,28 +96,38 @@
       },
       "construction_documents": {
         "title": "Construction Documents",
+        "placeholder": "Construction documents for ...",
         "construction_drawings": "Construction Drawings",
         "permit_acquisition": "Permit Acquisition",
         "specifications_and_descriptive_reports": "Specifications and Descriptive Reports",
-        "3d_modeling_and_rendering": "3D Modeling and Rendering"
+        "3d_modeling_and_rendering": "Modeling ",
+        "3d_modeling_and_rendering_2": "D and Rendering"
       },
       "architectural_consulting": {
         "title": "Architectural Consulting",
+        "placeholder": "Architectural consulting for ...",
         "feasibility_analysis": "Feasibility Analysis",
         "design_consultation": "Design Consultation"
       },
       "architectural_design": {
         "title": "Architectural Design",
+        "placeholder": "Architectural design for ...",
         "residential_design": "Residential Design",
         "commercial_design": "Commercial Design",
         "interior_design": "Interior Design"
       },
-      "loading": "Loading...",
-      "success": "Success",
-      "error": "Try again later"
+     "optionsHowDidYouHearAboutUs": {
+      "magazine": "Magazine",
+      "recommendation": "Friend or Acquaintance",
+      "other": "Other"
+     }
     },
     "button": {
-      "button_form": "SUBMIT FORM"
+      "start": "SEND",
+      "loading": "SENDING ",
+      "success": "Message sent successfully",
+      "error": "An error occurred. Please try again."
+
     }
   },
   "footer": {

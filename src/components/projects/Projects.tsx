@@ -41,8 +41,8 @@ const Projects = () => {
       id="projects"
       className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen pb-8"
     >
-      <header className="pt-28 pb-3 flex flex-row justify-between items-end">
-        <h3 className="text-3xl text-gray-500">{t("projects.title")}</h3>
+      <header className="-mt-20 pt-28 pb-3 flex flex-row justify-between items-end">
+        <h3 className="tex-lg md:text-3xl text-gray-500">{t("projects.title")}</h3>
         <h4 className="text-md">{`${t("projects.button1")} | ${t(
           "projects.button2"
         )}`}</h4>
@@ -74,7 +74,7 @@ const Projects = () => {
                       project={project}
                       index={index}
                       alt={`${project}_${index + 1}`}
-                      className="w-full h-[300px] 2xl:h-[500px] object-cover object-center"
+                      className="w-full h-[220px] md:h-[300px] 2xl:h-[500px] object-cover md:object-center"
                     />
                   </div>
                 );

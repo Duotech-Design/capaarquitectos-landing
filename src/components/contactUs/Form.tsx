@@ -6,52 +6,167 @@ import CustomInput from "../ui/CustomInput";
 import CustomSelect from "../ui/CustomSelect";
 import CustomTabs from "../ui/CustomTabs";
 import SendButton from "./SendButton";
+type State = "loading" | "success" | "start" | "error";
+
+type Event = { type: "CLICK" };
+
+interface StateMachine {
+  initial: State;
+  states: {
+    [key in State]: {
+      on: {
+        [key in Event["type"]]: State;
+      };
+    };
+  };
+}
+
+const machine: StateMachine = {
+  initial: "start",
+  states: {
+    start: {
+      on: {
+        CLICK: "loading",
+      },
+    },
+    loading: {
+      on: {
+        CLICK: "success",
+      },
+    },
+    success: {
+      on: {
+        CLICK: "error",
+      },
+    },
+    error: {
+      on: {
+        CLICK: "start",
+      },
+    },
+  },
+};
+const transition = (state: State, event: Event): State => {
+  return machine.states[state].on[event.type];
+};
+
 const Form = () => {
   const { t } = useTranslation("global");
-  const [activeTab, setActiveTab] = useState(0);
+  const [state, setState] = useState<State>(machine.initial);
+
+  const simulateEmailSend = (data: Record<string, unknown> | undefined) => {
+    return new Promise<void>((resolve, reject) => {
+      setTimeout(() => {
+        const isSuccess = Math.random() > 0.5;
+        if (isSuccess) {
+          resolve();
+        } else {
+          reject(new Error("Simulated email send error"));
+        }
+      }, 2000);
+      console.log(data);
+    });
+  };
+
+  const onSubmit = (data: Record<string, unknown> | undefined) => {
+    setState(transition(state, { type: "CLICK" }));
+
+    simulateEmailSend(data)
+      .then(() => {
+        setState("success");
+      })
+      .catch((error) => {
+        console.log(error);
+        setState("error");
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setState("start");
+        }, 3000);
+      });
+  };
+
   const optionsHowDidYouHearAboutUs = [
     { value: "facebook", label: "Facebook" },
     { value: "google", label: "Google" },
-    { value: "revista", label: "Revista" },
-    { value: "amigo o conocido", label: "Amigo o conocido" },
-    { value: "otro", label: "Otro" },
+    {
+      value: "revista",
+      label: t("form.options.optionsHowDidYouHearAboutUs.magazine"),
+    },
+    {
+      value: "amigo o conocido",
+      label: t("form.options.optionsHowDidYouHearAboutUs.recommendation"),
+    },
+    {
+      value: "otro",
+      label: t("form.options.optionsHowDidYouHearAboutUs.other"),
+    },
   ];
 
   const optionsConstruction = [
-    { value: "Obra Nueva", label: "Obra Nueva" },
-    { value: "Supervicion de Obra", label: "Supervicion de Obra" },
-    { value: "Obra Civil", label: "Obra Civil" },
+    {
+      value: "Construcción de Obra nueva",
+      label: t("form.options.construction.new_construction"),
+    },
+    {
+      value: "Supervisión de Obra",
+      label: t("form.options.construction.construction_supervision"),
+    },
+    { value: "Obra Civil", label: t("form.options.construction.civil_works") },
     {
       value: "Remodelaciones y Ampliaciones",
-      label: "Remodelaciones y Ampliaciones",
+      label: t("form.options.construction.renovations_and_additions"),
     },
   ];
 
   const optionsProjectExecution = [
-    { value: "Planos Constructivos", label: "Planos Constructivos" },
+    {
+      value: "Desarrollo de planos constructivos",
+      label: t("form.options.construction_documents.construction_drawings"),
+    },
     {
       value: "Gestion de Permisos y Licencias",
-      label: "Gestion de Permisos y Licencias",
+      label: t("form.options.construction_documents.permit_acquisition"),
     },
     {
       value: "Memorias Descriptivas y Especificaciones",
-      label: "Memorias Descriptivas y Especificaciones",
+      label: t(
+        "form.options.construction_documents.specifications_and_descriptive_reports"
+      ),
     },
     {
       value: "Modelado 3D y Renderizacion",
-      label: "Modelado 3D y Renderizacion",
+      label:
+        t("form.options.construction_documents.3d_modeling_and_rendering") +
+        "3" +
+        t("form.options.construction_documents.3d_modeling_and_rendering_2"),
     },
   ];
 
   const optionsArchitecturalDesign = [
-    { value: "Diseño Habitacional", label: "Diseño Habitacional" },
-    { value: "Diseño Comercial", label: "Diseño Comercial" },
-    { value: "Diseño de Interiores", label: "Diseño de Interiores" },
+    {
+      value: "Diseño Habitacional",
+      label: t("form.options.architectural_design.residential_design"),
+    },
+    {
+      value: "Diseño Comercial",
+      label: t("form.options.architectural_design.commercial_design"),
+    },
+    {
+      value: "Diseño de Interiores",
+      label: t("form.options.architectural_design.interior_design"),
+    },
   ];
 
   const optionsConsulting = [
-    { value: "Estudios de Factibilidad", label: "Estudios de Factibilidad" },
-    { value: "Asesoria de Diseño", label: "Asesoria de Diseño" },
+    {
+      value: "Estudios de Factibilidad",
+      label: t("form.options.architectural_consulting.feasibility_analysis"),
+    },
+    {
+      value: "Asesoria de Diseño",
+      label: t("form.options.architectural_consulting.design_consultation"),
+    },
   ];
 
   const formik = useFormik({
@@ -72,6 +187,7 @@ const Form = () => {
       if (Object.keys(formik.errors).length === 0) {
         formik.resetForm();
       }
+      onSubmit(formik.values);
       setSubmitting(false);
     },
   });
@@ -83,7 +199,7 @@ const Form = () => {
     >
       <CustomInput
         label={t("form.name")}
-        placeholder="Enter Name"
+        placeholder={t("form.name_placeholder")}
         name="name"
         id="name"
         type="text"
@@ -95,7 +211,7 @@ const Form = () => {
       />
       <CustomInput
         label={t("form.email")}
-        placeholder="Enter Email"
+        placeholder={t("form.email_placeholder")}
         name="email"
         id="email"
         type="email"
@@ -108,7 +224,7 @@ const Form = () => {
       <div className="flex flex-col gap-x-2 justify-between xl:flex-row w-full">
         <CustomInput
           label={t("form.phone")}
-          placeholder="Enter Phone"
+          placeholder={t("form.phone_placeholder")}
           name="phone"
           id="phone"
           type="text"
@@ -120,10 +236,10 @@ const Form = () => {
           required
         />
         <CustomSelect
-          text="¿Como te enteraste de nosotros?"
+          text={t("form.howDidYouHearAboutUs")}
+          placeholder={t("form.howDidYouHearAboutUs_placeholder")}
           name="howDidYouHearAboutUs"
           options={optionsHowDidYouHearAboutUs}
-          placeholder="Select an option..."
           value={formik.values.howDidYouHearAboutUs}
           onChange={(value) =>
             formik.setFieldValue("howDidYouHearAboutUs", value)
@@ -137,9 +253,9 @@ const Form = () => {
       </div>
       {formik.values.howDidYouHearAboutUs === "otro" && (
         <CustomInput
-          label="Especifica"
+          label={t("form.specify")}
           required={false}
-          placeholder="Especifica"
+          placeholder={t("form.specify_placeholder")}
           name="others"
           id="others"
           type="text"
@@ -157,14 +273,14 @@ const Form = () => {
         <CustomTabs
           tabs={[
             {
-              title: "Construcción",
+              title: t("form.options.construction.title"),
               content: (
                 <CustomSelect
                   text=""
                   name="construccion"
                   required={false}
                   options={optionsConstruction}
-                  placeholder="Select an option..."
+                  placeholder={t("form.options.construction.placeholder")}
                   value={formik.values.construccion}
                   onChange={(value) =>
                     formik.setFieldValue("construccion", value)
@@ -176,14 +292,16 @@ const Form = () => {
               ),
             },
             {
-              title: "Proyectos Ejecutivos",
+              title: t("form.options.construction_documents.title"),
               content: (
                 <CustomSelect
                   text=""
                   name="proyectosEjecutivos"
                   required={false}
                   options={optionsProjectExecution}
-                  placeholder="Select an option..."
+                  placeholder={t(
+                    "form.options.construction_documents.placeholder"
+                  )}
                   value={formik.values.proyectosEjecutivos}
                   onChange={(value) =>
                     formik.setFieldValue("proyectosEjecutivos", value)
@@ -196,14 +314,16 @@ const Form = () => {
               ),
             },
             {
-              title: "Diseño Arquitectónico",
+              title: t("form.options.architectural_design.title"),
               content: (
                 <CustomSelect
                   text=""
                   name="disenoArquitectonico"
                   required={false}
                   options={optionsArchitecturalDesign}
-                  placeholder="Select an option..."
+                  placeholder={t(
+                    "form.options.architectural_design.placeholder"
+                  )}
                   value={formik.values.disenoArquitectonico}
                   onChange={(value) =>
                     formik.setFieldValue("disenoArquitectonico", value)
@@ -216,14 +336,16 @@ const Form = () => {
               ),
             },
             {
-              title: "Consultoría y Asesoría",
+              title: t("form.options.architectural_consulting.title"),
               content: (
                 <CustomSelect
                   text=""
                   name="consultoriaAsesoria"
                   required={false}
                   options={optionsConsulting}
-                  placeholder="Select an option..."
+                  placeholder={t(
+                    "form.options.architectural_consulting.placeholder"
+                  )}
                   value={formik.values.consultoriaAsesoria}
                   onChange={(value) =>
                     formik.setFieldValue("consultoriaAsesoria", value)
@@ -236,13 +358,11 @@ const Form = () => {
               ),
             },
           ]}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
         />
       </div>
       <div className="relative mb-2">
         <label className="flex  items-center mb-1 text-white text-base font-medium">
-          Cuentanos sobre tu proyecto{" "}
+          {t("form.projects_description")}
         </label>
         <div className="relative  text-gray-500 focus-within:text-gray-900">
           <textarea
@@ -252,13 +372,16 @@ const Form = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             className="block w-full h-20 px-4 py-2.5 text-base leading-7 font-extralight font-sans shadow-xs text-gray-900 bg-white/90 border border-gray-300 placeholder-gray-400 focus:outline-none resize-none"
-            placeholder="Write a message..."
+            placeholder={t("form.projects_description_placeholder")}
             maxLength={2000}
           ></textarea>
         </div>
       </div>
       <div className="flex justify-center">
-        <SendButton />
+        <SendButton text={t(`form.button.${state}`)} state={state} />
+        
+ 
+
       </div>
     </form>
   );

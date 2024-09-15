@@ -72,20 +72,31 @@
   },
   "form": {
     "title": "CONTÁCTANOS",
-    "name": "Nombre ",
+    "name": "Nombre",
+    "name_placeholder": "Ingresa tu nombre",
     "email": "Email",
+    "email_placeholder": "Ingresa tu email",
     "phone": "Teléfono",
+    "phone_placeholder": "Ingresa tu teléfono",
+    "howDidYouHearAboutUs": "¿Como te enteraste de nosotros?",
+    "howDidYouHearAboutUs_placeholder": "Selecciona una opción ...",
+    "specify": "Especifica",
+    "specify_placeholder": "Recomedación de ...",
     "services": "Servicios de interes",
+    "projects_description": "Cuentanos más sobre tu proyecto",
+    "projects_description_placeholder": "Me gustaría ...",
     "options": {
       "construction": {
         "title": "Construcción",
-        "new_construction": "Construcción de obra nueva",
-        "construction_supervision": "Supervisión de obra",
+        "placeholder": "Construcción de ...",
+        "new_construction": "Construcción de obra Nueva",
+        "construction_supervision": "Supervisión de Obra",
         "civil_works": "Obra civil",
-        "renovations_and_additions": "Remodelaciones y ampliaciones"
+        "renovations_and_additions": "Remodelaciones y Ampliaciones"
       },
       "construction_documents": {
         "title": "Proyectos Ejecutivos",
+        "placeholder": "Proyectos ejecutivos de ...",
         "construction_drawings": "Desarrollo de planos constructivos",
         "permit_acquisition": "Gestión de permisos y licencias",
         "specifications_and_descriptive_reports": "Memorias descriptivas y especificaciones",
@@ -94,21 +105,28 @@
       },
       "architectural_consulting": {
         "title": "Consultoria y asesoria",
+        "placeholder": "Consultoria y asesoria de ...",
         "feasibility_analysis": "Estudios de factibilidad",
         "design_consultation": "Asesoria de diseño"
       },
       "architectural_design": {
         "title": "Diseño Arquitectonico",
+        "placeholder": "Diseño arquitectonico de ...",
         "residential_design": "Diseño habitacional",
         "commercial_design": "Diseño comercial",
         "interior_design": "Diseño de interiores"
       },
-      "loading": "Loading...",
-      "success": "success",
-      "error": "Try again later"
+      "optionsHowDidYouHearAboutUs": {
+        "magazine": "Revista",
+        "recommendation": "Amigo o conocido",
+        "other": "Otro"
+      }
     },
     "button": {
-      "button_form": " ENVIAR FORMULARIO"
+      "start": "ENVIAR",
+      "loading": "ENVIANDO ",
+      "success": "ENVIADO CON ÉXITO",
+      "error": "INTÉNTALO DE NUEVO MÁS TARDE"
     }
   },
   "footer": {
