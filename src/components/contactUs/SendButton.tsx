@@ -3,7 +3,12 @@ const SendButton = ({ text, state }: { text: string; state: string }) => {
   return (
     <button
       type="submit"
-      className={`${state} w-full flex justify-center items-center py-1.5 text-sm font-semibold leading-6 text-white border-b-2 border-b-white`}
+      className={`${state} w-full flex justify-center items-center py-1.5 text-sm leading-6
+      ${state === "start" && "text-white font-semibold border-b-2 border-b-white"} ${
+        state === "success" && "text-green-500 font-bold border-b-2 border-b-green-500"
+      } ${state === "error" && "text-red-400 font-bold border-b-2 border-b-red-400"} ${
+        state === "loading" && "text-gray-100 font-semibold border-b-2 border-b-gray-100 "
+      }`}
     >
       <span className="flex items-center justify-center fade-in-left">
         {text}
