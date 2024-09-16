@@ -10,6 +10,7 @@ interface FullScreenImageProps {
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>; 
 }
 
+//coment
 const FullScreenImage: FC<FullScreenImageProps> = ({
   project,
   index,
