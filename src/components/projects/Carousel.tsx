@@ -1,9 +1,13 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import "./Carousel.css";
-import { AvailableProjects, ProjectAsset, ProjectAssets } from "../../helpers/projectAssets";
+import {
+  AvailableProjects,
+  ProjectAsset,
+  ProjectAssets,
+} from "../../helpers/projectAssets";
 import FullScreenImage from "./FullScreenImage";
 
 interface SimpleSliderProps {
@@ -67,7 +71,7 @@ const CustomNextArrow: FC<ArrowProps> = ({ className, onClick }) => {
 const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
-
+  const sliderRef = useRef<Slider>(null);
   const settings = {
     dots: false,
     infinite: true,
@@ -83,10 +87,17 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
     setCurrentIndex(0);
   }, [id]);
 
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(currentIndex);
+    }
+  }, [currentIndex]);
+
   const totalImages: number = ProjectAssets[id].images;
   const imageArray = new Array(totalImages).fill(0);
 
-  const handleImageClick = () => {
+  const handleImageClick = (index: number) => {
+    setCurrentIndex(index);
     setIsFullScreen(true);
   };
 
@@ -94,19 +105,9 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
     setIsFullScreen(false);
   };
 
-  const handleNextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
-  };
-
-  const handlePrevImage = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? totalImages - 1 : prevIndex - 1
-    );
-  };
-
   return (
     <div className="relative">
-      <Slider key={id} {...settings} className="relative">
+      <Slider ref={sliderRef} key={id} {...settings} className="relative">
         {imageArray.map((_, index) => (
           <div key={index} className="overflow-hidden">
             <ProjectAsset
@@ -114,7 +115,7 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
               index={index}
               alt={`${id}_${index + 1}`}
               className="w-full sm:h-[500px] 2xl:h-[600px] object-cover object-center cursor-pointer"
-              onClick={handleImageClick}
+              onClick={() => handleImageClick(index)}
             />
           </div>
         ))}
@@ -127,8 +128,7 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
           project={id}
           index={currentIndex}
           onClose={handleCloseFullScreen}
-          onNext={handleNextImage}
-          onPrev={handlePrevImage}
+          setCurrentIndex={setCurrentIndex}
         />
       )}
     </div>

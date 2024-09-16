@@ -1,35 +1,45 @@
 import { FC } from "react";
 import ReactDOM from "react-dom";
-import { ProjectAsset } from "../../helpers/projectAssets";
+import { ProjectAsset, ProjectAssets } from "../../helpers/projectAssets";
 import { AvailableProjects } from "../../helpers/projectAssets";
 
 interface FullScreenImageProps {
   project: AvailableProjects;
   index: number;
   onClose: () => void;
-  onNext: () => void;
-  onPrev: () => void;
+  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>; 
 }
 
 const FullScreenImage: FC<FullScreenImageProps> = ({
   project,
   index,
   onClose,
-  onNext,
-  onPrev,
+  setCurrentIndex,
 }) => {
+  const totalImages:number = ProjectAssets[project].images;
+  const handleNext = () => {
+    setCurrentIndex((prevIndex: number) => (prevIndex + 1) % totalImages);
+    
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? totalImages - 1 : prevIndex - 1
+    );
+  
+  };
   return ReactDOM.createPortal(
     <div className="fixed inset-0 bg-black backdrop-blur-md bg-opacity-80 flex justify-center items-center z-50 overflow-hidden">
       <div className="relative max-w-4xl max-h-full">
         <button
-          className="absolute top-4 md:-top-2 right-4 md:-right-24 text-white px-2.5"
+          className="absolute -top-10 md:-top-2 right-2 md:-right-24 text-white px-2.5"
           onClick={onClose}
         >
           <svg
             className="h-8 w-8 hover:text-gray-300"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1"
+            strokeWidth={0.5}
             stroke="currentColor"
             aria-hidden="true"
           >
@@ -42,11 +52,11 @@ const FullScreenImage: FC<FullScreenImageProps> = ({
         </button>
         <button
           className="absolute top-1/2 left-4 md:-left-20 transform -translate-y-1/2 text-white text-3xl"
-          onClick={onPrev}
+          onClick={handlePrev}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-10 h-10 text-white rounded-full hover:text-gray-300"
+            className="w-7 h-7 md:w-10 md:h-10 text-white rounded-full hover:text-gray-300"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -67,11 +77,11 @@ const FullScreenImage: FC<FullScreenImageProps> = ({
         />
         <button
           className="absolute top-1/2 right-4 md:-right-20 transform -translate-y-1/2 text-white text-xl font-thin"
-          onClick={onNext}
+          onClick={handleNext}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-10 h-10 text-white rounded-full hover:text-gray-300"
+            className="w-7 h-7 md:w-10 md:h-10 text-white rounded-full hover:text-gray-300"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
