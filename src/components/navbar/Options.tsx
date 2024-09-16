@@ -1,6 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import LanguageToggle from "./LanguageToggle";
+
 import { useTranslation } from "react-i18next";
 const Options = () => {
   const { t } = useTranslation("global");
@@ -150,7 +150,7 @@ const Options = () => {
               }`}
             ></span>
           </a>
-          <LanguageToggle />
+         
         </div>
       </div>
     </div>
