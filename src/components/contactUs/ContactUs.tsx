@@ -1,26 +1,22 @@
 import Form from "./Form";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ContactBg from "@/assets/img/contact-us-bg.webp";
 const ContactUs = () => {
   const { t } = useTranslation("global");
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
-
   const handleImageLoad = () => {
     setIsImageLoaded(true);
   };
 
   return (
-    <section className="overflow-hidden flex flex-wrap justify-center md:justify-normal items-center md:items-baseline gap-0 mx-auto px-2 sm:px-6 lg:px-8  bg-darkBlue h-[900px] lg:h-[760px]">
+    <section className="overflow-hidden flex flex-wrap justify-center md:justify-normal items-center md:items-baseline gap-0 mx-auto px-2 sm:px-6 lg:px-8  bg-darkBlue h-[900px] lg:h-[760px] 2xl:h-full ">
       <img
         src={ContactBg}
         alt="contact-us-bg"
         onLoad={handleImageLoad}
-        className="absolute inset-0 w-full h-[900px] lg:h-[760px] object-cover z-0"
+        className="absolute inset-0 w-full h-[900px] lg:h-[760px] object-cover z-0 2xl:h-full"
       />
       {!isImageLoaded && (
         <div className="absolute inset-0 bg-transparent opacity-50 z-10 flex justify-center items-center">

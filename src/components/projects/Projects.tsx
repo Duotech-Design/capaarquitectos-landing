@@ -35,7 +35,9 @@ const Projects = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   const projectList = ProjectList;
+  
   return (
     <section
       id="projects"

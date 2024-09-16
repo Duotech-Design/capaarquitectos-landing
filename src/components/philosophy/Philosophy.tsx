@@ -1,5 +1,4 @@
 import Start from "@/assets/svg/icons/star.svg";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import CustomButton from "../ui/CustomButton";
 import { useNavigate } from "react-router-dom";
@@ -9,9 +8,6 @@ import "./Philosophy.css";
 const Philosophy = () => {
   const { t } = useTranslation("global");
   const navigate = useNavigate();
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
 
   const handleButtonClick = () => {
     navigate("/contact-us"); // Redirige a la página de contacto

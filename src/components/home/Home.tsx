@@ -21,7 +21,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 6000); // Cambia la imagen cada 5 segundos
+    }, 6000);
 
     return () => clearInterval(interval);
   }, []);
@@ -40,10 +40,6 @@ const Home = () => {
   const handleButtonClick = () => {
     navigate("/contact-us");
   };
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
 
   useEffect(() => {
     if (isImageLoaded && isIntersecting) {

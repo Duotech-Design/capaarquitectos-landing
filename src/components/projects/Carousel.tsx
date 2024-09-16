@@ -139,7 +139,7 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
       </div>
       {isFullScreen &&
         ReactDOM.createPortal(
-          <div className="fixed inset-0 bg-black backdrop-blur-md bg-opacity-80 flex justify-center items-center z-50">
+          <div className="fixed inset-0 bg-black backdrop-blur-lg bg-opacity-80 flex justify-center items-center z-50">
             <div className="relative max-w-4xl max-h-full">
               <button
                 className="absolute -top-10 md:-top-2 -right-10 md:-right-24 text-white px-2.5"
@@ -160,7 +160,7 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
                   />
                 </svg>
               </button>
-              <div className="w-[300px] sm:w-[400px] md:[450px] lg:w-[650px] xl:w-[750px]">
+              <div className="w-[300px] sm:w-[400px] md:[450px] lg:w-[650px] xl:w-[750px] 2xl:h-full 2xl:w-full">
                 {renderSlider(fullScreenSliderRef)}
               </div>
             </div>
