@@ -1,10 +1,11 @@
 import HomeBg from "@/assets/img/home-bg-r.webp";
+import HomeBg2 from "@/assets/img/philosophy.jpg";
 import { useEffect, useRef, useState } from "react";
 import CustomButton from "../ui/CustomButton";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom"; // Importa el hook useNavigate
 import "./Home.css";
-
+const images = [HomeBg, HomeBg2];
 const Home = () => {
   const { t } = useTranslation("global");
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -13,9 +14,25 @@ const Home = () => {
 
   const imgRef = useRef<HTMLImageElement>(null);
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+ 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 6000); // Cambia la imagen cada 5 segundos
+
+    return () => clearInterval(interval);
+  }, []);
+
   const handleImageLoad = () => {
     setIsImageLoaded(true);
+    setIsFirstAnimationDone(true);
   };
+
+  const handleImageClick = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
 
   // Usa el hook useNavigate para la navegación
   const navigate = useNavigate();
@@ -63,12 +80,13 @@ const Home = () => {
       id="home"
       className="relative mx-auto px-2 sm:px-6 lg:px-8 min-h-screen overflow-hidden bg-gradient-to-t from-darkBlue"
     >
-      <img
+     <img
         ref={imgRef}
-        src={HomeBg}
+        src={images[currentImageIndex]}
         alt="image"
         onLoad={handleImageLoad}
-        className={`absolute inset-0 object-cover w-full h-[100vh] object-center z-0 ${
+        onClick={handleImageClick}
+        className={`absolute inset-0 object-cover w-full h-[100vh] object-center z-0 transition-transform duration-1000 ${
           isFirstAnimationDone ? "kenburns-right" : "fade-in"
         }`}
       />
