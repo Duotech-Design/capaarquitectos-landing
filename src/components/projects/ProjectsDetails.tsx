@@ -5,17 +5,12 @@ import {
 } from "../../helpers/projectAssets";
 import SimpleSlider from "./Carousel";
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 const ProjectsDetails = () => {
   const { t } = useTranslation("global");
   const { id } = useParams<{ id: AvailableProjects }>();
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
 
   if (!id) return null;
 
@@ -28,6 +23,7 @@ const ProjectsDetails = () => {
   const nextProject = () => {
     const nextProject = projectList.indexOf(id) + 1;
     navigate(`/project/${projectList[nextProject]}`);
+    
   };
 
   const prevProject = () => {
@@ -39,18 +35,17 @@ const ProjectsDetails = () => {
     <section className="flex flex-col mx-auto px-2 sm:px-6 lg:px-8 min-h-screen max-w-[2000px]">
       <header className="flex justify-center md:justify-start">
         <h3 className="mt-28 pb-6 md:pb-1 lg:text-2xl text-sm drop-shadow-sm text-black flex justify-between items-center gap-x-3 w-[300px]">
-          
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className={`w-7 h-7 rotate-180 ${
               currentProjectIndex < 1
                 ? "disabled text-transparent"
-                : "text-black hover:text-gray-500 cursor-pointer"
+                : "text-black hover:text-gray-500 cursor-pointer animate-pulse"
             }`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            strokeWidth={0.5}
+            strokeWidth={1}
             onClick={currentProjectIndex > 0 ? prevProject : undefined}
           >
             <path
@@ -67,12 +62,12 @@ const ProjectsDetails = () => {
             className={`w-7 h-7 ${
               currentProjectIndex === projectList.length - 1
                 ? "disabled text-transparent"
-                : "text-black hover:text-gray-500 cursor-pointer"
+                : "text-black hover:text-gray-500 cursor-pointer animate-pulse"
             }`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            strokeWidth={0.5}
+            strokeWidth={1}
             onClick={
               currentProjectIndex < projectList.length - 1
                 ? nextProject
@@ -119,7 +114,9 @@ const ProjectsDetails = () => {
             <div className="flex flex-col text-sm text-right">
               <span>{selectedProject.type}</span>
               <span>{selectedProject.location}</span>
-              <span className="font-sans font-thin">{selectedProject.surface}</span>
+              <span className="font-sans font-thin">
+                {selectedProject.surface}
+              </span>
               <span>{selectedProject.status}</span>
             </div>
           </div>
