@@ -1,4 +1,5 @@
 import { FC, useState, useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -8,7 +9,6 @@ import {
   ProjectAsset,
   ProjectAssets,
 } from "../../helpers/projectAssets";
-import FullScreenImage from "./FullScreenImage";
 
 interface SimpleSliderProps {
   id: AvailableProjects;
@@ -72,12 +72,15 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const sliderRef = useRef<Slider>(null);
+  const fullScreenSliderRef = useRef<Slider>(null);
+
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    initialSlide: currentIndex,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
     afterChange: (current: number) => setCurrentIndex(current),
@@ -93,6 +96,12 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
     }
   }, [currentIndex]);
 
+  useEffect(() => {
+    if (isFullScreen && fullScreenSliderRef.current) {
+      fullScreenSliderRef.current.slickGoTo(currentIndex);
+    }
+  }, [isFullScreen, currentIndex]);
+
   const totalImages: number = ProjectAssets[id].images;
   const imageArray = new Array(totalImages).fill(0);
 
@@ -105,32 +114,58 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
     setIsFullScreen(false);
   };
 
+  const renderSlider = (ref: React.RefObject<Slider>) => (
+    <Slider ref={ref} key={id} {...settings} className="relative">
+      {imageArray.map((_, index) => (
+        <div key={index} className="overflow-hidden">
+          <ProjectAsset
+            project={id}
+            index={index}
+            alt={`${id}_${index + 1}`}
+            className="w-full sm:h-[500px] 2xl:h-[600px] object-cover object-center cursor-pointer"
+            onClick={() => handleImageClick(index)}
+          />
+        </div>
+      ))}
+    </Slider>
+  );
+
   return (
     <div className="relative">
-      <Slider ref={sliderRef} key={id} {...settings} className="relative">
-        {imageArray.map((_, index) => (
-          <div key={index} className="overflow-hidden">
-            <ProjectAsset
-              project={id}
-              index={index}
-              alt={`${id}_${index + 1}`}
-              className="w-full sm:h-[500px] 2xl:h-[600px] object-cover object-center cursor-pointer"
-              onClick={() => handleImageClick(index)}
-            />
-          </div>
-        ))}
-      </Slider>
+      {renderSlider(sliderRef)}
       <div className="absolute top-0 right-0 backdrop-blur-sm bg-black/30 text-white text-sm p-2 m-2 rounded font-sans font-thin">
         {currentIndex + 1} / {totalImages}
       </div>
-      {isFullScreen && (
-        <FullScreenImage
-          project={id}
-          index={currentIndex}
-          onClose={handleCloseFullScreen}
-          setCurrentIndex={setCurrentIndex}
-        />
-      )}
+      {isFullScreen &&
+        ReactDOM.createPortal(
+          <div className="fixed inset-0 bg-black backdrop-blur-md bg-opacity-80 flex justify-center items-center z-50">
+            <div className="relative max-w-4xl max-h-full">
+              <button
+                className="absolute -top-10 md:-top-2 -right-10 md:-right-24 text-white px-2.5"
+                onClick={handleCloseFullScreen}
+              >
+                <svg
+                  className="h-8 w-8 hover:text-gray-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={0.5}
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <div className="w-[300px] sm:w-[400px] md:[450px] lg:w-[650px] xl:w-[750px]">
+                {renderSlider(fullScreenSliderRef)}
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 };
