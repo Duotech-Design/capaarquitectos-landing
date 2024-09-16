@@ -18,17 +18,18 @@ interface ArrowProps {
   className?: string;
   style?: React.CSSProperties;
   onClick?: () => void;
+  isFullScreen?: boolean;
 }
 
-const CustomPrevArrow: FC<ArrowProps> = ({ className, onClick }) => {
+const CustomPrevArrow: FC<ArrowProps> = ({ className, onClick, isFullScreen }) => {
   return (
     <div
-      className={`${className} before:hidden left-[-0px] md:left-[-80px] absolute z-0 sm:z-10`}
+      className={`${className} before:hidden left-0 md:left-[-80px] absolute z-10`}
       onClick={onClick}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-10 h-10 text-black backdrop-blur-sm bg-white/30 rounded-full"
+        className={`w-5 h-5 md:w-10 md:h-10 ${isFullScreen ? "text-white" : "text-white md:text-black"} backdrop-blur-sm rounded-full`}
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -44,15 +45,15 @@ const CustomPrevArrow: FC<ArrowProps> = ({ className, onClick }) => {
   );
 };
 
-const CustomNextArrow: FC<ArrowProps> = ({ className, onClick }) => {
+const CustomNextArrow: FC<ArrowProps> = ({ className, onClick, isFullScreen }) => {
   return (
     <div
-      className={`${className} before:hidden right-[20px] md:right-[-60px] absolute z-[-10] sm:z-10`}
+      className={`${className} before:hidden right-0 md:right-[-60px] absolute z-10`}
       onClick={onClick}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-10 h-10 text-black backdrop-blur-sm bg-white/30 rounded-full"
+        className={`w-5 h-5 md:w-10 md:h-10 ${isFullScreen ? "text-white" : "text-white md:text-black "} backdrop-blur-sm  rounded-full`}
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -81,8 +82,8 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: currentIndex,
-    nextArrow: <CustomNextArrow />,
-    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow isFullScreen={isFullScreen} />,
+    prevArrow: <CustomPrevArrow isFullScreen={isFullScreen} />,
     afterChange: (current: number) => setCurrentIndex(current),
   };
 
