@@ -6,6 +6,7 @@ import CustomInput from "../ui/CustomInput";
 import CustomSelect from "../ui/CustomSelect";
 import CustomTabs from "../ui/CustomTabs";
 import SendButton from "./SendButton";
+import { submitForm } from "../../services/formService";
 type State = "loading" | "success" | "start" | "error";
 
 type Event = { type: "CLICK" };
@@ -50,29 +51,50 @@ const transition = (state: State, event: Event): State => {
   return machine.states[state].on[event.type];
 };
 
+const formSenderMapping = {
+  "name": "name",
+  "email": "email",
+  "phone": "phone",
+  "construccion": "service",
+  "consultoriaAsesoria": "service",
+  "disenoArquitectonico": "service",
+  "proyectosEjecutivos": "service",
+  "howDidYouHearAboutUs": "contact",
+  "others": "contact",
+  "message": "about",
+} as any
+
 const Form = () => {
   const { t } = useTranslation("global");
   const [state, setState] = useState<State>(machine.initial);
 
-  const simulateEmailSend = (data: Record<string, unknown> | undefined) => {
-    return new Promise<void>((resolve, reject) => {
-      setTimeout(() => {
-        const isSuccess = Math.random() > 0.5;
-        if (isSuccess) {
-          resolve();
-        } else {
-          reject(new Error("Simulated email send error"));
-        }
-      }, 2000);
-      console.log(data);
+  const simulateEmailSend = async (data: Record<string, unknown> | undefined) => {
+    if (!data) {
+      return;
+    }
+
+    const senderRequest = {} as any;
+
+    Object.keys(data).forEach((key) => {
+      if (data[key] === "") {
+        return;
+      }
+
+      if (formSenderMapping[key]) {
+        senderRequest[formSenderMapping[key]] = data[key];
+      }
+
     });
+
+    return submitForm(senderRequest);
   };
 
   const onSubmit = (data: Record<string, unknown> | undefined) => {
     setState(transition(state, { type: "CLICK" }));
 
     simulateEmailSend(data)
-      .then(() => {
+      .then((data) => {
+        console.log(data);
         setState("success");
       })
       .catch((error) => {
@@ -246,7 +268,7 @@ const Form = () => {
           }
           error={Boolean(
             formik.touched.howDidYouHearAboutUs &&
-              formik.errors.howDidYouHearAboutUs
+            formik.errors.howDidYouHearAboutUs
           )}
           zIndex={50}
         />
@@ -308,7 +330,7 @@ const Form = () => {
                   }
                   error={Boolean(
                     formik.touched.proyectosEjecutivos &&
-                      formik.errors.proyectosEjecutivos
+                    formik.errors.proyectosEjecutivos
                   )}
                 />
               ),
@@ -330,7 +352,7 @@ const Form = () => {
                   }
                   error={Boolean(
                     formik.touched.disenoArquitectonico &&
-                      formik.errors.disenoArquitectonico
+                    formik.errors.disenoArquitectonico
                   )}
                 />
               ),
@@ -352,7 +374,7 @@ const Form = () => {
                   }
                   error={Boolean(
                     formik.touched.consultoriaAsesoria &&
-                      formik.errors.consultoriaAsesoria
+                    formik.errors.consultoriaAsesoria
                   )}
                 />
               ),
@@ -379,8 +401,8 @@ const Form = () => {
       </div>
       <div className="flex justify-center">
         <SendButton text={t(`form.button.${state}`)} state={state} />
-        
- 
+
+
 
       </div>
     </form>
