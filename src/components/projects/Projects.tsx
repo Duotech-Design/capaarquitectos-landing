@@ -19,6 +19,7 @@ const Projects = () => {
     navigate("/project/" + id);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -37,18 +38,24 @@ const Projects = () => {
   }, []);
 
   const projectList = ProjectList;
-  
+
   return (
     <section
       id="projects"
       className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen pb-8"
     >
-      <header className="-mt-20 pt-28 pb-3 flex flex-row justify-between items-end">
-        <h3 className="tex-lg md:text-3xl text-gray-500">{t("projects.title")}</h3>
+      <header className="-mt-36 sm:-mt-28 pt-28 pb-3 flex flex-row justify-between items-end">
+        <h3 className="tex-lg md:text-3xl text-gray-500 mt-16">
+          {t("projects.title")}
+        </h3>
+      </header>
+
+      <div className="mt-8 mb-4 flex justify-end">
         <h4 className="text-md">{`${t("projects.button1")} | ${t(
           "projects.button2"
         )}`}</h4>
-      </header>
+      </div>
+
       <div className="grid grid-cols-1 gap-4">
         {projectList.map((project: AvailableProjects) => (
           <div
