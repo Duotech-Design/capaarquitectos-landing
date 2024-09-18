@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const SectionsMobile = ({
   showMobileMenu,
@@ -9,8 +10,9 @@ const SectionsMobile = ({
   setShowMobileMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const [viewSectionHome, setViewSectionHome] = useState<boolean>(false);
-  const [viewSectionProjects, setViewSectionProjects] =
-    useState<boolean>(false);
+  const [viewSectionProjects, setViewSectionProjects] = useState<boolean>(false);
+  const { t } = useTranslation("global"); // Importando las traducciones
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -66,8 +68,10 @@ const SectionsMobile = ({
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div 
-      className={`${showMobileMenu ? "fade-in backdrop-blur-none" : "hidden"}`} id="mobile-menu">
+    <div
+      className={`${showMobileMenu ? "fade-in backdrop-blur-none" : "hidden"}`}
+      id="mobile-menu"
+    >
       <div className="space-y-1 px-2 pb-3 pt-2">
         <a
           onClick={() => handleClick("/")}
@@ -75,7 +79,7 @@ const SectionsMobile = ({
             ${viewSectionHome && isActive("/") ? "bg-gray-900 text-gray-300" : "text-white"}`}
           aria-current="page"
         >
-          Home
+          {t("navbar.home")} {/* Traducción de 'Home' */}
         </a>
         <a
           onClick={() => handleClick("/")}
@@ -83,28 +87,28 @@ const SectionsMobile = ({
           className={`block rounded-md px-3 py-2 text-sm font-semibold
             ${viewSectionProjects || location.pathname.includes("/project") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
-          Proyectos
+          {t("navbar.projects")} {/* Traducción de 'Proyectos' */}
         </a>
         <a
           onClick={() => handleClick("/philosophy")}
           className={`block rounded-md px-3 py-2 text-sm font-semibold
             ${isActive("/philosophy") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
-          Filosofía
+          {t("navbar.philosophy")} {/* Traducción de 'Filosofía' */}
         </a>
         <a
           onClick={() => handleClick("/team")}
           className={`block rounded-md px-3 py-2 text-sm font-semibold 
             ${isActive("/team") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
-          Equipo
+          {t("navbar.team")} {/* Traducción de 'Equipo' */}
         </a>
         <a
           onClick={() => handleClick("/contact-us")}
           className={`block rounded-md px-3 py-2 text-sm font-semibold 
             ${isActive("/contact-us") ? "bg-gray-900 text-gray-300" : "text-white"}`}
         >
-          Contáctanos
+          {t("navbar.contact_us")} {/* Traducción de 'Contáctanos' */}
         </a>
       </div>
     </div>
