@@ -8,12 +8,14 @@ import {
   ProjectList,
 } from "../../helpers/projectAssets";
 import { useEffect, useState } from "react";
+
 const MAX_IMAGES_PER_PROJECT = 4;
 
 const Projects = () => {
   const { t } = useTranslation("global");
   const [columns, setColumns] = useState(1);
   const navigate = useNavigate();
+  const [selectedButton, setSelectedButton] = useState("button1"); // Estado para manejar el botón seleccionado
 
   const handleClick = (id: AvailableProjects) => {
     navigate("/project/" + id);
@@ -50,11 +52,37 @@ const Projects = () => {
         </h3>
       </header>
 
+      {/* Contenedor de los botones */}
       <div className="mt-8 mb-4 flex justify-end">
-        <h4 className="text-md">{`${t("projects.button1")} | ${t(
-          "projects.button2"
-        )}`}</h4>
-      </div>
+  <h4 className="text-md">
+    {/* Botón 1 */}
+    <span
+      className={`cursor-pointer ${
+        selectedButton === "button1"
+          ? "font-cocoUltralight underline underline-offset-8 decoration-1"
+          : ""
+      }`}
+      onClick={() => setSelectedButton("button1")}
+    >
+      {t("projects.button1")}
+    </span>
+    {" | "}
+    {/* Botón 2 */}
+    <span
+      className={`cursor-pointer ${
+        selectedButton === "button2"
+          ? "font-cocoUltralight underline underline-offset-8 decoration-1"
+          : ""
+      }`}
+      onClick={() => setSelectedButton("button2")}
+    >
+      {t("projects.button2")}
+    </span>
+  </h4>
+</div>
+
+
+
 
       <div className="grid grid-cols-1 gap-4">
         {projectList.map((project: AvailableProjects) => (
