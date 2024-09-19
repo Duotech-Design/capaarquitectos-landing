@@ -84,7 +84,8 @@ const ProjectsDetails = () => {
 
       </header>
 
-      <div className="text-sm flex justify-center pb-6 lg:pb-3 2xl:pt-20 gap-x-3 md:gap-x-12 w-full">
+      <div className="text-sm flex justify-center pb-6 lg:pb-3 2xl:pt-20 gap-x-3 md:gap-x-12 w-full mb-2 md:mb-4 lg:mb-3">
+
         <span>{t("projects_description.button1")}</span>
         <div className="border-r-2 border-lightGray"></div>
         <span>{t("projects_description.button2")}</span>
