@@ -55,15 +55,17 @@ export const Footer = () => {
 
       {/* Footer bottom line */}
       <div className="max-w-5xl mx-auto border-t border-white/75 py-4 text-center">
-        <span className="text-xs lg:text-sm">
-          © <span className="font-sans font-extralight">2022</span> Capa
-          Arquitectos. All rights reserved. - SITE by
-          <a href="https://duotechdesign.com/" className="font-bold">
-            {" "}
-            Duotech Design
-          </a>
-        </span>
-      </div>
+  <span className="text-xs lg:text-sm">
+    © <span className="font-sans font-extralight">2022</span> Capa Arquitectos. All rights reserved. - 
+    {/* Aquí hacemos que el "SITE by Duotech Design" aparezca en una nueva línea solo en móvil */}
+    <span className="block md:inline">SITE by 
+      <a href="https://duotechdesign.com/" className="font-bold">
+        {" "} Duotech Design
+      </a>
+    </span>
+  </span>
+</div>
+
     </footer>
   );
 };
