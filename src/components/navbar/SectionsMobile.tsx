@@ -11,7 +11,7 @@ const SectionsMobile = ({
 }) => {
   const [viewSectionHome, setViewSectionHome] = useState<boolean>(false);
   const [viewSectionProjects, setViewSectionProjects] = useState<boolean>(false);
-  const { t } = useTranslation("global"); // Importando las traducciones
+  const { t } = useTranslation("global");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -64,6 +64,20 @@ const SectionsMobile = ({
       setViewSectionProjects(false);
     };
   }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 600) {
+        setShowMobileMenu(false);
+      } 
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  } , []);
 
   const isActive = (path: string) => location.pathname === path;
 

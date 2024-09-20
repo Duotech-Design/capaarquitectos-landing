@@ -43,7 +43,7 @@ const LanguageToggle = () => {
       <div
         className={`${
           dropdownOpen
-            ? "fade-in origin-top-right absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-black backdrop-blur-sm ring-1 ring-black ring-opacity-5"
+            ? "z-50 fade-in origin-top-right absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-black backdrop-blur-sm ring-1 ring-black ring-opacity-5"
             : "hidden"
         }`}
         role="menu"
