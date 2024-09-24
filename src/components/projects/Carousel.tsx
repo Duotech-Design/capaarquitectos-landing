@@ -24,7 +24,7 @@ interface ArrowProps {
 const CustomPrevArrow: FC<ArrowProps> = ({ className, onClick, isFullScreen }) => {
   return (
     <div
-      className={`${className} before:hidden left-0 md:left-[-80px] absolute z-10`}
+      className={`${className} before:hidden left-0 ${isFullScreen ? "" : "md:left-[-80px]"} absolute z-10`}
       onClick={onClick}
     >
       <svg
@@ -48,7 +48,7 @@ const CustomPrevArrow: FC<ArrowProps> = ({ className, onClick, isFullScreen }) =
 const CustomNextArrow: FC<ArrowProps> = ({ className, onClick, isFullScreen }) => {
   return (
     <div
-      className={`${className} before:hidden right-0 md:right-[-60px] absolute z-10`}
+      className={`${className} before:hidden right-0 ${isFullScreen ? "md:right-5" : "md:right-[-60px]"} absolute z-10`}
       onClick={onClick}
     >
       <svg
@@ -115,7 +115,7 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
     setIsFullScreen(false);
   };
 
-  const renderSlider = (ref: React.RefObject<Slider>) => (
+  const renderSlider = (ref: React.RefObject<Slider>, classCustom: string) => (
     <Slider ref={ref} key={id} {...settings} className="relative">
       {imageArray.map((_, index) => (
         <div key={index} className="overflow-hidden">
@@ -123,7 +123,7 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
             project={id}
             index={index}
             alt={`${id}_${index + 1}`}
-            className="w-full sm:h-[500px] 2xl:h-[600px] object-cover object-center cursor-pointer"
+            className={classCustom}
             onClick={() => handleImageClick(index)}
           />
         </div>
@@ -133,7 +133,7 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
 
   return (
     <div className="relative">
-      {renderSlider(sliderRef)}
+      {renderSlider(sliderRef, "w-full sm:h-[450px] 2xl:h-[600px] object-cover object-center cursor-pointer")}
       <div className="absolute top-0 right-0 backdrop-blur-sm bg-black/30 text-white text-sm p-2 m-2 rounded font-sans font-thin">
         {currentIndex + 1} / {totalImages}
       </div>
@@ -142,14 +142,14 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
           <div className="fixed inset-0 bg-black backdrop-blur-lg bg-opacity-80 flex justify-center items-center z-50">
             <div className="relative max-w-4xl max-h-full">
               <button
-                className="absolute -top-10 md:-top-2 -right-10 md:-right-24 text-white px-2.5"
+                className={`z-50 absolute -top-10 -right-10 ${isFullScreen ? "md:top-2 md:right-1 " : "md:-top-2 md:-right-24"} text-white px-2.5`}
                 onClick={handleCloseFullScreen}
               >
                 <svg
                   className="h-8 w-8 hover:text-gray-300"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth={0.5}
+                  strokeWidth={0.8}
                   stroke="currentColor"
                   aria-hidden="true"
                 >
@@ -160,8 +160,8 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
                   />
                 </svg>
               </button>
-              <div className="w-[300px] sm:w-[400px] md:[450px] lg:w-[650px] xl:w-[750px] 2xl:h-full 2xl:w-full">
-                {renderSlider(fullScreenSliderRef)}
+              <div className="w-[300px] sm:w-full">
+                {renderSlider(fullScreenSliderRef, "w-full sm:w-full sm:h-[600px] 2xl:h-[750px] object-scale-down object-center cursor-pointer")}
               </div>
             </div>
           </div>,

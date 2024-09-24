@@ -24,7 +24,7 @@ const ContactUs = () => {
         </div>
       )}
       <header className="mt-28 md:mt-32 h-fit">
-        <h3 className="drop-shadow-2xl text-2xl text-white text-focus-in font-cocoUltralight">
+        <h3 className="drop-shadow-2xl text-2xl text-white text-focus-in alig font-cocoUltralight">
           {t("form.title")}
         </h3>
       </header>
