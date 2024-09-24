@@ -15,7 +15,6 @@ const ProjectsDetails = () => {
   if (!id) return null;
 
   const projectList = ProjectList;
-
   const selectedProject = ProjectAssets[id];
   const projectName = selectedProject.name;
   const currentProjectIndex = projectList.indexOf(id);
@@ -55,12 +54,12 @@ const ProjectsDetails = () => {
               d="M13 5l7 7-7 7M5 5l7 7-7 7"
             />
           </svg>
-          <span className="font-cocoUltralight text-lg lg:text-2xl text-gray-500">
+          <span className="font-cocoUltralight text-lg lg:text-2xl text-gray-500 mt-6">
             {projectName}
           </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`w-7 h-7 ${
+            className={`w-7 h-7 mt-6 ${
               currentProjectIndex === projectList.length - 1
                 ? "disabled text-transparent"
                 : "text-black hover:text-gray-500 cursor-pointer animate-pulse"
@@ -101,7 +100,7 @@ const ProjectsDetails = () => {
         <div className="lg:col-span-3 md:col-span-2"></div>
 
         <div className="lg:col-span-3"></div>
-        <div className="col-span-10 pt-3 lg:pt-0 lg:col-span-6 flex justify-center gap-x-3 w-full">
+        <div className="col-span-10 pt-3 lg:pt-0 lg:col-span-6 flex justify-center gap-x-3 w-full mt-8 md:mt-4">
           <div className="text-left">
             <div className="flex flex-col text-sm text-left">
               <span>{t("projects_description.type")}</span>
@@ -123,6 +122,9 @@ const ProjectsDetails = () => {
         </div>
         <div className="lg:col-span-3"></div>
       </div>
+
+      {/* Aumenta el espacio antes del footer en desktop y reduce el espacio en tablet */}
+      <div className="mt-16 lg:mt-24 md:mt-8 flex-grow"></div>
     </section>
   );
 };
