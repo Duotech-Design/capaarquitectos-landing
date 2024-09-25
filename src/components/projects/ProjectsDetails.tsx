@@ -32,7 +32,7 @@ const ProjectsDetails = () => {
   return (
     <section className="flex flex-col mx-auto px-2 sm:px-6 lg:px-8 min-h-screen max-w-[2000px]">
       <header className="flex justify-center md:justify-start">
-        <h3 className="mt-28 pb-6 md:pb-1 lg:text-2xl text-sm drop-shadow-sm text-black 
+      <h3 className="mt-28 pb-6 md:pb-1 lg:text-2xl text-sm drop-shadow-sm text-black 
           flex justify-between items-center gap-x-3 px-4 md:px-0 w-full md:w-[400px]">
           {" "}
           <svg
@@ -54,12 +54,12 @@ const ProjectsDetails = () => {
               d="M13 5l7 7-7 7M5 5l7 7-7 7"
             />
           </svg>
-          <span className="font-cocoUltralight text-lg lg:text-2xl text-gray-500 mt-6">
+          <span className="font-cocoUltralight text-lg lg:text-2xl text-gray-500">
             {projectName}
           </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`w-7 h-7 mt-6 ${
+            className={`w-7 h-7 ${
               currentProjectIndex === projectList.length - 1
                 ? "disabled text-transparent"
                 : "text-black hover:text-gray-500 cursor-pointer animate-pulse"
