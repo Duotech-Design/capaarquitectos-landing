@@ -28,12 +28,14 @@ const ProjectsDetails = () => {
     const prevProject = projectList.indexOf(id) - 1;
     navigate(`/project/${projectList[prevProject]}`);
   };
-//
+  //
   return (
     <section className="flex flex-col mx-auto px-2 sm:px-6 lg:px-8 min-h-screen max-w-[2000px]">
       <header className="flex justify-center md:justify-start">
-      <h3 className="mt-28 pb-6 md:pb-1 lg:text-2xl text-sm drop-shadow-sm text-black 
-          flex justify-between items-center gap-x-3 px-4 md:px-0 w-full md:w-[400px]">
+        <h3
+          className="mt-28 pb-6 md:pb-1 lg:text-2xl text-sm drop-shadow-sm text-black 
+          flex justify-between items-center gap-x-3 px-4 md:px-0 w-full md:w-[400px]"
+        >
           {" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -92,8 +94,7 @@ const ProjectsDetails = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-y-2 md:gap-y-1">
-        <div className=" lg:col-span-3 md:col-span-2 text-sm lg:text-base text-right lg:pr-3">
-        </div>
+        <div className=" lg:col-span-3 md:col-span-2 text-sm lg:text-base text-right lg:pr-3"></div>
         <div className="col-span-10 lg:col-span-6 md:col-span-8 text-focus-in">
           <SimpleSlider id={id} />
         </div>
