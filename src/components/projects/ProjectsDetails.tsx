@@ -28,7 +28,7 @@ const ProjectsDetails = () => {
     const prevProject = projectList.indexOf(id) - 1;
     navigate(`/project/${projectList[prevProject]}`);
   };
-
+//
   return (
     <section className="flex flex-col mx-auto px-2 sm:px-6 lg:px-8 min-h-screen max-w-[2000px]">
       <header className="flex justify-center md:justify-start">
