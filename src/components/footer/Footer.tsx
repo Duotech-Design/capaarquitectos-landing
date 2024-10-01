@@ -1,71 +1,132 @@
+// src/components/footer/Footer.tsx
+import CustomButton from "../ui/CustomButton";
+import FooterLogo from "./FooterLogo";
+
 export const Footer = () => {
   return (
-    <footer className="bg-[#DFDFDF] text-center text-gray-600 lg:text-left">
+    <footer className="bg-[#303030] text-white text-center lg:text-left">
       <div className="py-5 text-center">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {/* Contact Information */}
-          <div className="">
-            <h6 className="mb-2  md:text-lg font-cocoUltralight uppercase">
-              TELÉFONO
-            </h6>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center p-4">
+          
+          {/* Logo del Footer */}
+          <FooterLogo />
+
+          {/* Área vacía donde estaba el botón de Contactanos */}
+          <div className="hidden md:block p-4">
+            {/* Espacio vacío solo visible en desktop */}
+          </div>
+
+          {/* Teléfonos y Correo en desktop/tablet */}
+          <div className="hidden md:flex flex-col p-4">
+            {/* Botón de Contactanos centrado */}
+            <div className="mb-4 flex justify-center">
+              <CustomButton text="Contactanos" />
+            </div>
+
+            {/* Teléfonos y correos alineados horizontalmente */}
+            <div className="flex justify-between pt-4">
+              {/* Columna de Correo */}
+              <div className="flex flex-col items-start">
+                <h6 className="underline mb-2 text-sm md:text-base font-cocoUltralight uppercase text-[#EDEADB]">
+                  CORREO
+                </h6>
+                <a
+                  href="mailto:info@capaarquitectos.com"
+                  className="text-sm md:text-base font-sans font-thin block text-white"
+                >
+                  info<span className="font-sans font-extralight">@</span>
+                  capaarquitectos.com
+                </a>
+                <a
+                  href="mailto:capa.arquitectos.mx@gmail.com"
+                  className="text-sm md:text-base font-sans font-thin block text-white"
+                >
+                  capa.arquitectos.mx
+                  <span className="font-sans font-extralight">@</span>gmail.com
+                </a>
+              </div>
+
+              {/* Columna de Teléfonos */}
+              <div className="flex flex-col items-start">
+                <h6 className="underline mb-2 text-sm md:text-base font-cocoUltralight uppercase text-[#EDEADB]">
+                  TELÉFONOS
+                </h6>
+                <a
+                  href="https://wa.me/524443188840?text=Quiero%20cotizar%20un%20servicio"
+                  className="text-sm md:text-base font-sans font-thin block text-white"
+                >
+                  + 52 444318 8840
+                </a>
+                <a
+                  href="https://wa.me/524442816256?text=Quiero%20cotizar%20un%20servicio"
+                  className="text-sm md:text-base font-sans font-thin block text-white"
+                >
+                  + 52 444281 6256
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Diseño móvil */}
+        <div className="flex flex-col md:hidden items-center p-4">
+          {/* Correo y Teléfonos en columnas, centrados */}
+          <div className="flex flex-col items-center mb-4">
+            <div className="text-sm font-cocoUltralight uppercase underline mb-2">
+              CORREO
+            </div>
+            <a
+              href="mailto:info@capaarquitectos.com"
+              className="text-sm font-sans font-thin text-white"
+            >
+              info@capaarquitectos.com
+            </a>
+            <a
+              href="mailto:capa.arquitectos.mx@gmail.com"
+              className="text-sm font-sans font-thin text-white"
+            >
+              capa.arquitectos.mx@gmail.com
+            </a>
+          </div>
+
+          <div className="flex flex-col items-center mb-4">
+            <div className="text-sm font-cocoUltralight uppercase underline mb-2">
+              TELÉFONOS
+            </div>
             <a
               href="https://wa.me/524443188840?text=Quiero%20cotizar%20un%20servicio"
-              className=" md:text-lg font-sans font-thin block"
+              className="text-sm font-sans font-thin text-white"
             >
               + 52 444318 8840
             </a>
             <a
               href="https://wa.me/524442816256?text=Quiero%20cotizar%20un%20servicio"
-              className=" md:text-lg font-sans font-thin block"
+              className="text-sm font-sans font-thin text-white"
             >
               + 52 444281 6256
             </a>
           </div>
 
-          {/* Email Information */}
-          <div className="">
-            <h6 className="mb-2  md:text-lg font-cocoUltralight uppercase">
-              CORREO
-            </h6>
-            <p className="mb-2  md:text-lg">
-              <a href="mailto:info@capaarquitectos.com">
-                info<span className="font-sans font-extralight">@</span>
-                capaarquitectos.com
-              </a>
-            </p>
-            <p className=" md:text-lg">
-              <a href="mailto:capa.arquitectos.mx@gmail.com">
-                capa.arquitectos.mx
-                <span className="font-sans font-extralight">@</span>gmail.com
-              </a>
-            </p>
+          {/* Botón de Contactanos centrado */}
+          <div className="mb-4">
+            <CustomButton text="Contactanos" />
           </div>
 
-          {/* Social Media Links */}
-          <div className="">
-            <h6 className="mb-2  md:text-lg font-cocoUltralight uppercase">
-              SÍGUENOS
-            </h6>
-            <p className="mb-2  md:text-lg">Instagram</p>
-            <p className="mb-2  md:text-lg">Facebook</p>
-            <p className=" md:text-lg">TikTok</p>
-          </div>
+          {/* Logo centrado al final */}
+          <FooterLogo />
         </div>
       </div>
 
       {/* Footer bottom line */}
       <div className="max-w-5xl mx-auto border-t border-white/75 py-4 text-center">
-  <span className="text-xs lg:text-sm">
-    © <span className="font-sans font-extralight">2022</span> Capa Arquitectos. All rights reserved. - 
-    {/* Aquí hacemos que el "SITE by Duotech Design" aparezca en una nueva línea solo en móvil */}
-    <span className="block md:inline">SITE by 
-      <a href="https://duotechdesign.com/" className="font-bold">
-        {" "} Duotech Design
-      </a>
-    </span>
-  </span>
-</div>
-
+        <span className="text-xs lg:text-sm">
+          © <span className="font-sans font-extralight">2022</span> Capa
+          Arquitectos. All rights reserved. - SITE by{" "}
+          <a href="https://duotechdesign.com/" className="font-bold">
+            Duotech Design
+          </a>
+        </span>
+      </div>
     </footer>
   );
 };
