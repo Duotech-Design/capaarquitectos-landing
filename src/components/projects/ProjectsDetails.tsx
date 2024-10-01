@@ -33,7 +33,7 @@ const ProjectsDetails = () => {
     <section className="flex flex-col mx-auto px-2 sm:px-6 lg:px-8 min-h-screen max-w-[2000px]">
       <header className="flex justify-center md:justify-start">
       <h3 className="mt-28 pb-6 md:pb-1 lg:text-2xl text-sm drop-shadow-sm text-black 
-          flex justify-between items-center gap-x-3 px-4 md:px-0 w-full md:w-[400px]">
+          flex justify-between items-center gap-x-3 px-4 md:px-0 w-full md:w-[400px] slide-in-bottom">
           {" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -83,12 +83,12 @@ const ProjectsDetails = () => {
         </h3>
       </header>
 
-      <div className="text-sm flex justify-center pb-6 lg:pb-3 2xl:pt-20 gap-x-3 md:gap-x-12 w-full mb-2 md:mb-4 lg:mb-3">
-        <span>{t("projects_description.button1")}</span>
+      <div className="text-sm flex justify-center pb-6 lg:pb-3 2xl:pt-20 gap-x-3 md:gap-x-12 w-full mb-2 md:mb-4 lg:mb-3 slide-in-bottom">
+        <span className="slide-in-bottom" style={{ animationDelay: "0.5s" }}>{t("projects_description.button1")}</span>
         <div className="border-r-2 border-lightGray"></div>
-        <span>{t("projects_description.button2")}</span>
+        <span className="slide-in-bottom" style={{ animationDelay: "1s" }}>{t("projects_description.button2")}</span>
         <div className="border-r-2 border-lightGray"></div>
-        <span>{t("projects_description.button3")}</span>
+        <span className="slide-in-bottom" style={{ animationDelay: "1.5s" }}>{t("projects_description.button3")}</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-y-2 md:gap-y-1">

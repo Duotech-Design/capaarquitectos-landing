@@ -5,6 +5,7 @@ import CustomButton from "../ui/CustomButton";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import { HomeAsset, HomeAssets } from "../../helpers/homeAssets";
 
 const images = [HomeBg, HomeBg2];
 
@@ -17,10 +18,29 @@ const Home = () => {
   const imgRef = useRef<HTMLImageElement>(null);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const totalImages: number = HomeAssets["oficinas_rosmarinus"].images;
+  const imageArray = new Array(totalImages).fill(0);
+  const [previousImageIndex, setPreviousImageIndex] = useState<null | number>(
+    null
+  );
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (previousImageIndex !== null) {
+      setAnimate(true);
+      const timer = setTimeout(() => {
+        setAnimate(false);
+        setPreviousImageIndex(currentImageIndex);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else {
+      setPreviousImageIndex(currentImageIndex);
+    }
+  }, [currentImageIndex]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
     }, 6000);
 
     return () => clearInterval(interval);
@@ -32,7 +52,7 @@ const Home = () => {
   };
 
   const handleImageClick = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
   };
 
   const navigate = useNavigate();
@@ -76,22 +96,38 @@ const Home = () => {
       id="home"
       className="relative mx-auto px-2 sm:px-6 lg:px-8 min-h-screen overflow-hidden bg-gradient-to-t from-darkBlue"
     >
-      <img
-        ref={imgRef}
-        src={images[currentImageIndex]}
-        alt="image"
-        onLoad={handleImageLoad}
-        onClick={handleImageClick}
-        className={`absolute inset-0 object-cover w-full h-[100vh] object-center z-0 transition-transform duration-1000 ${
-          isFirstAnimationDone ? "kenburns-right" : "fade-in"
-        }`}
-      />
+      {imageArray.map((_, index) => (
+        <div key={index}>
+          {index === previousImageIndex && (
+            <HomeAsset
+              project="proyecto_el_maderable"
+              index={previousImageIndex}
+              onLoad={handleImageLoad}
+              onClick={handleImageClick}
+              alt={`proyecto_el_maderable_${previousImageIndex + 1}`}
+              className="absolute inset-0 object-cover w-full h-[100vh] object-center z-0"
+            />
+          )}
+          {index === currentImageIndex && (
+            <HomeAsset
+              project="proyecto_el_maderable"
+              index={currentImageIndex}
+              onLoad={handleImageLoad}
+              onClick={handleImageClick}
+              alt={`proyecto_el_maderable_${currentImageIndex + 1}`}
+              className={`absolute inset-0 object-cover w-full h-[100vh] object-center z-0 transition-transform duration-1000 ${
+                animate ? "animate-wipe-up" : ""
+              }`}
+            />
+          )}
+        </div>
+      ))}
       {!isImageLoaded && (
         <div className="absolute inset-0 bg-transparent opacity-50 z-10 flex justify-center items-center">
           <div className="spinner"></div>
         </div>
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black opacity-30 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black opacity-65 z-10"></div>
 
       <div className="relative flex items-center justify-center text-3xl lg:text-7xl z-20">
         <div className="flex flex-col gap-y-8 justify-center items-center h-screen text-white">
