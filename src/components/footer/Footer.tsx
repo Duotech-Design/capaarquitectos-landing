@@ -1,11 +1,18 @@
 // src/components/footer/Footer.tsx
 import CustomButton from "../ui/CustomButton";
 import FooterLogo from "./FooterLogo";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 export const Footer = () => {
+  const { t } = useTranslation("global");
+  const navigate = useNavigate();
+  const handleButtonClick = () => {
+    navigate("/contact-us");
+  };
   return (
     <footer className="bg-[#303030] text-white text-center lg:text-left">
-      <div className="py-5 text-center">
+      <div className=" text-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center p-4">
           
           {/* Logo del Footer (visible solo en desktop y tablet) */}
@@ -20,11 +27,12 @@ export const Footer = () => {
 
           {/* Teléfonos y Correo en desktop/tablet */}
           <div className="hidden md:flex flex-col p-4">
-            <div className="mb-4 flex justify-center">
-              <CustomButton text="Contactanos" />
+            <div className="mb-4 flex justify-start
+            ">
+            <CustomButton text={t("hero.button")} onClick={handleButtonClick}/>
             </div>
 
-            <div className="flex justify-between pt-4">
+            <div className="flex justify-between pt-4 ">
               <div className="flex flex-col items-start">
                 <h6 className="underline mb-2 text-sm md:text-base font-cocoUltralight uppercase text-[#EDEADB]">
                   CORREO
@@ -67,17 +75,17 @@ export const Footer = () => {
         </div>
 
         {/* Diseño móvil */}
-        <div className="flex flex-col md:hidden items-center p-4">
+        <div className="flex flex-col md:hidden items-center p-3 ">
           
           {/* Botón de Contactanos centrado (móvil) */}
-          <div className="mb-4">
-            <CustomButton text="Contactanos" />
+          <div className="mb-4 ">
+            <CustomButton text={t("hero.button")} onClick={handleButtonClick}/>
           </div>
 
           {/* Correo y Teléfonos en dos columnas, centrados y a la misma altura */}
-          <div className="flex flex-row justify-between w-full mb-4">
+          <div className="flex flex-row justify-between w-full mb-4 ">
             {/* Columna de Correo */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-start">
               <div className="text-sm font-cocoUltralight uppercase underline mb-2">
                 CORREO
               </div>
@@ -96,7 +104,7 @@ export const Footer = () => {
             </div>
 
             {/* Columna de Teléfonos */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-start">
               <div className="text-sm font-cocoUltralight uppercase underline mb-2">
                 TELÉFONOS
               </div>

@@ -1,12 +1,12 @@
 // src/components/footer/FooterLogo.tsx
-import logoCapaArquitectos from "/Users/alisonrangel/Desktop/RA/proyectos /CAPA ARQUITECTOS /LOGO/logo.png";
+import logoCapaArquitectos from "/Users/alisonrangel/Desktop/RA/proyectos /CAPA ARQUITECTOS /capaarquitectos-landing/src/assets/img/logo.png";
 
 
 const FooterLogo = () => {
     return (
       <div className="flex justify-center md:justify-start p-4">
         <img
-          className="h-40 w-auto cursor-pointer" // Tamaño del logo aumentado a 40px de altura
+          className="h-24 sm:h-40 w-auto cursor-pointer" // Tamaño del logo aumentado a 40px de altura
           src={logoCapaArquitectos}
           alt="Capa Arquitectos"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
