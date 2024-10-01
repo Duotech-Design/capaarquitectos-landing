@@ -34,8 +34,8 @@ export const Footer = () => {
 
             <div className="flex justify-between pt-4 ">
               <div className="flex flex-col items-start">
-                <h6 className="underline mb-2 text-sm md:text-base font-cocoUltralight uppercase text-[#EDEADB]">
-                  CORREO
+                <h6 className=" mb-2 text-sm md:text-base font-cocoUltralight uppercase text-[#EDEADB]">
+                {t("footer.email")}
                 </h6>
                 <a
                   href="mailto:info@capaarquitectos.com"
@@ -54,8 +54,8 @@ export const Footer = () => {
               </div>
 
               <div className="flex flex-col items-start">
-                <h6 className="underline mb-2 text-sm md:text-base font-cocoUltralight uppercase text-[#EDEADB]">
-                  TELÉFONOS
+                <h6 className=" mb-2 text-sm md:text-base font-cocoUltralight uppercase text-[#EDEADB]">
+                {t("footer.phone")}
                 </h6>
                 <a
                   href="https://wa.me/524443188840?text=Quiero%20cotizar%20un%20servicio"
@@ -86,8 +86,8 @@ export const Footer = () => {
           <div className="flex flex-row justify-between w-full mb-4 ">
             {/* Columna de Correo */}
             <div className="flex flex-col items-start">
-              <div className="text-sm font-cocoUltralight uppercase underline mb-2">
-                CORREO
+              <div className="text-sm font-cocoUltralight uppercase  mb-2">
+              {t("footer.email")}
               </div>
               <a
                 href="mailto:info@capaarquitectos.com"
@@ -105,8 +105,8 @@ export const Footer = () => {
 
             {/* Columna de Teléfonos */}
             <div className="flex flex-col items-start">
-              <div className="text-sm font-cocoUltralight uppercase underline mb-2">
-                TELÉFONOS
+              <div className="text-sm font-cocoUltralight uppercase  mb-2">
+              {t("footer.phone")}
               </div>
               <a
                 href="https://wa.me/524443188840?text=Quiero%20cotizar%20un%20servicio"
