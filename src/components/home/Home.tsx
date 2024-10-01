@@ -1,29 +1,92 @@
-import HomeBg from "@/assets/img/home-bg-r.webp";
-import HomeBg2 from "@/assets/img/philosophy.jpg";
+// import HomeBg from "@/assets/img/home-bg-r.webp";
+// import HomeBg2 from "@/assets/img/philosophy.jpg";
 import { useEffect, useRef, useState } from "react";
 import CustomButton from "../ui/CustomButton";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import { HomeAsset, HomeAssets } from "../../helpers/homeAssets";
+import { HomeAsset } from "../../helpers/homeAssets";
 
-const images = [HomeBg, HomeBg2];
+const customArrayImages = [
+  {
+    nameProject: "proyecto_el_maderable",
+    alt: "proyecto_el_maderable_3",
+    selectImagen: 3,
+  },
+  {
+    nameProject: "proyecto_el_maderable",
+    alt: "proyecto_el_maderable_4",
+    selectImagen: 4,
+  },
+  {
+    nameProject: "proyecto_el_maderable",
+    alt: "proyecto_el_maderable_11",
+    selectImagen: 11,
+  },
+  {
+    nameProject: "proyecto_el_maderable",
+    alt: "proyecto_el_maderable_30",
+    selectImagen: 30,
+  },
+  {
+    nameProject: "oficinas_rosmarinus",
+    alt: "oficinas_rosmarinus_2",
+    selectImagen: 2,
+  },
+  {
+    nameProject: "oficinas_rosmarinus",
+    alt: "oficinas_rosmarinus_8",
+    selectImagen: 8,
+  },
+  {
+    nameProject: "oficinas_rosmarinus",
+    alt: "oficinas_rosmarinus_9",
+    selectImagen: 9,
+  },
+  {
+    nameProject: "oficinas_rosmarinus",
+    alt: "oficinas_rosmarinus_11",
+    selectImagen: 11,
+  },
+  {
+    nameProject: "oficinas_rosmarinus",
+    alt: "oficinas_rosmarinus_19",
+    selectImagen: 19,
+  },
+  {
+    nameProject: "casa_dplusd",
+    alt: "casa_dplusd_2",
+    selectImagen: 2,
+  },
+  {
+    nameProject: "casa_dplusd",
+    alt: "casa_dplusd_3",
+    selectImagen: 3,
+  },
+  {
+    nameProject: "casa_dplusd",
+    alt: "casa_dplusd_15",
+    selectImagen: 15,
+  },
+] as {
+  nameProject: "proyecto_el_maderable" | "oficinas_rosmarinus" | "casa_dplusd";
+  alt: string;
+  selectImagen: number;
+}[];
 
 const Home = () => {
   const { t } = useTranslation("global");
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const [isFirstAnimationDone, setIsFirstAnimationDone] = useState(false);
   const [isIntersecting, setIsIntersecting] = useState(false);
-
   const imgRef = useRef<HTMLImageElement>(null);
-
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const totalImages: number = HomeAssets["oficinas_rosmarinus"].images;
-  const imageArray = new Array(totalImages).fill(0);
   const [previousImageIndex, setPreviousImageIndex] = useState<null | number>(
     null
   );
   const [animate, setAnimate] = useState(false);
+  const navigate = useNavigate();
+
+  const totalImages: number = customArrayImages.length;
 
   useEffect(() => {
     if (previousImageIndex !== null) {
@@ -31,7 +94,7 @@ const Home = () => {
       const timer = setTimeout(() => {
         setAnimate(false);
         setPreviousImageIndex(currentImageIndex);
-      }, 1000);
+      }, 3000);
       return () => clearTimeout(timer);
     } else {
       setPreviousImageIndex(currentImageIndex);
@@ -40,22 +103,19 @@ const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % totalImages);
     }, 6000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [totalImages]);
 
   const handleImageLoad = () => {
     setIsImageLoaded(true);
-    setIsFirstAnimationDone(true);
   };
 
   const handleImageClick = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % totalImages);
   };
-
-  const navigate = useNavigate();
 
   const handleButtonClick = () => {
     navigate("/contact-us");
@@ -63,9 +123,7 @@ const Home = () => {
 
   useEffect(() => {
     if (isImageLoaded && isIntersecting) {
-      const timer = setTimeout(() => {
-        setIsFirstAnimationDone(true);
-      }, 2000);
+      const timer = setTimeout(() => {}, 2000);
       return () => clearTimeout(timer);
     }
   }, [isImageLoaded, isIntersecting]);
@@ -96,26 +154,26 @@ const Home = () => {
       id="home"
       className="relative mx-auto px-2 sm:px-6 lg:px-8 min-h-screen overflow-hidden bg-gradient-to-t from-darkBlue"
     >
-      {imageArray.map((_, index) => (
+      {customArrayImages.map((custom, index) => (
         <div key={index}>
           {index === previousImageIndex && (
             <HomeAsset
-              project="proyecto_el_maderable"
-              index={previousImageIndex}
+              project={custom.nameProject}
+              index={custom.selectImagen}
               onLoad={handleImageLoad}
               onClick={handleImageClick}
-              alt={`proyecto_el_maderable_${previousImageIndex + 1}`}
+              alt={custom.alt}
               className="absolute inset-0 object-cover w-full h-[100vh] object-center z-0"
             />
           )}
           {index === currentImageIndex && (
             <HomeAsset
-              project="proyecto_el_maderable"
-              index={currentImageIndex}
+              project={custom.nameProject}
+              index={custom.selectImagen}
               onLoad={handleImageLoad}
               onClick={handleImageClick}
-              alt={`proyecto_el_maderable_${currentImageIndex + 1}`}
-              className={`absolute inset-0 object-cover w-full h-[100vh] object-center z-0 transition-transform duration-1000 ${
+              alt={custom.alt}
+              className={`absolute inset-0 object-cover w-full h-[100vh] object-center z-0 transition-transform duration-3000 ${
                 animate ? "animate-wipe-up" : ""
               }`}
             />

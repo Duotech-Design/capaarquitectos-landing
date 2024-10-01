@@ -11,6 +11,18 @@ import { useEffect, useState } from "react";
 
 const MAX_IMAGES_PER_PROJECT = 4;
 
+const customProjectMobile = {
+  oficinas_rosmarinus: [1],
+  casa_dplusd: [0],
+  proyecto_el_maderable: [28],
+} as const;
+
+const customProjectDesk = {
+  oficinas_rosmarinus: [18, 1, 0, 14],
+  casa_dplusd: [1, 2, 14, 0],
+  proyecto_el_maderable: [28, 29, 10, 30],
+} as const;
+
 const Projects = () => {
   const { t } = useTranslation("global");
   const [columns, setColumns] = useState(1);
@@ -76,7 +88,7 @@ const Projects = () => {
 
           {" | "}
           {/* Botón 2 */}
-        
+
           <span
             className="group relative cursor-pointer text-gray-700"
             onClick={() => setSelectedButton("button2")}
@@ -114,20 +126,31 @@ const Projects = () => {
                 <MoreButton text={t("projects.button3")} />
               </div>
             </div>
-            {...Array(columns)
-              .fill(0)
-              .map((_, index) => {
-                return (
-                  <div key={index}>
-                    <ProjectAsset
-                      project={project}
-                      index={index}
-                      alt={`${project}_${index + 1}`}
-                      className="w-full h-[220px] md:h-[300px] 2xl:h-[500px] object-cover md:object-center"
-                    />
-                  </div>
-                );
-              })}
+            {columns === 1
+              ? customProjectMobile[project].map((index) => {
+                  return (
+                    <div key={index}>
+                      <ProjectAsset
+                        project={project}
+                        index={index}
+                        alt={`${project}_${index + 1}`}
+                        className="w-full h-[220px] md:h-[280px] 2xl:h-[500px] object-cover md:object-center"
+                      />
+                    </div>
+                  );
+                })
+              : customProjectDesk[project].map((index) => {
+                  return (
+                    <div key={index}>
+                      <ProjectAsset
+                        project={project}
+                        index={index}
+                        alt={`${project}_${index + 1}`}
+                        className="w-full h-[220px] md:h-[280px] 2xl:h-[500px] object-cover md:object-center"
+                      />
+                    </div>
+                  );
+                })}
           </div>
         ))}
       </div>

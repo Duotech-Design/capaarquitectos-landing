@@ -45,11 +45,11 @@ export const HomeAsset: React.FC<HomeAssetProps> = ({
   alt,
   ...props
 }) => {
-  const src = `${project}/${(index + 1).toString().padStart(2, "0")}.webp`;
+  const src = `${project}/${(index).toString().padStart(2, "0")}.webp`;
   const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
 
   const srcSet = supportedWidth.map((width) => {
-    const src = `${project}/${(index + 1).toString().padStart(2, "0")}-${width}.webp`;
+    const src = `${project}/${(index).toString().padStart(2, "0")}-${width}.webp`;
     const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
     return `${imgSrc} ${width}w`;
   }).join(", ")
