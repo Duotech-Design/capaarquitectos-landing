@@ -1,5 +1,5 @@
 // src/components/footer/FooterLogo.tsx
-import logoCapaArquitectos from "/Users/alisonrangel/Desktop/RA/proyectos /CAPA ARQUITECTOS /capaarquitectos-landing/src/assets/img/logo.png";
+import logoCapaArquitectos from "@/assets/img/logo.png";
 
 
 const FooterLogo = () => {
