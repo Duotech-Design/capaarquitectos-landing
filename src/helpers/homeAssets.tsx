@@ -48,18 +48,18 @@ export const HomeAsset: React.FC<HomeAssetProps> = ({
   const src = `${project}/${(index).toString().padStart(2, "0")}.webp`;
   const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
 
-  const srcSet = supportedWidth.map((width) => {
-    const src = `${project}/${(index).toString().padStart(2, "0")}-${width}.webp`;
-    const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
-    return `${imgSrc} ${width}w`;
-  }).join(", ")
+  // const srcSet = supportedWidth.map((width) => {
+  //   const src = `${project}/${(index).toString().padStart(2, "0")}-${width}.webp`;
+  //   const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
+  //   return `${imgSrc} ${width}w`;
+  // }).join(", ")
 
   const sizes = supportedWidth.map((width) => {
     return `(max-width: ${width}px) ${width}px`;
   }).join(", ");
 
   return <img
-    srcSet={srcSet}
+    //srcSet={srcSet}
     sizes={sizes}
     src={imgSrc}
     alt={alt}
