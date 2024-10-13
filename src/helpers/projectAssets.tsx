@@ -34,18 +34,21 @@ export type AvailableProjects = keyof typeof ProjectAssets;
 export const ProjectList: AvailableProjects[] = Object.keys(ProjectAssets) as AvailableProjects[];
 
 type ProjectAssetProps = {
+  isFullScreen?: boolean;
   project: AvailableProjects;
   index: number;
   alt: string;
 } & React.ImgHTMLAttributes<HTMLImageElement>;
 
 export const ProjectAsset: React.FC<ProjectAssetProps> = ({
+  isFullScreen = false,
   project,
   index,
   alt,
   ...props
 }) => {
   const src = `${project}/${(index + 1).toString().padStart(2, "0")}.webp`;
+
   const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
 
   const srcSet = supportedWidth.map((width) => {
@@ -59,7 +62,7 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
   }).join(", ");
 
   return <img
-    srcSet={srcSet}
+    srcSet={!isFullScreen ? srcSet : ''}
     sizes={sizes}
     src={imgSrc}
     alt={alt}

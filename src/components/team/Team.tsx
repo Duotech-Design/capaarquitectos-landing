@@ -10,7 +10,7 @@ const Team = () => {
   return (
     <section className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen">
       <header className="flex flex-col flex-1 gap-y-6 ">
-        <div className="mt-44 flex gap-x-3"> {/* Margen superior general */}
+        <div className="mt-32 flex gap-x-3"> {/* Margen superior general */}
           <h3 className="text-2xl text-gray-500">{t("team.title")}</h3>
           <strong className="text-2xl font-bold">{t("team.subtitle")}</strong>
         </div>
@@ -21,9 +21,9 @@ const Team = () => {
           <div className="block group md:col-span-2 lg:col-span-1 slide-in-left">
             <div className="relative mb-6">
               <img
-                src="https://pagedone.io/asset/uploads/1696238374.png"
+                src="src/assets/img/capa_user_uno.JPG"
                 alt="Antonio image"
-                className="w-[500px] h-auto mx-auto transition-all duration-500 object-cover group-hover:filter group-hover:brightness-50"
+                className="h-[500px] mx-auto transition-all duration-500 object-cover group-hover:filter group-hover:brightness-50"
               />
               <div className="absolute right-[50%] top-[50%] transform translate-x-[50%] translate-y-[-50%]">
                 <div className="flex items-center my-auto justify-center gap-6 transition-all duration-500 group-hover:opacity-100 opacity-0">
@@ -63,9 +63,9 @@ const Team = () => {
           <div className="block group md:col-span-2 lg:col-span-1 slide-in-right">
             <div className="relative mb-6">
               <img
-                src="https://pagedone.io/asset/uploads/1696238374.png"
+                src="src/assets/img/capa_user_dos.JPG"
                 alt="Antonio image"
-                className="w-[500px] h-auto mx-auto transition-all duration-500 object-cover group-hover:filter group-hover:brightness-50"
+                className="h-[500px] mx-auto transition-all duration-500 object-cover group-hover:filter group-hover:brightness-50"
               />
               <div className="absolute right-[50%] top-[50%] transform translate-x-[50%] translate-y-[-50%]">
                 <div className="flex items-center my-auto justify-center gap-6 transition-all duration-500 group-hover:opacity-100 opacity-0">

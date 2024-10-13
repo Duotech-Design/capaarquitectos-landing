@@ -146,13 +146,10 @@ body {
 
 @keyframes text-focus-in {
   0% {
-    filter: blur(12px);
     opacity: 0;
   }
 
   100% {
-    filter: blur(0px);
-    text-shadow: 0 0 18px rgba(222, 215, 215, 0.5);
     opacity: 1;
   }
 }

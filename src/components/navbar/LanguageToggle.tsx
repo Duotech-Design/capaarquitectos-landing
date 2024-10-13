@@ -10,7 +10,7 @@ const LanguageToggle = () => {
     i18n.changeLanguage(option);
     setDropdownOpen(false);
   };
-
+  console.log("zoilo current",currentLanguage);
   return (
     <div className="relative inline-block text-left">
       <button
@@ -21,11 +21,27 @@ const LanguageToggle = () => {
         onClick={() => setDropdownOpen(!dropdownOpen)}
       >
         {/* Añadimos espacio entre EN y ES con mx-2 */}
-        <span className={`${currentLanguage === 'en' ? 'underline' : ''} mx-2`}>EN</span>
+        <span className="mx-2 relative">
+          EN
+          
+            <span className={`absolute left-0 -bottom-3 h-[1px] bg-white w-0 transition-all delay-100 ${
+              currentLanguage === 'en'
+                ? "w-full"
+                : ""
+            }`}>
+            </span>
+        </span>
         /
-        <span className={`${currentLanguage === 'es' ? 'underline' : ''} mx-2`}>ES</span>
+        <span className="mx-2 relative">
+          ES
+          <span className={`absolute left-0 -bottom-3 h-[1px] bg-white w-0 transition-all delay-100 ${
+              currentLanguage === 'es'
+                ? "w-full"
+                : ""
+            }`}></span>
+        </span>
         <svg
-          className={`ml-2 -mr-1 h-5 w-5 transition-transform duration-300 ${
+          className={`h-5 w-5 transition-transform duration-300 ${
             dropdownOpen ? "rotate-180" : "rotate-0"
           }`}
           xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +71,7 @@ const LanguageToggle = () => {
             onClick={() => handleChange("en")}
             className={`block w-full text-left px-4 py-2 text-sm hover:bg-darkGray ${
               currentLanguage === "en"
-                ? "text-white font-cocoUltralight underline decoration-white"
+                ? "text-white font-cocoUltralight"
                 : "text-white"
             }`}
             role="menuitem"
@@ -66,7 +82,7 @@ const LanguageToggle = () => {
             onClick={() => handleChange("es")}
             className={`block w-full text-left px-4 py-2 text-sm hover:bg-darkGray ${
               currentLanguage === "es"
-                ? "text-white font-cocoUltralight underline decoration-white"
+                ? "text-white font-cocoUltralight"
                 : "text-white"
             }`}
             role="menuitem"

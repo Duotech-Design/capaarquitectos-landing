@@ -78,7 +78,7 @@ export const Footer = () => {
         <div className="flex flex-col md:hidden items-center p-3 ">
           
           {/* Botón de Contactanos centrado (móvil) */}
-          <div className="mb-4 ">
+          <div className="mb-4">
             <CustomButton text={t("hero.button")} onClick={handleButtonClick}/>
           </div>
 

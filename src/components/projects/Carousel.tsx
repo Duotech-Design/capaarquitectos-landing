@@ -115,11 +115,12 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
     setIsFullScreen(false);
   };
 
-  const renderSlider = (ref: React.RefObject<Slider>, classCustom: string) => (
+  const renderSlider = (ref: React.RefObject<Slider>, classCustom: string, isFullScreen: boolean = false) => (
     <Slider ref={ref} key={id} {...settings} className="relative">
       {imageArray.map((_, index) => (
         <div key={index} className="overflow-hidden">
           <ProjectAsset
+            isFullScreen={isFullScreen}
             project={id}
             index={index}
             alt={`${id}_${index + 1}`}
@@ -161,7 +162,10 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
                 </svg>
               </button>
               <div className="w-[300px] sm:w-full">
-                {renderSlider(fullScreenSliderRef, "w-full sm:w-full sm:h-[600px] 2xl:h-[750px] object-scale-down object-center cursor-pointer")}
+                {renderSlider(
+                    fullScreenSliderRef, 
+                    "w-full sm:w-full sm:h-[600px] 2xl:h-[750px] object-scale-down object-center cursor-pointer",
+                    true)}
               </div>
             </div>
           </div>,

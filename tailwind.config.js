@@ -12,6 +12,7 @@ export default {
       backgroundImage: {
         "member-cofundador":
           "url('https://pagedone.io/asset/uploads/1696238374.png')",
+        "user-uno": "url('src/assets/img/capa_user_uno.JPG')",
         "contactUs-bg": "url('src/assets/img/contact-us-bg.webp')",
         "home-bg": "url('src/assets/img/home-bg.webp')",
         "home-bg-crop": "url('src/assets/img/home-bg-crop.webp')",
