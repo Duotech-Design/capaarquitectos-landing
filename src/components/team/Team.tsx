@@ -7,9 +7,9 @@ const Team = () => {
   return (
     <section className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen" style={{ backgroundColor: "#303030" }}>
       {/* Header: Nuestro Equipo */}
-      <header className="flex flex-col flex-1 gap-y-6 border border-red-500"> {/* Borde rojo */}
+      <header className="flex flex-col flex-1 gap-y-6 "> {/* Borde rojo */}
         {/* Título y subtítulo en la misma línea */}
-        <div className="mt-64 ml-12 border border-green-500 flex items-center gap-x-3"> {/* Borde verde bajado más */}
+        <div className="mt-64 ml-12  flex items-center gap-x-3"> {/* Borde verde bajado más */}
           <h3 className="text-2xl text-gray-500">{t("team.title")}</h3>
           <strong className="text-2xl font-bold text-white">{t("team.subtitle")}</strong>
         </div>
@@ -33,7 +33,7 @@ const Team = () => {
           <div className="absolute right-1/2 transform translate-x-1/2 top-0 bottom-0 w-px bg-white" style={{ height: '100%' }} /> {/* Línea divisoria ajustada */}
 
           {/* David Palau Section */}
-          <div className="block w-1/2 pl-4 border-pink-500"> {/* Borde rosa, texto alineado al inicio */}
+          <div className="block w-1/2 pl-4"> {/* Borde rosa, texto alineado al inicio */}
             <h4 className="text-xl font-semibold text-white mb-2 capitalize">
               DAVID PALAU
             </h4>
