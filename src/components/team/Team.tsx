@@ -1,4 +1,6 @@
 import { useTranslation } from "react-i18next";
+import Instagram from "@/assets/svg/socialMedia/instagram.svg"; // Actualiza el path al correcto
+import Facebook from "@/assets/svg/socialMedia/facebook.svg"; // Actualiza el path al correcto
 import "./Team.css";
 
 const Team = () => {
@@ -21,9 +23,34 @@ const Team = () => {
           {/* Alfredo Cardona Section */}
           <div className="block w-1/2 pl-4 team-member" data-member="alfredo">
             <h4 className="text-xl font-semibold text-white mb-2 capitalize">
-            {t("team.person_1")}
+              {t("team.person_1")}
             </h4>
             <span className="text-gray-400">{t("team.position_1")}</span>
+            {/* Social Icons */}
+            <div className="flex items-center justify-start gap-4 mt-4">
+              <a
+                href="https://www.instagram.com/fivo_cd/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={Instagram}
+                  alt="Instagram"
+                  className="w-11 h-11 mx-auto cursor-pointer"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/p/CAPA-Arquitectos-61550085347217/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={Facebook}
+                  alt="Facebook"
+                  className="w-10 h-10 mx-auto cursor-pointer"
+                />
+              </a>
+            </div>
           </div>
 
           {/* Línea divisoria */}
@@ -32,9 +59,34 @@ const Team = () => {
           {/* David Palau Section */}
           <div className="block w-1/2 pl-4 team-member" data-member="david">
             <h4 className="text-xl font-semibold text-white mb-2 capitalize">
-            {t("team.person_2")}
+              {t("team.person_2")}
             </h4>
             <span className="text-gray-400">{t("team.position_2")}</span>
+            {/* Social Icons */}
+            <div className="flex items-center justify-start gap-4 mt-4">
+              <a
+                href="https://www.instagram.com/davidpalau23?igsh=MWkxOGkxcG1hdm1ocA=="
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={Instagram}
+                  alt="Instagram"
+                  className="w-11 h-11 mx-auto cursor-pointer"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/p/CAPA-Arquitectos-61550085347217/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={Facebook}
+                  alt="Facebook"
+                  className="w-10 h-10 mx-auto cursor-pointer"
+                />
+              </a>
+            </div>
           </div>
         </div>
 
