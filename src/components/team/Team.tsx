@@ -21,9 +21,9 @@ const Team = () => {
           {/* Alfredo Cardona Section */}
           <div className="block w-1/2 pl-4 team-member" data-member="alfredo">
             <h4 className="text-xl font-semibold text-white mb-2 capitalize">
-              ALFREDO CARDONA
+            {t("team.person_1")}
             </h4>
-            <span className="text-gray-400">Co-fundador</span>
+            <span className="text-gray-400">{t("team.position_1")}</span>
           </div>
 
           {/* Línea divisoria */}
@@ -32,9 +32,9 @@ const Team = () => {
           {/* David Palau Section */}
           <div className="block w-1/2 pl-4 team-member" data-member="david">
             <h4 className="text-xl font-semibold text-white mb-2 capitalize">
-              DAVID PALAU
+            {t("team.person_2")}
             </h4>
-            <span className="text-gray-400">Director de Diseño</span>
+            <span className="text-gray-400">{t("team.position_2")}</span>
           </div>
         </div>
 
