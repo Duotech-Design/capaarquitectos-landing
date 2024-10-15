@@ -271,6 +271,7 @@ const Form = () => {
             formik.errors.howDidYouHearAboutUs
           )}
           zIndex={50}
+          
         />
       </div>
       {formik.values.howDidYouHearAboutUs === "otro" && (
@@ -289,7 +290,7 @@ const Form = () => {
         />
       )}
       <div className="relative mt-3 mb-3">
-        <label className="flex  items-center mb-1 text-white text-base font-medium">
+        <label className="flex  items-center mb-1 text-white text-base font-medium" >
           {t("form.services")}{" "}
         </label>
         <CustomTabs

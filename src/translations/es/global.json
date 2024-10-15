@@ -74,61 +74,59 @@
   "form": {
     "title": "CONTÁCTANOS",
     "name": "Nombre",
-    "name_placeholder": "Ingresa tu nombre",
-    "email": "Email",
-    "email_placeholder": "Ingresa tu email",
+    "name_placeholder": "Ingrese su nombre",
+    "email": "Correo electrónico",
+    "email_placeholder": "Ingrese su correo electrónico",
     "phone": "Teléfono",
-    "phone_placeholder": "Ingresa tu teléfono",
-    "howDidYouHearAboutUs": "¿Como te enteraste de nosotros?",
-    "howDidYouHearAboutUs_placeholder": "Selecciona una opción ...",
-    "specify": "Especifica",
-    "specify_placeholder": "Recomedación de ...",
-    "services": "Servicios de interes",
-    "projects_description": "Cuentanos más sobre tu proyecto",
-    "projects_description_placeholder": "Me gustaría ...",
+    "phone_placeholder": "Ingrese su número de teléfono",
+    "howDidYouHearAboutUs": "¿Cómo se enteró de nosotros?",
+    "howDidYouHearAboutUs_placeholder": "Seleccione una opción ...",
+    "specify": "Especifique",
+    "specify_placeholder": "Recomendación de ...",
+    "services": "Servicios de interés :",
+    "projects_description": "Cuéntenos más sobre su proyecto",
+    "projects_description_placeholder": "Me gustaría recibir información sobre ...",
     "options": {
       "construction": {
         "title": "Construcción",
         "placeholder": "Construcción de ...",
-        "new_construction": "Construcción de obra Nueva",
-        "construction_supervision": "Supervisión de Obra",
+        "new_construction": "Construcción de obra nueva",
+        "construction_supervision": "Supervisión de obra",
         "civil_works": "Obra civil",
-        "renovations_and_additions": "Remodelaciones y Ampliaciones"
+        "renovations_and_additions": "Remodelaciones y ampliaciones"
       },
       "construction_documents": {
-        "title": "Proyectos Ejecutivos",
+        "title": "Proyectos ejecutivos",
         "placeholder": "Proyectos ejecutivos de ...",
         "construction_drawings": "Desarrollo de planos constructivos",
         "permit_acquisition": "Gestión de permisos y licencias",
         "specifications_and_descriptive_reports": "Memorias descriptivas y especificaciones",
-        "3d_modeling_and_rendering": "Modelado ",
-        "3d_modeling_and_rendering_2": "D y renderización"
+        "3d_modeling_and_rendering": "Modelado 3D y renderización"
       },
       "architectural_consulting": {
-        "title": "Consultoria y asesoria",
-        "placeholder": "Consultoria y asesoria de ...",
+        "title": "Consultoría y asesoría",
+        "placeholder": "Consultoría y asesoría de ...",
         "feasibility_analysis": "Estudios de factibilidad",
-        "design_consultation": "Asesoria de diseño"
+        "design_consultation": "Asesoría de diseño"
       },
       "architectural_design": {
-        "title": "Diseño Arquitectonico",
-        "placeholder": "Diseño arquitectonico de ...",
+        "title": "Diseño arquitectónico",
+        "placeholder": "Diseño arquitectónico de ...",
         "residential_design": "Diseño habitacional",
         "commercial_design": "Diseño comercial",
         "interior_design": "Diseño de interiores"
       },
       "optionsHowDidYouHearAboutUs": {
         "magazine": "Revista",
-        "recommendation": "Amigo o conocido",
+        "recommendation": "Recomendación de un amigo o conocido",
         "other": "Otro"
+      },
+      "button": {
+        "start": "ENVIAR",
+        "loading": "ENVIANDO",
+        "success": "ENVIADO CON ÉXITO",
+        "error": "INTÉNTALO DE NUEVO MÁS TARDE"
       }
-    },
-    "button": {
-      "start": "ENVIAR",
-      "loading": "ENVIANDO ",
-      "success": "ENVIADO CON ÉXITO",
-      "error": "INTÉNTALO DE NUEVO MÁS TARDE"
-    }
   },
   "footer": {
     "rights": "© 2022 Capa Arquitectos. All rights reserved. | Website by DuoTech Design.",
@@ -140,3 +138,4 @@
     "contact_phone12": "444281 6256"
   }
 }
+ }
