@@ -1,9 +1,9 @@
 /* Configuración del contenedor de imágenes */
 .team-image-container {
   position: relative;
-  width: 100%; /* Asegura que ocupe el espacio disponible */
-  height: 400px; /* Suficiente espacio para las imágenes */
-  margin-top: 2rem; /* Separar las imágenes del texto */
+  width: 100%;
+  height: 400px;
+  margin-top: 2rem;
 }
 
 /* Estilos para las imágenes */
@@ -12,17 +12,22 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0; /* Oculto inicialmente */
-  visibility: hidden; /* Evita ocupar espacio cuando está oculto */
+  opacity: 0;
+  visibility: hidden;
   width: 500px;
   height: auto;
-  transition: opacity 0.5s ease, visibility 0s linear 0.5s; /* Transición para suavidad */
+  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
 }
 
-/* Mostrar la imagen correspondiente al hacer hover */
-.team-member[data-member="alfredo"]:hover ~ .team-image-container .team-image[data-member="alfredo"],
+/* Mostrar la imagen del lado opuesto al hacer hover */
+.team-member[data-member="alfredo"]:hover ~ .team-image-container .team-image[data-member="alfredo"] {
+  opacity: 1;
+  visibility: visible;
+  left: 80%; /* Imagen de Alfredo aparecerá en el lado derecho */
+}
+
 .team-member[data-member="david"]:hover ~ .team-image-container .team-image[data-member="david"] {
   opacity: 1;
-  visibility: visible; /* Mostrar la imagen */
-  transition-delay: 0s; /* Quita el delay al mostrarse */
+  visibility: visible;
+  left: 20%; /* Imagen de David aparecerá en el lado izquierdo */
 }

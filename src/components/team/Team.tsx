@@ -40,7 +40,7 @@ const Team = () => {
                 />
               </a>
               <a
-                href="https://www.facebook.com/p/CAPA-Arquitectos-61550085347217/"
+                href="https://www.facebook.com/alfredo.cardona"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -76,7 +76,7 @@ const Team = () => {
                 />
               </a>
               <a
-                href="https://www.facebook.com/p/CAPA-Arquitectos-61550085347217/"
+                href="https://www.facebook.com/david.palau.792"
                 target="_blank"
                 rel="noopener noreferrer"
               >
