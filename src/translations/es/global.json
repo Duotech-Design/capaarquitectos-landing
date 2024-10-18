@@ -120,7 +120,8 @@
         "magazine": "Revista",
         "recommendation": "Recomendación de un amigo o conocido",
         "other": "Otro"
-      },
+      }
+    },
       "button": {
         "start": "ENVIAR",
         "loading": "ENVIANDO",
@@ -138,4 +139,4 @@
     "contact_phone12": "444281 6256"
   }
 }
- }
+ 
