@@ -181,7 +181,7 @@ const Home = () => {
         </div>
       ))}
       {!isImageLoaded && (
-        <div className="absolute inset-0 bg-transparent opacity-50 z-10 flex justify-center items-center">
+        <div className="absolute inset-0 bg-white z-20 flex justify-center items-center">
           <div className="spinner"></div>
         </div>
       )}

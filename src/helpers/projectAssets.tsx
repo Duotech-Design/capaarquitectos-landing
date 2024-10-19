@@ -1,6 +1,6 @@
 import React from "react";
 
-const supportedWidth = [256, 720, 1020];
+
 
 export const ProjectAssets = {
   oficinas_rosmarinus: {
@@ -47,6 +47,8 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
   alt,
   ...props
 }) => {
+  const supportedWidth = isFullScreen ? [1020] : [320, 640, 1020];
+
   const src = `${project}/${(index + 1).toString().padStart(2, "0")}.webp`;
 
   const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
@@ -56,13 +58,13 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
     const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
     return `${imgSrc} ${width}w`;
   }).join(", ")
-
+  
   const sizes = supportedWidth.map((width) => {
     return `(max-width: ${width}px) ${width}px`;
   }).join(", ");
-
+console.log("ZOILO srcSet",srcSet);
   return <img
-    srcSet={!isFullScreen ? srcSet : ''}
+    srcSet={srcSet}
     sizes={sizes}
     src={imgSrc}
     alt={alt}
