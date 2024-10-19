@@ -26,7 +26,7 @@ const customArrayImages = [
   {
     nameProject: "proyecto_el_maderable",
     alt: "proyecto_el_maderable_30",
-    selectImagen: 30,
+    selectImagen: 14,
   },
   {
     nameProject: "oficinas_rosmarinus",
@@ -51,7 +51,7 @@ const customArrayImages = [
   {
     nameProject: "oficinas_rosmarinus",
     alt: "oficinas_rosmarinus_19",
-    selectImagen: 19,
+    selectImagen: 16,
   },
   {
     nameProject: "casa_dplusd",

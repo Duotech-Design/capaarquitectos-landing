@@ -5,7 +5,7 @@ const supportedWidth = [720, 1020];
 export const HomeAssets = {
   oficinas_rosmarinus: {
     name: "OFICINAS ROSMARINUS",
-    images: 22,
+    images: 17,
     location: "SAN LUIS POTOSÍ, SLP.",
     type: "Diseño de interiores",
     status: "Terminado",
@@ -13,7 +13,7 @@ export const HomeAssets = {
   },
   casa_dplusd: {
     name: "CASA D+D",
-    images: 17,
+    images: 15,
     location: "SANTA MARÍA DEL RÍO, SLP.",
     type: "Construción de obra nueva",
     status: "Construido",
@@ -21,7 +21,7 @@ export const HomeAssets = {
   },
   proyecto_el_maderable: {
     name: "PROYECTO El MADERABLE",
-    images: 31,
+    images: 28,
     location: "SAN LUÍS POTOSÍ",
     type: "Remodelación y ampliación",
     status: "Terminado",

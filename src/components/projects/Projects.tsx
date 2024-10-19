@@ -18,9 +18,9 @@ const customProjectMobile = {
 } as const;
 
 const customProjectDesk = {
-  oficinas_rosmarinus: [18, 1, 0, 13],
+  oficinas_rosmarinus: [14, 1, 0, 13],
   casa_dplusd: [1, 2, 14, 0],
-  proyecto_el_maderable: [28, 29, 10, 30],
+  proyecto_el_maderable: [13, 26, 10, 27],
 } as const;
 
 const Projects = () => {
