@@ -152,7 +152,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative mx-auto px-2 sm:px-6 lg:px-8 min-h-screen overflow-hidden bg-white"
+      className="relative mx-auto px-2 sm:px-6 lg:px-8 min-h-screen overflow-hidden bg-gradient-to-t from-darkBlue"
     >
       {customArrayImages.map((custom, index) => (
         <div key={index}>
@@ -181,7 +181,7 @@ const Home = () => {
         </div>
       ))}
       {!isImageLoaded && (
-        <div className="absolute inset-0 bg-white z-20 flex justify-center items-center">
+        <div className="absolute inset-0 bg-transparent opacity-50 z-10 flex justify-center items-center">
           <div className="spinner"></div>
         </div>
       )}
