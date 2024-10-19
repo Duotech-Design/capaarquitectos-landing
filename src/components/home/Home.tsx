@@ -163,7 +163,7 @@ const Home = () => {
               onLoad={handleImageLoad}
               onClick={handleImageClick}
               alt={custom.alt}
-              className="absolute inset-0 object-cover w-full h-[100vh] sm:h-auto object-center z-0"
+              className="absolute inset-0 object-cover w-full h-auto sm:h-[100vh] object-center z-0"
             />
           )}
           {index === currentImageIndex && (
@@ -173,7 +173,7 @@ const Home = () => {
               onLoad={handleImageLoad}
               onClick={handleImageClick}
               alt={custom.alt}
-              className={`absolute inset-0 object-cover w-full h-[100vh] sm:h-auto object-center z-0 transition-transform duration-3000 ${
+              className={`absolute inset-0 object-cover w-full h-auto sm:h-[100vh] object-center z-0 transition-transform duration-3000 ${
                 animate ? "animate-wipe-up" : ""
               }`}
             />
