@@ -1,6 +1,6 @@
 import React from "react";
 
-const supportedWidth = [640, 1020];
+const supportedWidth = [1020];
 
 export const HomeAssets = {
   oficinas_rosmarinus: {

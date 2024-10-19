@@ -152,7 +152,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative mx-auto px-2 sm:px-6 lg:px-8 min-h-screen overflow-hidden bg-white"
+      className="relative mx-auto px-2 sm:px-6 lg:px-8 min-h-screen h-[100lvh] overflow-hidden bg-white"
     >
       {customArrayImages.map((custom, index) => (
         <div key={index}>
