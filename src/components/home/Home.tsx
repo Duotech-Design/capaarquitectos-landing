@@ -152,7 +152,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative mx-auto px-2 sm:px-6 lg:px-8 h-[900px] sm:h-[100vh] overflow-hidden bg-white"
+      className="relative mx-auto px-2 sm:px-6 lg:px-8 h-[100lvh] sm:h-[100vh] overflow-hidden bg-white"
     >
       {customArrayImages.map((custom, index) => (
         <div key={index}>
@@ -163,7 +163,7 @@ const Home = () => {
               onLoad={handleImageLoad}
               onClick={handleImageClick}
               alt={custom.alt}
-              className="absolute inset-0 object-cover w-full h-[900px] sm:h-[100vh] object-center z-0"
+              className="absolute inset-0 object-cover w-full h-[100lvh] sm:h-[100vh] object-center z-0"
             />
           )}
           {index === currentImageIndex && (
@@ -173,7 +173,7 @@ const Home = () => {
               onLoad={handleImageLoad}
               onClick={handleImageClick}
               alt={custom.alt}
-              className={`absolute inset-0 object-cover w-full h-[900px] sm:h-[100vh] object-center z-0 transition-transform duration-3000 ${
+              className={`absolute inset-0 object-cover w-full h-[100lvh] sm:h-[100vh] object-center z-0 transition-transform duration-3000 ${
                 animate ? "animate-wipe-up" : ""
               }`}
             />
