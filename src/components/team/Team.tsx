@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import Instagram from "@/assets/svg/socialMedia/instagram.svg"; // Actualiza el path al correcto
-import Facebook from "@/assets/svg/socialMedia/facebook.svg"; // Actualiza el path al correcto
+import Instagram from "@/assets/svg/socialMedia/instagram.svg"; 
+import Facebook from "@/assets/svg/socialMedia/facebook.svg";
 import "./Team.css";
 
 const Team = () => {
@@ -93,13 +93,13 @@ const Team = () => {
         {/* Imagen contenedor */}
         <div className="team-image-container">
           <img
-            src="/src/assets/img/capa_user_dos.JPG"
+            src="/src/assets/img/team_photos/fotos_arquis/01.webp"
             alt="Alfredo image"
             className="team-image"
             data-member="alfredo"
           />
           <img
-            src="/src/assets/img/capa_user_uno.JPG"
+            src="/src/assets/img/team_photos/fotos_arquis/02.webp"
             alt="David image"
             className="team-image"
             data-member="david"

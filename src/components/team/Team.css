@@ -2,9 +2,10 @@
 .team-image-container {
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 400px; /* Asegura espacio suficiente para las imágenes */
   margin-top: 2rem;
-  border: 2px solid yellow; /* Borde amarillo para el contenedor de imágenes */
+  border: 2px solid yellow;
+  overflow: hidden;
 }
 
 /* Estilos para las imágenes */
@@ -15,33 +16,31 @@
   transform: translate(-50%, -50%);
   opacity: 0;
   visibility: hidden;
-  width: 500px;
-  height: auto;
-  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
-  border: 2px solid purple; /* Borde morado para las imágenes individuales */
+  width: 300px;
+  height: 400px; /* Ajusta el tamaño de las imágenes */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  pointer-events: none;
 }
 
-/* Mostrar la imagen del lado opuesto al hacer hover */
-.team-member[data-member="alfredo"]:hover ~ .team-image-container .team-image[data-member="alfredo"] {
+/* Mostrar la imagen de David al hacer hover sobre Alfredo */
+.team-member[data-member="alfredo"]:hover ~ .team-image-container .team-image[data-member="david"] {
   opacity: 1;
   visibility: visible;
-  left: 80%; /* Imagen de Alfredo aparecerá en el lado derecho */
 }
 
-.team-member[data-member="david"]:hover ~ .team-image-container .team-image[data-member="david"] {
+/* Mostrar la imagen de Alfredo al hacer hover sobre David */
+.team-member[data-member="david"]:hover ~ .team-image-container .team-image[data-member="alfredo"] {
   opacity: 1;
   visibility: visible;
-  left: 20%; /* Imagen de David aparecerá en el lado izquierdo */
 }
 
 /* Estilos de los miembros del equipo */
 .team-member {
-  border: 2px solid blue; /* Borde azul para cada miembro del equipo */
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  border: 2px solid blue; /* Borde azul */
+  transition: transform 0.3s ease;
 }
 
-/* Efecto hover en miembros del equipo */
 .team-member:hover {
-  transform: scale(1.05); /* Aumenta el tamaño del div ligeramente */
-  border-color: green; /* Cambia el borde a verde al hacer hover */
+  transform: scale(1.05); /* Efecto de hover en el miembro */
 }
