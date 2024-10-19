@@ -10,14 +10,14 @@ const Team = () => {
     <section className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen" style={{ backgroundColor: "#303030" }}>
       {/* Header: Nuestro Equipo */}
       <header className="flex flex-col flex-1 gap-y-6 ">
-        <div className="mt-64 ml-12 flex items-center gap-x-3">
+        <div className="mt-52 ml-12 flex items-center gap-x-3">
           <h3 className="text-2xl text-gray-500">{t("team.title")}</h3>
           <strong className="text-2xl font-bold text-white">{t("team.subtitle")}</strong>
         </div>
       </header>
 
       {/* Team members grid */}
-      <div className="mt-96 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-left relative team-container">
+      <div className="mt-72 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-left relative team-container">
         <div className="relative py-28 flex justify-between border-t border-b border-white">
           
           {/* Alfredo Cardona Section */}
