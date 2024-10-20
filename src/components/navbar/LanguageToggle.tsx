@@ -10,7 +10,7 @@ const LanguageToggle = () => {
     i18n.changeLanguage(option);
     setDropdownOpen(false);
   };
-  console.log("zoilo current",currentLanguage);
+
   return (
     <div className="relative inline-block text-left">
       <button

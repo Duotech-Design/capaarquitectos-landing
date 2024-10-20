@@ -6,10 +6,12 @@ import {
 import SimpleSlider from "./Carousel";
 import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
 
 const ProjectsDetails = () => {
   const { t } = useTranslation("global");
   const { id } = useParams<{ id: AvailableProjects }>();
+  const [contentType, setContentType] = useState<string>("images");
   const navigate = useNavigate();
 
   if (!id) return null;
@@ -18,6 +20,33 @@ const ProjectsDetails = () => {
   const selectedProject = ProjectAssets[id];
   const projectName = selectedProject.name;
   const currentProjectIndex = projectList.indexOf(id);
+  const fotografiasBoolean = selectedProject.fotografiasBoolean;
+  const rendersBoolea = selectedProject.rendersBoolea;
+  const planosBoolea = selectedProject.planosBoolea;
+  const getContentType = () => {
+    if (fotografiasBoolean) {
+      
+      return 'images';
+    } else if (rendersBoolea) {
+      
+      return 'renders';
+    } else if (planosBoolea) {
+      
+      return 'planos';
+    } else {
+        
+        return '';
+    }
+  };
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    setContentType(getContentType())
+  }, [id]);
+
+  const handlerContentType = (type: string) => {
+    setContentType(type);
+  }
 
   const nextProject = () => {
     const nextProject = projectList.indexOf(id) + 1;
@@ -84,18 +113,23 @@ const ProjectsDetails = () => {
       </header>
 
       <div className="text-sm flex justify-center pb-6 lg:pb-3 2xl:pt-20 gap-x-3 md:gap-x-12 w-full mb-2 md:mb-4 lg:mb-3 slide-in-bottom">
-        <span className="slide-in-bottom" style={{ animationDelay: "0.5s" }}>{t("projects_description.button1")}</span>
-        <div className="border-r-2 border-lightGray"></div>
-        <span className="slide-in-bottom" style={{ animationDelay: "1s" }}>{t("projects_description.button2")}</span>
-        <div className="border-r-2 border-lightGray"></div>
-        <span className="slide-in-bottom" style={{ animationDelay: "1.5s" }}>{t("projects_description.button3")}</span>
+       {fotografiasBoolean && <span onClick={() => handlerContentType("")} className="slide-in-bottom cursor-pointer" style={{ animationDelay: "0s" }}>{t("projects_description.button1")}</span>}
+        
+       {rendersBoolea && 
+       <>
+       <div className="border-r-2 border-lightGray"></div>
+        <span onClick={() => handlerContentType("renders")} className="slide-in-bottom cursor-pointer" style={{ animationDelay: "0s" }}>{t("projects_description.button2")}</span> </>}
+        {planosBoolea && 
+        <>
+          <div className="border-r-2 border-lightGray"></div>
+          <span onClick={() => handlerContentType("planos")} className="slide-in-bottom cursor-pointer" style={{ animationDelay: "0s" }}>{t("projects_description.button3")}</span> </>}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-y-2 md:gap-y-1">
         <div className=" lg:col-span-3 md:col-span-2 text-sm lg:text-base text-right lg:pr-3">
         </div>
         <div className="col-span-10 lg:col-span-6 md:col-span-8 text-focus-in">
-          <SimpleSlider id={id} />
+          <SimpleSlider id={id} contentType={contentType} selectedProject={selectedProject} />
         </div>
         <div className="lg:col-span-3 md:col-span-2"></div>
 

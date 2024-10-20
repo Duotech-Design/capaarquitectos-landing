@@ -11,17 +11,33 @@ import { useEffect, useState } from "react";
 
 const MAX_IMAGES_PER_PROJECT = 4;
 
-const customProjectMobile = {
+const customProjectMobile: { [key in AvailableProjects]: number[] } = {
   oficinas_rosmarinus: [1],
   casa_dplusd: [0],
   proyecto_el_maderable: [28],
-} as const;
+  casa_latania: [],
+  clinica_axolotl: [],
+  codapsa: [],
+  hangar_corpoil: [],
+  oficinas_av_tecnica: [],
+  propysol: [],
+  terraza_fc: [],
+  terraza_mr: [],
+};
 
-const customProjectDesk = {
+const customProjectDesk: { [key in AvailableProjects]: number[] } = {
   oficinas_rosmarinus: [14, 1, 0, 13],
   casa_dplusd: [1, 2, 14, 0],
-  proyecto_el_maderable: [13, 26, 10, 27],
-} as const;
+  proyecto_el_maderable: [13, 26, 10, 25],
+  casa_latania: [],
+  clinica_axolotl: [],
+  codapsa: [],
+  hangar_corpoil: [],
+  oficinas_av_tecnica: [],
+  propysol: [],
+  terraza_fc: [],
+  terraza_mr: [],
+};
 
 const Projects = () => {
   const { t } = useTranslation("global");
@@ -131,6 +147,7 @@ const Projects = () => {
                   return (
                     <div key={index}>
                       <ProjectAsset
+                        contentTypes=""
                         project={project}
                         index={index}
                         alt={`${project}_${index + 1}`}
@@ -143,6 +160,7 @@ const Projects = () => {
                   return (
                     <div key={index}>
                       <ProjectAsset
+                        contentTypes="images"
                         project={project}
                         index={index}
                         alt={`${project}_${index + 1}`}

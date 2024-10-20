@@ -12,6 +12,8 @@ import {
 
 interface SimpleSliderProps {
   id: AvailableProjects;
+  contentType: string | null;
+  selectedProject: any
 }
 
 interface ArrowProps {
@@ -69,7 +71,7 @@ const CustomNextArrow: FC<ArrowProps> = ({ className, onClick, isFullScreen }) =
   );
 };
 
-const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
+const SimpleSlider: FC<SimpleSliderProps> = ({ id, contentType, selectedProject }: SimpleSliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const sliderRef = useRef<Slider>(null);
@@ -77,8 +79,8 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
 
   const settings = {
     dots: false,
-    infinite: true,
-    speed: 500,
+    infinite:!!(contentType && selectedProject[contentType].length > 1),
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: currentIndex,
@@ -103,7 +105,8 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
     }
   }, [isFullScreen, currentIndex]);
 
-  const totalImages: number = ProjectAssets[id].images;
+  const totalImages: number = contentType === "images" ? ProjectAssets[id].images : contentType === "renders" ? ProjectAssets[id].renders : ProjectAssets[id].planos;
+  //ProjectAssets[id].images;
   const imageArray = new Array(totalImages).fill(0);
 
   const handleImageClick = (index: number) => {
@@ -120,6 +123,7 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id }: SimpleSliderProps) => {
       {imageArray.map((_, index) => (
         <div key={index} className="overflow-hidden">
           <ProjectAsset
+            contentTypes={contentType}
             isFullScreen={isFullScreen}
             project={id}
             index={index}
