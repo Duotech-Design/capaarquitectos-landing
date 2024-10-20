@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "formik": "^2.4.6",
+    "gsap": "^3.12.5",
     "i18next": "^23.14.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
