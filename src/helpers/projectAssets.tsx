@@ -173,7 +173,11 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
   let src = "";
   if (contentTypes === "images") {
     src = `${project}/${(index + 1).toString().padStart(2, "0")}.webp`;
-  } else {
+  } else if(project === "proyecto_el_maderable") {
+    src = `${project}/${contentTypes}/temporal/${(index + 1)
+      .toString()
+      .padStart(2, "0")}.webp`;
+  }else {
     src = `${project}/${contentTypes}/${(index + 1)
       .toString()
       .padStart(2, "0")}.webp`;
@@ -183,6 +187,21 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
 
   const srcSet = supportedWidth
     .map((width) => {
+      let src = "";
+      if (contentTypes === "images") {
+        src = `${project}/${(index + 1)
+          .toString()
+          .padStart(2, "0")}-${width}.webp`;
+      } else if(project === "proyecto_el_maderable") {
+        src = `${project}/${contentTypes}/temporal/${(index + 1)
+          .toString()
+          .padStart(2, "0")}-${width}.webp`;
+      } else {
+        src = `${project}/${contentTypes}/${(index + 1)
+          .toString()
+          .padStart(2, "0")}-${width}.webp`;
+      }
+      const imgSrc = new URL(`../assets/img/${src}`, import.meta.url).href;
       return `${imgSrc} ${width}w`;
     })
     .join(", ");
