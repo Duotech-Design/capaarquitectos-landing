@@ -174,7 +174,7 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
   if (contentTypes === "images") {
     src = `${project}/${(index + 1).toString().padStart(2, "0")}.webp`;
   } else if(project === "proyecto_el_maderable") {
-    src = `${project}/${contentTypes}/temporal/${(index + 1)
+    src = `${project}/temporal/${(index + 1)
       .toString()
       .padStart(2, "0")}.webp`;
   }else {
@@ -193,7 +193,7 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
           .toString()
           .padStart(2, "0")}-${width}.webp`;
       } else if(project === "proyecto_el_maderable") {
-        src = `${project}/${contentTypes}/temporal/${(index + 1)
+        src = `${project}/temporal/${(index + 1)
           .toString()
           .padStart(2, "0")}-${width}.webp`;
       } else {
