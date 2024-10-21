@@ -12,7 +12,7 @@ import {
 
 interface SimpleSliderProps {
   id: AvailableProjects;
-  contentType: string | null;
+  contentType: string;
   selectedProject: any
 }
 
@@ -76,10 +76,10 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id, contentType, selectedProject 
   const [isFullScreen, setIsFullScreen] = useState(false);
   const sliderRef = useRef<Slider>(null);
   const fullScreenSliderRef = useRef<Slider>(null);
-
+  
   const settings = {
     dots: false,
-    infinite:!!(contentType && selectedProject[contentType].length > 1),
+    infinite:selectedProject[contentType] > 1,
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -89,9 +89,17 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id, contentType, selectedProject 
     afterChange: (current: number) => setCurrentIndex(current),
   };
 
-  useEffect(() => {
-    setCurrentIndex(0);
-  }, [id]);
+useEffect(() => {
+  setCurrentIndex(0);
+  if (sliderRef.current) {
+    sliderRef.current.slickGoTo(0);
+    // Forzar una actualización del slider
+    setTimeout(() => {
+      sliderRef.current?.slickGoTo(0);
+    }, 0);
+  }
+}, [id, contentType]);
+
 
   useEffect(() => {
     if (sliderRef.current) {
@@ -106,7 +114,7 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id, contentType, selectedProject 
   }, [isFullScreen, currentIndex]);
 
   const totalImages: number = contentType === "images" ? ProjectAssets[id].images : contentType === "renders" ? ProjectAssets[id].renders : ProjectAssets[id].planos;
-  //ProjectAssets[id].images;
+
   const imageArray = new Array(totalImages).fill(0);
 
   const handleImageClick = (index: number) => {
@@ -144,10 +152,10 @@ const SimpleSlider: FC<SimpleSliderProps> = ({ id, contentType, selectedProject 
       </div>
       {isFullScreen &&
         ReactDOM.createPortal(
-          <div className="fixed inset-0 bg-black backdrop-blur-lg bg-opacity-80 flex justify-center items-center z-50">
-            <div className="relative max-w-4xl max-h-full">
+          <div className="border-2 border-green-500 fixed inset-0 bg-black backdrop-blur-lg bg-opacity-80 flex justify-center items-center z-50">
+            <div className="relative max-w-7xl max-h-full border-2 border-red-500">
               <button
-                className={`z-50 absolute -top-10 -right-10 ${isFullScreen ? "md:top-2 md:right-1 " : "md:-top-2 md:-right-24"} text-white px-2.5`}
+                className={`z-50 absolute -top-10 -right-10 ${isFullScreen ? "md:top-0 md:-right-12 " : "md:-top-2 md:-right-24"} text-white px-2.5`}
                 onClick={handleCloseFullScreen}
               >
                 <svg

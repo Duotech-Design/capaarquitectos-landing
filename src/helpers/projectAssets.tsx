@@ -196,7 +196,7 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
   }).join(", ");
 
   return <img
-    srcSet={srcSet}
+    srcSet={contentTypes !== 'images' ? "":srcSet}
     sizes={sizes}
     src={imgSrc}
     alt={alt}

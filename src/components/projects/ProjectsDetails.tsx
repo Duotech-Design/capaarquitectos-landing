@@ -25,7 +25,6 @@ const ProjectsDetails = () => {
   const planosBoolea = selectedProject.planosBoolea;
   const getContentType = () => {
     if (fotografiasBoolean) {
-      
       return 'images';
     } else if (rendersBoolea) {
       
@@ -113,23 +112,71 @@ const ProjectsDetails = () => {
       </header>
 
       <div className="text-sm flex justify-center pb-6 lg:pb-3 2xl:pt-20 gap-x-3 md:gap-x-12 w-full mb-2 md:mb-4 lg:mb-3 slide-in-bottom">
-       {fotografiasBoolean && <span onClick={() => handlerContentType("")} className="slide-in-bottom cursor-pointer" style={{ animationDelay: "0s" }}>{t("projects_description.button1")}</span>}
-        
+       {fotografiasBoolean && 
+          <span 
+            onClick={() => handlerContentType("images")} 
+            className="slide-in-bottom cursor-pointer" 
+            style={{ animationDelay: "0s" }}>
+              {t("projects_description.button1")}
+              <span
+              className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[2px] bg-gray-400 group-hover:w-3/6 ${
+                contentType === "images" ? "w-3/6" : ""
+              }`}
+            ></span>
+            <span
+              className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[2px] bg-gray-400 group-hover:w-3/6 ${
+                contentType === "images" ? "w-3/6" : ""
+              }`}
+            ></span>
+              </span>
+        }
+         {/* <div className="border-r-2 border-lightGray"></div> */}
        {rendersBoolea && 
-       <>
-       <div className="border-r-2 border-lightGray"></div>
-        <span onClick={() => handlerContentType("renders")} className="slide-in-bottom cursor-pointer" style={{ animationDelay: "0s" }}>{t("projects_description.button2")}</span> </>}
-        {planosBoolea && 
-        <>
-          <div className="border-r-2 border-lightGray"></div>
-          <span onClick={() => handlerContentType("planos")} className="slide-in-bottom cursor-pointer" style={{ animationDelay: "0s" }}>{t("projects_description.button3")}</span> </>}
+          <span 
+            onClick={() => handlerContentType("renders")} 
+            className="slide-in-bottom cursor-pointer" 
+            style={{ animationDelay: "0s" }}>
+              {t("projects_description.button2")}
+              <span
+              className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[2px] bg-gray-400 group-hover:w-3/6 ${
+                contentType === "renders" ? "w-3/6" : ""
+              }`}
+            ></span>
+            <span
+              className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[2px] bg-gray-400 group-hover:w-3/6 ${
+                contentType === "renders" ? "w-3/6" : ""
+              }`}
+            ></span>
+            </span>
+        }
+        {/* <div className="border-r-2 border-lightGray"></div> */}
+        {planosBoolea &&     
+          <span 
+            onClick={() => handlerContentType("planos")} 
+            className="slide-in-bottom cursor-pointer" 
+            style={{ animationDelay: "0s" }}>
+              {t("projects_description.button3")}
+              <span
+              className={`absolute -bottom-1 left-1/2 w-0 transition-all h-[2px] bg-gray-400 group-hover:w-3/6 ${
+                contentType === "planos" ? "w-3/6" : ""
+              }`}
+            ></span>
+            <span
+              className={`absolute -bottom-1 right-1/2 w-0 transition-all h-[2px] bg-gray-400 group-hover:w-3/6 ${
+                contentType === "planos" ? "w-3/6" : ""
+              }`}
+            ></span>
+          </span>
+        }
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-y-2 md:gap-y-1">
         <div className=" lg:col-span-3 md:col-span-2 text-sm lg:text-base text-right lg:pr-3">
         </div>
         <div className="col-span-10 lg:col-span-6 md:col-span-8 text-focus-in">
-          <SimpleSlider id={id} contentType={contentType} selectedProject={selectedProject} />
+        {contentType === "images" && <SimpleSlider id={id} contentType={contentType} selectedProject={selectedProject} />}
+        {contentType === "renders" && <SimpleSlider id={id} contentType={contentType} selectedProject={selectedProject} />}
+        {contentType === "planos" && <SimpleSlider id={id} contentType={contentType} selectedProject={selectedProject} />}
         </div>
         <div className="lg:col-span-3 md:col-span-2"></div>
 

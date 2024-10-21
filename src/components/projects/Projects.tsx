@@ -14,7 +14,7 @@ const MAX_IMAGES_PER_PROJECT = 4;
 const customProjectMobile: { [key in AvailableProjects]: number[] } = {
   oficinas_rosmarinus: [1],
   casa_dplusd: [0],
-  proyecto_el_maderable: [28],
+  proyecto_el_maderable: [13],
   casa_latania: [],
   clinica_axolotl: [],
   codapsa: [],
@@ -147,7 +147,7 @@ const Projects = () => {
                   return (
                     <div key={index}>
                       <ProjectAsset
-                        contentTypes=""
+                        contentTypes="images"
                         project={project}
                         index={index}
                         alt={`${project}_${index + 1}`}
