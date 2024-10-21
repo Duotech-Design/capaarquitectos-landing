@@ -203,7 +203,7 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
       return `(max-width: ${width}px) ${width}px`;
     })
     .join(", ");
-
+  console.log(imgSrc)
   return (
     <img
       srcSet={contentTypes !== "images" ? "" : srcSet}
