@@ -161,7 +161,7 @@ type ProjectAssetProps = {
 } & React.ImgHTMLAttributes<HTMLImageElement>;
 
 export const ProjectAsset: React.FC<ProjectAssetProps> = ({
-  contentTypes,
+  contentTypes = 'images',
   isFullScreen = false,
   project,
   index,
