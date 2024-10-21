@@ -153,7 +153,7 @@ useEffect(() => {
       {isFullScreen &&
         ReactDOM.createPortal(
           <div className="border-2 border-green-500 fixed inset-0 bg-black backdrop-blur-lg bg-opacity-80 flex justify-center items-center z-50">
-            <div className="relative max-w-7xl max-h-full border-2 border-red-500">
+            <div className="relative max-w-7xl max-h-full ">
               <button
                 className={`z-50 absolute -top-10 -right-10 ${isFullScreen ? "md:top-0 md:-right-12 " : "md:-top-2 md:-right-24"} text-white px-2.5`}
                 onClick={handleCloseFullScreen}
