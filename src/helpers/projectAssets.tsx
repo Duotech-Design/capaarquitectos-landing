@@ -173,7 +173,7 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
   let src = "";
   if (contentTypes === "images") {
     src = `${project}/${(index + 1).toString().padStart(2, "0")}.webp`;
-  } else if(project === "proyecto_el_maderable") {
+  } else if(project === "proyecto_el_maderable"  && contentTypes === "renders") {
     src = `${project}/temporal/${(index + 1)
       .toString()
       .padStart(2, "0")}.webp`;
