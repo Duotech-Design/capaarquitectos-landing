@@ -194,7 +194,7 @@ export const ProjectAsset: React.FC<ProjectAssetProps> = ({
   const sizes = supportedWidth.map((width) => {
     return `(max-width: ${width}px) ${width}px`;
   }).join(", ");
-
+  console.log("ZOILO srcSet", imgSrc);
   return <img
     srcSet={srcSet}
     sizes={sizes}
