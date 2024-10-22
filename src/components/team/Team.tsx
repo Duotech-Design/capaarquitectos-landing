@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import Instagram from "@/assets/svg/socialMedia/instagram.svg"; 
+import Instagram from "@/assets/svg/socialMedia/instagram.svg";
 import Facebook from "@/assets/svg/socialMedia/facebook.svg";
 import "./Team.css";
 
@@ -9,10 +9,14 @@ const Team = () => {
   return (
     <section className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen" style={{ backgroundColor: "#303030" }}>
       {/* Header: Nuestro Equipo */}
-      <header className="flex flex-col flex-1 gap-y-6 ">
-        <div className="mt-52 ml-12 flex items-center gap-x-3">
-          <h3 className="text-2xl text-gray-500">{t("team.title")}</h3>
-          <strong className="text-2xl font-bold text-white">{t("team.subtitle")}</strong>
+      <header className="flex flex-col flex-1 gap-y-6">
+        <div className="mt-52 ml-12 flex flex-row justify-end items-center w-full border-t border-b border-gray-300 py-4 pr-12">
+          <h3 className="text-[8rem] mt-9 mb-10 font-bold text-white leading-none mr-4">
+            {t("team.title")}
+          </h3>
+          <strong className="text-[8rem] mt-10 mb-10 mr-4 font-bold text-white leading-none">
+            {t("team.subtitle")}
+          </strong>
         </div>
       </header>
 
