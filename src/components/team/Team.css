@@ -1,13 +1,47 @@
 /* Título de la sección */
 header h3, header strong {
-  letter-spacing: -0.05em; /* Ajuste de espacio entre letras para mejor presentación */
+  letter-spacing: -0.05em; /* Ajuste de espacio entre letras */
 }
 
-/* Ajuste de márgenes para líneas delgadas */
-.border-t {
-  margin-top: 1rem;
+/* Eliminamos la línea divisoria entre las secciones */
+.team-container .team-member {
+  position: relative;
 }
 
-.border-b {
-  margin-bottom: 1rem;
+.team-container .team-member::after {
+  content: none; /* Quita la línea divisoria */
+}
+
+/* Ajuste de la animación y el tamaño de las imágenes */
+.team-image {
+  transition: transform 0.5s ease-in-out;
+  max-width: 45%; /* Imágenes más grandes y ajustadas */
+  object-fit: cover;
+}
+
+/* Ajuste para evitar solapamiento al hacer scroll */
+@media (prefers-reduced-motion: no-preference) {
+  .team-image {
+    animation: scale-on-scroll linear both;
+    animation-timeline: view(); /* Solo si usas un sistema que lo soporte */
+    animation-range: 25vh 75vh; /* Define el rango de crecimiento */
+  }
+}
+
+@keyframes scale-on-scroll {
+  from {
+    transform: scale(0.9); /* Inicia ligeramente más pequeño */
+  }
+  to {
+    transform: scale(1.1); /* Al hacer scroll, las imágenes crecen */
+  }
+}
+
+/* Espacio adicional entre los textos e imágenes */
+.team-container {
+  padding: 20px 60px; /* Más espacio en los laterales */
+}
+
+.team-member {
+  margin-bottom: 0; /* Reducir espacio innecesario */
 }
