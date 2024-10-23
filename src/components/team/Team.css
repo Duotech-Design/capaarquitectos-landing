@@ -16,7 +16,14 @@
   transition: transform 0.4s;
   display: block;
 }
-
+@media (min-width: 768px) {
+  .team-title,
+  .team-subtitle {
+    text-align: left;
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+}
 @media (max-width: 768px) {
   .team-container {
     flex-direction: column;
@@ -107,5 +114,35 @@
 
   .team-member-details span {
     font-size: 0.9rem; /* Ajusta el tamaño del texto para que sea más legible en móviles */
+  }
+}
+/* Añadimos una clase para el contenedor de los títulos */
+.team-header {
+  overflow: hidden; /* Para que no se vea el texto al entrar */
+  position: relative;
+}
+
+.team-title,
+.team-subtitle {
+  animation: slide-in-left 1.5s ease-out forwards; /* Aplicamos la animación */
+  opacity: 0;
+}
+
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(200%); /* Comienza fuera de la pantalla a la derecha */
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(45%); /* Se mueve a la izquierda */
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(52%);
+  }
+  100% {
+    transform: translateX(50%); /* Llega al centro */
+    opacity: 1;
   }
 }

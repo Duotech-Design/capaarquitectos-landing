@@ -16,12 +16,13 @@ const Team = () => {
       <div className="mt-32 md:mt-40 lg:mt-48 w-full sm:w-5/6 flex flex-col sm:flex-row items-start sm:items-start justify-start">
         {/* Flex para mantener los textos en la misma línea */}
         <div className="flex items-center ml-4 sm:ml-0">
-          <h3 className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-none mr-3 sm:mr-5 mt-3 -mb-4 sm:mb-3">
-            {t("team.title")}
-          </h3>
-          <strong className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-3 -mb-4 sm:mb-3">
-            {t("team.subtitle")}
-          </strong>
+        <h3 className="team-title text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-none mr-3 sm:mr-5 mt-3 -mb-4 sm:mb-3">
+  {t("team.title")}
+</h3>
+<strong className="team-subtitle text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-3 -mb-4 sm:mb-3">
+  {t("team.subtitle")}
+</strong>
+
         </div>
       </div>
     </header>
