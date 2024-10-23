@@ -16,14 +16,19 @@
   transition: transform 0.4s;
   display: block;
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .team-title,
   .team-subtitle {
-    text-align: left;
-    justify-content: flex-start;
-    margin-left: 0;
+    text-align: left;  /* Alinea el texto a la izquierda */
+    margin-left: 0;    /* Asegura que no haya margen a la izquierda */
+    margin-right: 0;   /* Asegura que no haya margen a la derecha */
+    padding-left: 0;   /* Asegura que no haya padding a la izquierda */
+    width: 100%;       /* Asegura que ocupe el 100% del ancho disponible */
+    box-sizing: border-box; /* Evita que el padding afecte el tamaño total */
   }
 }
+
+
 @media (max-width: 768px) {
   .team-container {
     flex-direction: column;
@@ -48,7 +53,6 @@
     font-size: 0.9rem;
   }
 }
-
 
 .team-member .social-links {
   display: flex;
@@ -95,54 +99,56 @@
 
 /* Estilos responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
-  .team-container {
-    flex-direction: column; /* Cambia la dirección a columna para apilar los miembros del equipo */
-    align-items: center; /* Centra los elementos */
+  .team-title,
+  .team-subtitle {
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
   }
 
   .team-member {
-    margin-bottom: 2rem; /* Añade espacio entre las tarjetas */
+    margin-bottom: 2rem;
   }
 
   .team-member img {
-    height: auto; /* Permite que las imágenes se adapten al contenido en pantallas más pequeñas */
+    height: auto;
   }
 
   .team-member-details h4 {
-    font-size: 1.1rem; /* Reduce el tamaño del texto en pantallas pequeñas */
+    font-size: 1.1rem;
   }
 
   .team-member-details span {
-    font-size: 0.9rem; /* Ajusta el tamaño del texto para que sea más legible en móviles */
+    font-size: 0.9rem;
   }
 }
+
 /* Añadimos una clase para el contenedor de los títulos */
 .team-header {
-  overflow: hidden; /* Para que no se vea el texto al entrar */
+  overflow: hidden;
   position: relative;
 }
 
 .team-title,
 .team-subtitle {
-  animation: slide-in-left 1.5s ease-out forwards; /* Aplicamos la animación */
+  animation: slide-in-left 1.5s ease-out forwards;
   opacity: 0;
 }
 
-
 @keyframes slide-in-left {
   0% {
-    transform: translateX(200%); /* Comienza fuera de la pantalla a la derecha */
+    transform: translateX(200%);
     opacity: 0;
   }
   60% {
-    transform: translateX(45%); /* Se mueve a la izquierda */
+    transform: translateX(45%);
     opacity: 1;
   }
   75% {
     transform: translateX(52%);
   }
   100% {
-    transform: translateX(50%); /* Llega al centro */
+    transform: translateX(50%);
     opacity: 1;
   }
 }
