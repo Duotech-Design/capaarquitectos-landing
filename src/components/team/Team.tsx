@@ -9,142 +9,90 @@ const Team = () => {
   return (
     <section
       className="mx-auto px-2 sm:px-6 lg:px-8 min-h-screen"
-      style={{ backgroundColor: "#303030", border: "2px solid red" }}
+      style={{ backgroundColor: "#303030" }}
     >
       {/* Header: Nuestro Equipo */}
-      <header
-        className="flex flex-col flex-1 gap-y-6"
-        style={{ border: "2px solid orange" }}
-      >
-        <div
-          className="mt-52 ml-12 flex flex-row justify-end items-center w-full border-t border-b border-gray-300 py-4 pr-12"
-          style={{ border: "2px solid yellow" }}
-        >
-          <h3 className="text-[8rem] mt-9 mb-10 font-bold sm:font-thin text-white leading-none mr-4">
-            {t("team.title")}
-          </h3>
-          <strong className="text-[8rem] mt-10 mb-10 mr-8 ml-4 font-bold text-white leading-none">
-            {t("team.subtitle")}
-          </strong>
+      <header className="flex flex-col items-start sm:items-center gap-y-6 text-left sm:text-center">
+        <div className="mt-32 w-full sm:w-5/6 flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-center">
+          {/* Flex para mantener los textos en la misma línea */}
+          <div className="flex items-center ml-4 sm:ml-0">
+            <h3 className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-none mr-3 sm:mr-5 mt-3 mb-1 sm:mb-3">
+              {t("team.title")}
+            </h3>
+            <strong className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-3 mb-1 sm:mb-3">
+              {t("team.subtitle")}
+            </strong>
+          </div>
         </div>
       </header>
 
-      {/* Team members grid */}
-      <div
-        className="mt-72 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-left relative team-container"
-        style={{ border: "2px solid green", padding: "20px 40px" }}
-      >
-        <div
-          className="relative py-28 flex justify-between border-t border-b border-white"
-          style={{ border: "2px solid blue", padding: "0 20px" }}
-        >
-          {/* Alfredo's Image */}
-          <img
-            src="/src/assets/img/team_photos/fotos arquis/01.webp"
-            alt="Alfredo image"
-            className="team-image"
-            data-member="alfredo"
-            style={{
-              border: "2px solid purple",
-              marginBottom: '0px',
-              maxWidth: '40%', // Reducir el tamaño de la imagen al 40%
-              objectFit: 'cover',
-            }}
-          />
-
-          {/* Alfredo Cardona Section */}
-          <div
-            className="w-20 pl-4 team-member" // Ajustar ancho a la mitad para evitar saltos de línea
-            data-member="alfredo"
-            style={{ border: "2px solid purple", marginRight: "20px" }} // Reducir margin para mover hacia la izquierda
-          >
-            <h4 className="text-xl font-semibold text-white mb-2 capitalize">
-              {t("team.person_1")}
-            </h4>
-            <span className="text-gray-400">{t("team.position_1")}</span>
-
-            {/* Social Icons */}
-            <div
-              className="flex items-center justify-start gap-4 mt-4"
-              style={{ border: "2px solid pink" }}
-            >
-              <a
-                href="https://www.instagram.com/fivo_cd/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={Instagram}
-                  alt="Instagram"
-                  className="w-11 h-11 mx-auto cursor-pointer"
-                />
-              </a>
-              <a
-                href="https://www.facebook.com/p/CAPA-Arquitectos-61550085347217/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={Facebook}
-                  alt="Facebook"
-                  className="w-10 h-10 mx-auto cursor-pointer"
-                />
-              </a>
+      {/* Team members */}
+      <div className="mx-auto sm:ml-10 lg:ml-56 max-w-7xl text-center py-10 sm:py-20">
+        <div className="flex flex-col sm:flex-row justify-around mt-5 w-full sm:w-5/6 border-t border-b border-white py-8 sm:py-12">
+          
+          {/* Alfredo Cardona */}
+          <div className="team-member">
+            <div className="image-container">
+              <img
+                className="w-full sm:w-4/5 lg:w-3/5"
+                src="/src/assets/img/team_photos/fotos arquis/01.webp"
+                alt="Alfredo image"
+              />
+              <div className="social-links">
+                <a
+                  href="https://www.instagram.com/fivo_cd/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="w-12 sm:w-16" src={Instagram} alt="Instagram" />
+                </a>
+                <a
+                  href="https://www.facebook.com/p/CAPA-Arquitectos-61550085347217/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="w-12 sm:w-16" src={Facebook} alt="Facebook" />
+                </a>
+              </div>
+            </div>
+            <div className="team-member-details">
+              <h4 className="text-lg sm:text-xl md:text-2xl">{t("team.person_1")}</h4>
+              <span className="text-sm sm:text-base text-gray-300">
+                {t("team.position_1")}
+              </span>
             </div>
           </div>
 
-          {/* David's Image */}
-          <img
-            src="/src/assets/img/team_photos/fotos arquis/02.webp"
-            alt="David image"
-            className="team-image"
-            data-member="david"
-            style={{
-              border: "2px solid cyan",
-              marginBottom: '0px',
-              maxWidth: '40%', // Reducir el tamaño de la imagen al 40%
-              objectFit: 'cover',
-            }}
-          />
-
-          {/* David Palau Section */}
-          <div
-            className="block w-1/2 pl-4 team-member" // Ajustar ancho a la mitad para evitar saltos de línea
-            data-member="david"
-            style={{ border: "2px solid cyan", marginLeft: "20px" }} // Reducir margin para mover hacia la izquierda
-          >
-            <h4 className="text-xl font-semibold text-white mb-2 capitalize">
-              {t("team.person_2")}
-            </h4>
-            <span className="text-gray-400">{t("team.position_2")}</span>
-
-            {/* Social Icons */}
-            <div
-              className="flex items-center justify-start gap-4 mt-4"
-              style={{ border: "2px solid brown" }}
-            >
-              <a
-                href="https://www.instagram.com/davidpalau23?igsh=MWkxOGkxcG1hdm1ocA=="
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={Instagram}
-                  alt="Instagram"
-                  className="w-11 h-11 mx-auto cursor-pointer"
-                />
-              </a>
-              <a
-                href="https://www.facebook.com/p/CAPA-Arquitectos-61550085347217/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={Facebook}
-                  alt="Facebook"
-                  className="w-10 h-10 mx-auto cursor-pointer"
-                />
-              </a>
+          {/* David Palau */}
+          <div className="team-member mt-8 sm:mt-0">
+            <div className="image-container">
+              <img
+                className="w-full sm:w-4/5 lg:w-3/5"
+                src="/src/assets/img/team_photos/fotos arquis/02.webp"
+                alt="David image"
+              />
+              <div className="social-links">
+                <a
+                  href="https://www.instagram.com/davidpalau23?igsh=MWkxOGkxcG1hdm1ocA=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="w-12 sm:w-16" src={Instagram} alt="Instagram" />
+                </a>
+                <a
+                  href="https://www.facebook.com/p/CAPA-Arquitectos-61550085347217/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img className="w-12 sm:w-16" src={Facebook} alt="Facebook" />
+                </a>
+              </div>
+            </div>
+            <div className="team-member-details">
+              <h4 className="text-lg sm:text-xl md:text-2xl">{t("team.person_2")}</h4>
+              <span className="text-sm sm:text-base text-gray-300">
+                {t("team.position_2")}
+              </span>
             </div>
           </div>
         </div>

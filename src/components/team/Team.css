@@ -1,47 +1,91 @@
-/* Título de la sección */
-header h3, header strong {
-  letter-spacing: -0.05em; /* Ajuste de espacio entre letras */
-}
-
-/* Eliminamos la línea divisoria entre las secciones */
-.team-container .team-member {
+/* Estilos para visualizar las divisiones */
+.image-container {
   position: relative;
+  overflow: hidden;
 }
 
-.team-container .team-member::after {
-  content: none; /* Quita la línea divisoria */
+.team-member-details {
+  text-align: center;
+  margin-top: 0.5rem;
 }
 
-/* Ajuste de la animación y el tamaño de las imágenes */
-.team-image {
-  transition: transform 0.5s ease-in-out;
-  max-width: 45%; /* Imágenes más grandes y ajustadas */
+/* Estilos existentes */
+.team-member img {
+  width: 100%;
+  height: 600px;
   object-fit: cover;
-}
-
-/* Ajuste para evitar solapamiento al hacer scroll */
-@media (prefers-reduced-motion: no-preference) {
-  .team-image {
-    animation: scale-on-scroll linear both;
-    animation-timeline: view(); /* Solo si usas un sistema que lo soporte */
-    animation-range: 25vh 75vh; /* Define el rango de crecimiento */
-  }
-}
-
-@keyframes scale-on-scroll {
-  from {
-    transform: scale(0.9); /* Inicia ligeramente más pequeño */
-  }
-  to {
-    transform: scale(1.1); /* Al hacer scroll, las imágenes crecen */
-  }
-}
-
-/* Espacio adicional entre los textos e imágenes */
-.team-container {
-  padding: 20px 60px; /* Más espacio en los laterales */
+  transition: transform 0.4s;
+  display: block;
 }
 
 .team-member {
-  margin-bottom: 0; /* Reducir espacio innecesario */
+  position: relative;
+  overflow: hidden;
+}
+
+.team-member .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s, transform 0.4s;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+}
+
+.team-member:hover .social-links {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team-member:hover img {
+  transform: scale(1.1);
+}
+
+.team-member .social-links a img {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.team-member-details h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.team-member-details span {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .team-container {
+    flex-direction: column; /* Cambia la dirección a columna para apilar los miembros del equipo */
+    align-items: center; /* Centra los elementos */
+  }
+
+  .team-member {
+    margin-bottom: 2rem; /* Añade espacio entre las tarjetas */
+  }
+
+  .team-member img {
+    height: auto; /* Permite que las imágenes se adapten al contenido en pantallas más pequeñas */
+  }
+
+  .team-member-details h4 {
+    font-size: 1.1rem; /* Reduce el tamaño del texto en pantallas pequeñas */
+  }
+
+  .team-member-details span {
+    font-size: 0.9rem; /* Ajusta el tamaño del texto para que sea más legible en móviles */
+  }
 }
