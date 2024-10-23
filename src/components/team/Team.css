@@ -8,7 +8,6 @@
   text-align: center;
   margin-top: 0.5rem;
 }
-
 /* Estilos existentes */
 .team-member img {
   width: 100%;
@@ -18,10 +17,31 @@
   display: block;
 }
 
-.team-member {
-  position: relative;
-  overflow: hidden;
+@media (max-width: 768px) {
+  .team-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-member {
+    margin-bottom: 2rem;
+  }
+
+  .team-member img {
+    width: 75%; /* Ajusta el tamaño de las imágenes a 75% en móviles */
+    height: auto; /* Mantiene la proporción correcta */
+    margin: 0 auto; /* Centra las imágenes horizontalmente */
+  }
+
+  .team-member-details h4 {
+    font-size: 1.1rem;
+  }
+
+  .team-member-details span {
+    font-size: 0.9rem;
+  }
 }
+
 
 .team-member .social-links {
   display: flex;
