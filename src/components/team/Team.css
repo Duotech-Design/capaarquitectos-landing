@@ -8,6 +8,7 @@
   text-align: center;
   margin-top: 0.5rem;
 }
+
 /* Estilos existentes */
 .team-member img {
   width: 100%;
@@ -16,34 +17,43 @@
   transition: transform 0.4s;
   display: block;
 }
+
+/* Para pantallas móviles */
 @media (max-width: 768px) {
   .team-title,
   .team-subtitle {
     text-align: left;
-    margin: 0; /* Reset margins */
+    margin: 0; /* Eliminar márgenes */
+    padding-left: 0; /* Eliminar padding */
     width: 100%;
     box-sizing: border-box;
-    display: inline-block; /* Keep both inline */
+    display: inline-block; /* Mantener en línea ambos elementos */
   }
-}
 
+  /* Eliminar padding lateral del contenedor en modo móvil */
+  .flex {
+    padding-left: 0 !important;
+  }
 
-@media (max-width: 768px) {
+  /* Flex column para móviles */
   .team-container {
     flex-direction: column;
     align-items: center;
   }
 
+  /* Ajustar márgenes de los miembros del equipo en móviles */
   .team-member {
     margin-bottom: 2rem;
   }
 
+  /* Ajustar tamaño de las imágenes en móviles */
   .team-member img {
-    width: 75%; /* Ajusta el tamaño de las imágenes a 75% en móviles */
-    height: auto; /* Mantiene la proporción correcta */
-    margin: 0 auto; /* Centra las imágenes horizontalmente */
+    width: 75%; /* Ajustar el tamaño de las imágenes a 75% en móviles */
+    height: auto; /* Mantener la proporción correcta */
+    margin: 0 auto; /* Centrar las imágenes horizontalmente */
   }
 
+  /* Ajustar tamaño de fuente para móviles */
   .team-member-details h4 {
     font-size: 1.1rem;
   }
@@ -53,6 +63,7 @@
   }
 }
 
+/* Estilos para los enlaces sociales */
 .team-member .social-links {
   display: flex;
   justify-content: center;
@@ -69,21 +80,25 @@
   transform: translateY(100%);
 }
 
+/* Efecto hover para enlaces sociales */
 .team-member:hover .social-links {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Efecto hover para las imágenes */
 .team-member:hover img {
   transform: scale(1.1);
 }
 
+/* Estilos para los íconos sociales */
 .team-member .social-links a img {
   width: 3rem;
   height: 3rem;
   cursor: pointer;
 }
 
+/* Ajustar los detalles de los miembros del equipo */
 .team-member-details h4 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -96,7 +111,33 @@
   color: #ccc;
 }
 
-/* Estilos responsivos para pantallas pequeñas */
+/* Animación de los títulos */
+.team-title,
+.team-subtitle {
+  animation: slide-in-left 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Keyframes para la animación */
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(45%);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(52%);
+  }
+  100% {
+    transform: translateX(50%);
+    opacity: 1;
+  }
+}
+
+/* Ajustes adicionales para pantallas pequeñas */
 @media (max-width: 768px) {
   .team-title,
   .team-subtitle {
@@ -121,6 +162,3 @@
     font-size: 0.9rem;
   }
 }
-
-/* Añadimos una clase para el contenedor de los títulos */
-

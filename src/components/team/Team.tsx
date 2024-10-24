@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
 import Instagram from "@/assets/svg/socialMedia/instagram.svg";
 import Facebook from "@/assets/svg/socialMedia/facebook.svg";
+import FotoUno from "@/assets/img/team_photos/fotosArquis/FotoUno.webp";
+import FotoDos from "@/assets/img/team_photos/fotosArquis/FotoDos.webp";
 import "./Team.css";
 
 const Team = () => {
@@ -23,15 +25,15 @@ const Team = () => {
               alignItems: 'center', // Alineación vertical
             }}
           >
-            <div className="flex items-center"> {/* Flex para alinear en la misma línea */}
+            <div className="flex items-center">
               <h3
-                className=" text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin text-white  mr-3 sm:mr-5"
+                className="team-title text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin text-white  mr-3 sm:mr-5"
                 style={{ textAlign: 'left' }}
               >
                 {t("team.title")}
               </h3>
               <strong
-                className=" text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-7 sm:mb-0"
+                className="team-subtitle text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 ml-2 sm:ml-3 sm:mb-0"
                 style={{ textAlign: 'left' }}
               >
                 {t("team.subtitle")}
@@ -49,7 +51,7 @@ const Team = () => {
             <div className="image-container">
               <img
                 className="w-3/4 sm:w-4/5 lg:w-3/5"
-                src="/src/assets/img/team_photos/fotosArquis/02.webp"
+                src={FotoUno}
                 alt="Alfredo image"
               />
               <div className="social-links">
@@ -82,7 +84,7 @@ const Team = () => {
             <div className="image-container">
               <img
                 className="w-3/4 sm:w-4/5 lg:w-3/5"
-                src="/src/assets/img/team_photos/fotosArquis/01.webp"
+                src={FotoDos}
                 alt="David image"
               />
               <div className="social-links">
