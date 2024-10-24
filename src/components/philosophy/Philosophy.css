@@ -1,3 +1,21 @@
+/* Estilos para móviles */
+@media (max-width: 768px) {
+  /* Ajuste de título en móvil */
+  .title-mobile {
+    font-size: 1.5rem; /* Aumenta el tamaño del texto en móvil */
+    margin-left: 20px; /* Mueve el título hacia la derecha */
+    position: relative;
+    top: -10px; /* Mueve un poco el título hacia arriba */
+  }
+
+  /* Ajuste de imagen */
+  .icon-mobile {
+    margin-left: 20px;
+    margin-top: 5px; /* Alinea la imagen con el texto del lado izquierdo */
+  }
+}
+
+/* Animaciones existentes */
 .slide-right {
   animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -16,18 +34,10 @@
 }
 
 @keyframes rotate-center {
-    from {
-        transform: rotate(0);
-      }
-      to {
-        transform: rotate(90deg);
-      }
-}
-@media (max-width: 768px) {
-  /* Ajuste solo para dispositivos móviles */
-  h3 {
-    position: relative;
-    top: -15px; /* Sube el título 40px más arriba en pantallas móviles */
-    
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(90deg);
   }
 }
