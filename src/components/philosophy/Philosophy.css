@@ -23,3 +23,11 @@
         transform: rotate(90deg);
       }
 }
+@media (max-width: 768px) {
+  /* Ajuste solo para dispositivos móviles */
+  h3 {
+    position: relative;
+    top: -15px; /* Sube el título 40px más arriba en pantallas móviles */
+    
+  }
+}
