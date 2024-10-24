@@ -1,7 +1,8 @@
 /* Estilos para visualizar las divisiones */
 .image-container {
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Evitar que el hover salga del área de la imagen */
+  border: 2px solid blue; /* Borde azul para ver el contenedor de la imagen */
 }
 
 .team-member-details {
@@ -16,6 +17,7 @@
   object-fit: cover;
   transition: transform 0.4s;
   display: block;
+  border: 2px solid red; /* Borde rojo para ver el contenedor de la imagen */
 }
 
 /* Para pantallas móviles */
@@ -23,43 +25,58 @@
   .team-title,
   .team-subtitle {
     text-align: left;
-    margin: 0; /* Eliminar márgenes */
-    padding-left: 0; /* Eliminar padding */
+    margin: 0;
+    padding-left: 0;
     width: 100%;
     box-sizing: border-box;
-    display: inline-block; /* Mantener en línea ambos elementos */
+    display: inline-block;
   }
 
-  /* Eliminar padding lateral del contenedor en modo móvil */
   .flex {
     padding-left: 0 !important;
   }
 
-  /* Flex column para móviles */
   .team-container {
     flex-direction: column;
     align-items: center;
   }
 
-  /* Ajustar márgenes de los miembros del equipo en móviles */
   .team-member {
     margin-bottom: 2rem;
   }
 
-  /* Ajustar tamaño de las imágenes en móviles */
   .team-member img {
-    width: 75%; /* Ajustar el tamaño de las imágenes a 75% en móviles */
-    height: auto; /* Mantener la proporción correcta */
-    margin: 0 auto; /* Centrar las imágenes horizontalmente */
+    width: 75%; /* Tamaño original ajustado */
+    height: auto;
+    margin: 0 auto;
   }
 
-  /* Ajustar tamaño de fuente para móviles */
   .team-member-details h4 {
-    font-size: 1.1rem;
+    font-size: 1.25rem; /* Tamaño original del texto */
   }
 
   .team-member-details span {
-    font-size: 0.9rem;
+    font-size: 1rem; /* Tamaño original del texto */
+  }
+
+  /* Ajuste de la animación en móviles */
+  .social-links {
+    width: 90%; /* Asegura que se mantenga dentro de la imagen */
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s, transform 0.4s;
+    transform: translateY(100%);
+    border: 2px solid yellow; /* Borde amarillo para ver el área del hover */
+  }
+
+  /* Hover en móviles para restringir la animación a la imagen */
+  .team-member:hover .social-links {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -80,25 +97,21 @@
   transform: translateY(100%);
 }
 
-/* Efecto hover para enlaces sociales */
 .team-member:hover .social-links {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Efecto hover para las imágenes */
 .team-member:hover img {
   transform: scale(1.1);
 }
 
-/* Estilos para los íconos sociales */
 .team-member .social-links a img {
   width: 3rem;
   height: 3rem;
   cursor: pointer;
 }
 
-/* Ajustar los detalles de los miembros del equipo */
 .team-member-details h4 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -118,7 +131,6 @@
   opacity: 0;
 }
 
-/* Keyframes para la animación */
 @keyframes slide-in-left {
   0% {
     transform: translateX(200%);
@@ -134,31 +146,5 @@
   100% {
     transform: translateX(50%);
     opacity: 1;
-  }
-}
-
-/* Ajustes adicionales para pantallas pequeñas */
-@media (max-width: 768px) {
-  .team-title,
-  .team-subtitle {
-    text-align: left;
-    margin-left: 0;
-    margin-right: auto;
-  }
-
-  .team-member {
-    margin-bottom: 2rem;
-  }
-
-  .team-member img {
-    height: auto;
-  }
-
-  .team-member-details h4 {
-    font-size: 1.1rem;
-  }
-
-  .team-member-details span {
-    font-size: 0.9rem;
   }
 }
